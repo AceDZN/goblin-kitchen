@@ -1,0 +1,3 @@
+Original prompt: Build a genuinely fun browser-playable real 3D English game for Hebrew-speaking grade-7/8 students, following Workbook. Generate gameplay target images with the imagegen skill before implementation; use the user Chrome Tripo account to find/generate models and rig animated characters; compare actual gameplay to targets; commit and push main to a new public AceDZN repository. Full scoped brief is BUILD_HANDOFF.md and COMMON.md.
+
+2026-10-25: Research and curriculum handoff seeded by parent. Implementation, image generation, model acquisition and playtesting are not yet complete.
