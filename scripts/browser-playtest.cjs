@@ -1,0 +1,75 @@
+// Reproducible independent browser check. Normal pointer/touch/keyboard input only;
+// advanceTime changes elapsed time, never game outcomes or inventory.
+const { createRequire } = require('node:module');
+const { mkdirSync, writeFileSync } = require('node:fs');
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const requireGame = createRequire(root + '/package.json');
+const { chromium } = requireGame('playwright');
+const url = process.argv[2] || 'http://127.0.0.1:5201';
+const captures = root + '/docs/captures';
+mkdirSync(captures, { recursive: true });
+mkdirSync(root + '/work', {recursive:true});
+(async () => {
+  const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist'] });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const errors = [], evidence = [];
+  page.on('pageerror', e => errors.push(e.message));
+  const state = async () => JSON.parse(await page.evaluate(() => window.render_game_to_text()));
+  const step = async (ms = 1600) => page.evaluate(ms => window.advanceTime(ms), ms);
+  const capture = async name => { await page.screenshot({ path: `${captures}/reviewer-${name}.png`, scale: 'css' }); evidence.push({ name, state: await state() }); };
+  const go = async id => {
+    const station = (await state()).stations.find(s => s.id === id);
+    assert.ok(station, `station ${id}`);
+    await page.mouse.click(station.screen.x, station.screen.y); await step(5000);
+    assert.equal((await state()).near, id, `walk to ${id}`);
+  };
+  const action = async id => { await page.click(`[data-action="${id}"]`); await step(); };
+  const ingredient = async (station, take, prepares = 0) => { await go(station); await action(take); if (prepares) { await go('board'); for (let i = 0; i < prepares; i++) await action('prep'); } await go('bowl'); await action('add'); };
+  const yogurt = async n => { for (let i = 0; i < n; i++) { await go('yogurt'); await action('measure'); await go('bowl'); await action('add'); } };
+  const service = async (stir = true) => { if (stir) await action('stir'); await action('lift'); await go('serve'); await action('serve'); };
+  const next = async () => { await page.click('#next'); await page.click('#cook'); };
+  try {
+    await page.goto(url); await page.click('#start-btn'); await page.click('#cook'); await page.evaluate(() => window.set_game_test_clock(true));
+    await go('fruit'); await action('take'); await go('board'); await action('prep'); await capture('shift1-peel');
+    await go('bowl'); await action('add'); await yogurt(3); await service();
+    assert.equal((await state()).mistakes, 1); assert.equal((await state()).mode, 'play'); await capture('wrong-amount');
+    await go('bowl'); await action('remove'); assert.equal((await state()).bowl.stirred, false); await service();
+    assert.equal((await state()).mode, 'between'); assert.equal((await state()).results[0].unaided, false);
+    await next();
+    await ingredient('bread', 'bread', 1); await action('add'); await go('sink'); await action('wash'); await go('bowl'); await service(false);
+    assert.equal((await state()).order, 2);
+    await ingredient('bread', 'bread'); await ingredient('bread', 'bread'); await service(false);
+    assert.equal((await state()).mode, 'between');
+    const boardBefore=(await state()).stations.find(s=>s.id==='board').x;await page.click('#reposition');assert.notEqual((await state()).stations.find(s=>s.id==='board').x,boardBefore);
+    await next();
+    await ingredient('fruit', 'take', 2); await go('yogurt'); await action('tool'); await action('measure'); await go('bowl'); await action('add'); await capture('shift3-cup'); await service();
+    assert.equal((await state()).mode, 'between');
+    await next();
+    await ingredient('prepared', 'pear-prepared'); await go('yogurt'); await action('tool'); await action('measure'); await go('bowl'); await action('add'); await service();
+    assert.equal((await state()).phrase, 'the pear that you prepared');
+    await go('sink'); await action('wash'); await ingredient('prepared', 'pear-whole', 1); await yogurt(2); await service();
+    assert.equal((await state()).mode, 'between');
+    await next(); assert.equal((await state()).bowl.clean, false); await go('sink'); await action('wash');
+    await ingredient('fruit', 'take', 1); await ingredient('fruit', 'take', 1); await yogurt(3); await action('stir'); await capture('transfer-ready'); await service(false);
+    assert.equal((await state()).mode, 'complete'); assert.equal((await state()).results.length, 5); assert.equal((await state()).results[4].unaided, true); await capture('five-shifts-complete');
+    // Header controls cannot reenter a finished shift.
+    await page.click('#read', { force: true }); assert.equal((await state()).mode, 'complete');
+    const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+    const mobile = await mobileContext.newPage(); mobile.on('pageerror', e => errors.push(e.message));
+    await mobile.goto(url); await mobile.click('#start-btn'); await mobile.click('#cook'); await mobile.evaluate(() => window.set_game_test_clock(true));
+    const mobileState = async () => JSON.parse(await mobile.evaluate(() => window.render_game_to_text()));
+    const fruit = (await mobileState()).stations.find(s => s.id === 'fruit'); await mobile.touchscreen.tap(fruit.screen.x, fruit.screen.y); await mobile.evaluate(() => window.advanceTime(5000)); await mobile.locator('[data-action="take"]').tap();
+    assert.equal((await mobileState()).held.food, 'banana');
+    await mobile.locator('#read').tap(); const read = await mobileState(); await mobile.evaluate(() => window.advanceTime(5000)); assert.equal((await mobileState()).seconds, read.seconds);
+    await mobile.locator('#cook').tap(); await mobile.locator('#vocab').tap(); const vocab = await mobileState(); await mobile.evaluate(() => window.advanceTime(5000)); assert.equal((await mobileState()).seconds, vocab.seconds); assert.equal(vocab.assisted, true);
+    await mobile.locator('#close-vocab').tap(); await mobile.locator('#pause').tap(); await mobile.locator('#motion').tap(); await mobile.locator('#restart').tap();
+    assert.equal((await mobileState()).mode, 'read'); assert.equal((await mobileState()).held, null);
+    await mobile.locator('#cook').tap(); await mobile.screenshot({ path: `${captures}/reviewer-mobile.png`, scale: 'css' });
+    assert.deepEqual(errors, []);
+    writeFileSync(root + '/work/reviewer-browser-results.json', JSON.stringify({ status: 'pass', errors, evidence, mobile: await mobileState() }, null, 2));
+    console.log('PASS: five shifts, amount/pear rejection and recovery, transfer, touch, read/help pause, restart; no page errors.');
+  } finally { await browser.close(); }
+})().catch(e => { console.error(e); process.exitCode = 1; });

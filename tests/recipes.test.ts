@@ -166,3 +166,11 @@ test('restart does not restore first-attempt unaided credit after help or an ear
   bananaBowl(k); addYogurt(k, 2); k.stir(); assert.equal(serve(k), true);
   assert.equal(k.results[0].unaided, false);
 });
+
+test('a served dish cannot be served twice for duplicate tips or completion records', () => {
+  const k = new Kitchen(); k.begin(); k.start(); bananaBowl(k); addYogurt(k, 2); k.stir();
+  assert.equal(serve(k), true);
+  const tips = k.tips, results = k.results.length;
+  k.start(); k.lift(); assert.equal(k.serve(), false);
+  assert.equal(k.tips, tips); assert.equal(k.results.length, results);
+});
