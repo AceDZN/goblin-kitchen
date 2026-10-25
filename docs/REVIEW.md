@@ -17,11 +17,11 @@ Reviewer owns this file, CURRICULUM.md and tests/recipes.test.ts. Source impleme
 
 ## Pure tests
 
-18 tests passed with `npm test` using `tsx --test tests/*.test.ts`. Coverage: all five complete recipes through Kitchen action methods; reverse concurrent bread order; exact and wrong spoon amounts; cup versus tablespoon; peeled/sliced dependencies; apple source count; prepared pear; a-little amounts 1, 2, 3 and 4; dirty bowl; old ingredient in transfer; remove-and-restir recovery; adding invalidates prior stir; failed service and remake; read/pause time; assistance and restart history. These tests verify rules, not rendered play or learning gains.
+19 tests passed with `npm test` using `tsx --test tests/*.test.ts`. Coverage: all five complete recipes through Kitchen action methods; reverse concurrent bread order; exact and wrong spoon amounts; cup versus tablespoon; peeled/sliced dependencies; apple source count; prepared pear; a-little amounts 1, 2, 3 and 4; dirty bowl; old ingredient in transfer; remove-and-restir recovery; adding invalidates prior stir; failed service and remake; read/pause time; assistance and restart history. These tests verify rules, not rendered play or learning gains.
 
 ## Browser review
 
-Pending playable implementation. Required checks: all shifts; wrong amount and physical recovery; pause/read freeze; restart and assisted flags; transfer without answer hints; mobile controls; visible preparation changes; hook/render agreement; console errors.
+Independent real-browser session completed all five shifts using normal station clicks and action buttons, with advanceTime only for deterministic elapsed time. Three tablespoons in shift 1 were rejected; removing one and stirring again succeeded. Both bread orders succeeded. Shift 3 peeled then sliced banana and one cup succeeded. Shift 4 rejected someone else’s prepared pear, then accepted the player-prepared pear with two tablespoons. Shift 5 washed the dirty bowl, sliced two source apples, measured three tablespoons and served successfully in changed layout, without help. Results: 285 tips, 2 deliberate mistakes, 3/5 first unaided completions, transfer unaided; no page errors. At 390×844, touch station→take worked; recipe reading froze time and movement; vocabulary froze time and recorded assistance; reduced motion and restart worked. Hook and shown carried/recipe state agreed. Assets remained explicitly marked as procedural stand-ins, so real Tripo asset/rig requirement is not signed off.
 
 ## QA inventory for browser signoff
 
@@ -53,3 +53,26 @@ Exploratory scenarios: (1) change active order while hands are occupied, try ser
 - Shift 4 exposes a whole pear the player can prepare and a pear prepared by someone else. Only player preparation qualifies.
 - Transfer begins with a visibly dirty bowl; washing is part of the physical task.
 - Rejected service keeps the current bowl so excess yogurt can be removed and stirred again; a rejected order still records a mistake.
+
+
+## Actual browser evidence
+
+Captures in `docs/captures`: reviewer-shift1-peel.png, reviewer-wrong-amount.png, reviewer-shift3-cup.png, reviewer-transfer-read.png, reviewer-transfer-ready.png, reviewer-five-shifts-complete.png and reviewer-mobile-before.png. These are real gameplay/browser captures, not generated targets. The reviewer visually inspected peeled gameplay, wrong-amount feedback, transfer-ready and narrow touch layout. The reproducible normal-input script is committed as `scripts/browser-playtest.cjs`.
+
+Material visual issues found and sent to lead: pantry decoration remains banana even when pickup becomes apple/pear; bowl contents and amount are too small to read; old error phrase persists into later shift toasts. Lead is correcting these, so later captures should be taken after fixes. The portrait UI fits, but small station labels require close attention.
+
+Not established: child playtest engagement, learning gains, audio quality through actual speakers, Tripo rig/prop rendering, or physical device performance. Browser success is evidence of solvability and working interactions.
+
+
+## Post-fix verification (26 October 2026, Asia/Jerusalem)
+
+`node scripts/browser-playtest.cjs` passed on the updated build. This committed portable script reproduces the complete normal-input route, two deliberate rejected services and recovery, changed-layout transfer, completed-state header guard, touch pickup, reading/vocabulary pause and restart. It uses `advanceTime` only for deterministic elapsed time, never inventory or outcome injection. Fresh captures replace the earlier desktop evidence and add `reviewer-mobile.png`; machine-readable results are in `work/reviewer-browser-results.json`. No page errors occurred.
+
+Separate normal-input exploration verified KeyD movement, collision with the service counter, a repeated prolonged KeyW stop at z=-4.67, a mute off/on label cycle and F fullscreen enter/exit. This verifies controls and bounds, not audible sound quality.
+
+Visual inspection of the updated desktop wrong-amount, transfer-ready and completion captures confirms larger MIX bowl, readable current contents/unit/cleanliness, apple pantry props, correctly placed hatch customers, and cleared stale error phrases. The updated portrait capture was also reviewed. The real Tripo asset/rig requirement remains unverified/blocked. The final fruit-surface correction was visually confirmed in the refreshed transfer-ready capture: slices now remain visible above yogurt. A second full `node scripts/browser-playtest.cjs` run passed after that correction, including actual PREP relocation after shift 2; the refreshed shift-3 capture shows the relocated station and successful one-cup dish.
+
+
+The final mobile screenshot (`reviewer-mobile.png`) was inspected after the second complete regression: header, recipe, full kitchen, touch movement and contextual controls fit the 390×844 viewport. Labels are small at portrait scale, while the English recipe remains readable. No real Tripo model, rig or animation was available; that acceptance criterion remains blocked and is not represented as satisfied by the procedural characters.
+
+The compact landscape recipe fix was independently captured and inspected at 1280×720 in `reviewer-1280-bread.png`: recipe bounds x=24,width=300; the BREAD label and counter are fully visible, normal pointer movement reaches BREAD, and the Take loaf action remains visible. Header, recipe, context and controls fit. The short repeat capture used `work/reviewer-viewport.cjs` and closed its browser successfully.
