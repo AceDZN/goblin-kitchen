@@ -20,3 +20,8 @@ English task text stays LTR within the Hebrew interface. Hebrew vocabulary/readi
 ## Review status
 
 This document specifies the accepted interpretation of the handoff. The implemented fixture for shift 3 makes the bowl action explicit: “First, peel the banana. Next, slice it. Then add the slices and one cup of yogurt to the bowl. Finally, stir and serve.” This removes an omitted destination without changing the intended sequence. Shift 4 adds “Put it in the bowl” and “serve” to make physical completion explicit. Implementation-level tests and browser evidence are recorded in `docs/REVIEW.md`. All 19 pure-rule tests pass; rendered play requires its own evidence.
+
+
+## Guided practice and first-attempt evidence
+
+Shift 1 includes default route guidance and is scored as guided practice. It does not count as unaided comprehension. The unaided summary covers the four later shifts. A shared firstUnaided rule requires a later shift, no current help or consequential mistake, and no prior assistance, mistake or repeated exposure for that shift. Events, results and the text hook use the same rule. Restart/reload does not restore first-attempt credit. English recipe audio repeats the source text rather than translating it; vocabulary help records assistance. The transfer retains no solution hint.

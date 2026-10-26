@@ -12,6 +12,11 @@ function addYogurt(k: Kitchen, amount: number, unit: 'tablespoon'|'cup' = 'table
 }
 function serve(k: Kitchen) { k.lift(); return k.serve(); }
 function next(k: Kitchen) { k.next(); k.start(); }
+function finishFirst(k: Kitchen) { bananaBowl(k); addYogurt(k, 2); k.stir(); assert.equal(serve(k), true); }
+function finishBread(k: Kitchen) {
+  k.take('bread'); k.board(); k.add(); k.add(); k.wash(); assert.equal(serve(k), true);
+  k.take('bread'); k.add(); k.take('bread'); k.add(); assert.equal(serve(k), true);
+}
 function oneDish(form: 'whole'|'peeled'|'sliced'|'prepared', food: 'banana'|'apple'|'pear'|'bread' = 'banana', count = 1): Dish {
   return { ...freshDish(), items: [{ food, form, count }], stirred: true };
 }
@@ -35,7 +40,7 @@ test('all five shifts can be completed by cooking actions, including the two dif
   for (let i = 0; i < 2; i++) { k.take('apple'); k.board(); k.add(); }
   addYogurt(k, 3); k.stir(); assert.equal(serve(k), true);
   assert.equal(k.mode, 'complete'); assert.equal(k.results.length, 5);
-  assert.equal(k.results.every(r => r.unaided), true);
+  assert.deepEqual(k.results.map(r => r.unaided), [false, true, true, true, true]);
 });
 
 test('exact spoon count rejects one and three tablespoons but accepts two', () => {
@@ -150,9 +155,11 @@ test('read and pause stop action time; play resumes it', () => {
 });
 
 test('help is recorded and assisted completion is separate from cooking success', () => {
-  const k = new Kitchen(); k.begin(); k.help(); k.start(); bananaBowl(k); addYogurt(k, 2); k.stir();
-  assert.equal(serve(k), true); assert.equal(k.results[0].unaided, false);
-  assert.equal(k.events.some(e => e.action === 'vocabulary' && e.hint && !e.unaided), true);
+  const k = new Kitchen(); k.begin(); k.start(); finishFirst(k); next(k);
+  assert.equal(k.firstUnaided, true);
+  k.help(); assert.equal(k.firstUnaided, false); finishBread(k);
+  assert.equal(k.results[1].unaided, false);
+  assert.equal(k.events.some(e => e.shift === 2 && e.action === 'vocabulary' && e.hint && !e.unaided), true);
 });
 
 test('transfer withholds recipe hints while keeping the English recipe intact', () => {
@@ -162,9 +169,12 @@ test('transfer withholds recipe hints while keeping the English recipe intact', 
 
 
 test('restart does not restore first-attempt unaided credit after help or an earlier attempt', () => {
-  const k = new Kitchen(); k.begin(); k.help(); k.restart(); k.start();
-  bananaBowl(k); addYogurt(k, 2); k.stir(); assert.equal(serve(k), true);
-  assert.equal(k.results[0].unaided, false);
+  const k = new Kitchen(); k.begin(); k.start(); finishFirst(k); next(k); k.help();
+  k.restart(); assert.equal(k.events.at(-1)?.unaided, false); k.start(); finishFirst(k); next(k);
+  assert.equal(k.assisted, false, 'current-run help and prior exposure are distinct');
+  assert.equal(k.firstUnaided, false);
+  assert.equal(k.events.at(-1)?.unaided, false, 'repeated-shift start agrees with eventual result');
+  finishBread(k); assert.equal(k.results[1].unaided, false);
 });
 
 test('a served dish cannot be served twice for duplicate tips or completion records', () => {
@@ -173,4 +183,21 @@ test('a served dish cannot be served twice for duplicate tips or completion reco
   const tips = k.tips, results = k.results.length;
   k.start(); k.lift(); assert.equal(k.serve(), false);
   assert.equal(k.tips, tips); assert.equal(k.results.length, results);
+});
+
+
+test('guided first shift is practice, not an unaided comprehension result', () => {
+  const k = new Kitchen(); k.begin(); k.start();
+  assert.equal(k.firstUnaided, false); assert.equal(k.events.at(-1)?.unaided, false);
+  finishFirst(k);
+  assert.equal(k.results[0].guided, true); assert.equal(k.results[0].unaided, false);
+});
+
+test('a consequential error marks later events as corrected rather than first unaided', () => {
+  const k = new Kitchen(); k.begin(); k.start(); finishFirst(k); next(k);
+  assert.equal(k.firstUnaided, true);
+  k.fail('Wrong bread form', 'two slices of bread');
+  assert.equal(k.assisted, false); assert.equal(k.firstUnaided, false);
+  assert.equal(k.events.at(-1)?.unaided, false); assert.equal(k.events.at(-1)?.retry, 1);
+  k.log('retry-preparation'); assert.equal(k.events.at(-1)?.unaided, false);
 });

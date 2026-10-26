@@ -44,3 +44,11 @@ Save downloaded originals outside the runtime public folder, preserve provenance
 | Kitchen architecture / exact ingredient portions | Original procedural Three.js geometry authored for this game | In source | Rigid geometry | Included in JS bundle |
 
 Lead follow-up: a second independent entry, `await cua.getState()`, also timed out after 43 seconds and reset its kernel. This established an unchanged Chrome-control boundary; acquisition was not repeatedly retried. Still zero observed Tripo jobs, zero known credit use and zero downloaded models.
+
+## Renewed acquisition pass — 26 October 2026
+
+The human renewed this unfinished commissioned work. The parent confirmed native Chrome control can work through `cua.getApp('com.google.Chrome')` even when extension tab creation times out, and reported visibly signed-in My Assets with a momentary balance of 6,815 credits. That observation did not create a model, reserve credits, or fulfill acquisition.
+
+On resumption the art helper still has **no `mcp__cua_repl` namespace**; discovery exposes no CUA/native Chrome tool in that helper. It made no native observation/input, acquired no UI lock and submitted no jobs. Per the renewed ownership handoff, the root lead is now sole Chrome asset owner where that native tool exists; the helper remains available for provenance, local GLB inspection/optimization and art evidence.
+
+Before every root native Chrome observation/input, acquire the shared atomic directory lock `/Users/acedzn/dev/AceDZN-exp/.english-tripo-ui-lock`, write crew/owner and timestamp, and release only the owned lock after bounded work or while generation is processing. Never remove another crew's lock. The original game-specific allowance remains at most three new model generations plus required rig/animation processing, with zero Goblin Kitchen generations used before this resumed pass. No alternate service, raw API or token extraction is authorized.

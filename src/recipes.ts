@@ -40,12 +40,13 @@ export type Event={shift:number;action:string;success?:boolean;hint?:boolean;ret
 export class Kitchen {
  shift=0;order=0;mode:Mode='intro';held:Item|{food:'yogurt';unit:Unit;count:number}|{food:'dish'}|null=null;
  dishes: Dish[]=[freshDish()];tool:Unit='tablespoon';tips=0;mistakes=0;assisted=false;shiftMistakes=0;seconds=0;stirTime=0;
- message='';phrase='';events:Event[]=[];results:{shift:number;unaided:boolean;mistakes:number;seconds:number}[]=[];
+ message='';phrase='';events:Event[]=[];results:{shift:number;unaided:boolean;guided:boolean;mistakes:number;seconds:number}[]=[];
  pearPrepared=false;priorAssistance=new Set<number>();priorMistakes=new Set<number>();
+ get firstUnaided(){return this.shift>0&&!this.assisted&&this.shiftMistakes===0&&!this.priorAssistance.has(this.shift)&&!this.priorMistakes.has(this.shift)}
  get spec(){return shifts[this.shift]}
  get recipe(){return this.spec.recipes[this.order]}
  get dish(){return this.dishes[this.order]}
- log(action:string,success?:boolean,hint=false){this.events.push({shift:this.shift+1,action,success,hint,unaided:!this.assisted,retry:this.shiftMistakes});this.events=this.events.slice(-250)}
+ log(action:string,success?:boolean,hint=false){this.events.push({shift:this.shift+1,action,success,hint,unaided:this.firstUnaided,retry:this.shiftMistakes});this.events=this.events.slice(-250)}
  begin(){this.mode='read';this.message='';this.log('begin')}
  start(){this.mode='play';this.message='';this.log('start')}
  help(){this.assisted=true;this.priorAssistance.add(this.shift);this.log('vocabulary',undefined,true)}
@@ -63,7 +64,7 @@ export class Kitchen {
  stir(){if(this.held){this.message='פנו ידיים לפני הערבוב.';return}if(!this.dish.items.length){this.fail('קערה ריקה עושה רעש מצחיק, אבל אין מה לערבב.','stir');return}this.dish.stirred=true;this.message='מעורבב בעדינות.';this.log('stir')}
  lift(){if(this.held){this.message='פנו ידיים לפני הרמת הקערה.';return}this.held={food:'dish'};this.log('lift')}
  wash(){if(this.held){this.held=null;this.message='הנחתם את מה שהחזקתם. לחיצה נוספת מרוקנת ושוטפת את הקערה.';this.log('discard-held');return}this.dishes[this.order]=freshDish();this.message='קערה נקייה, התחלה חדשה.';this.log('wash')}
- serve(){if(this.dish.served||this.mode!=='play')return false;if(this.held?.food!=='dish'){this.message='הרימו את המנה ליד הקערה והביאו לחלון.';return false}const v=validateDish(this.dish,this.recipe);this.held=null;if(!v.ok){this.fail(v.reason,v.phrase);return false}this.dish.served=true;this.tips+=Math.max(10,50-this.shiftMistakes*5);this.log('serve',true);if(this.dishes.every(d=>d.served)){this.results.push({shift:this.shift+1,unaided:!this.assisted&&this.shiftMistakes===0&&!this.priorAssistance.has(this.shift)&&!this.priorMistakes.has(this.shift),mistakes:this.shiftMistakes,seconds:Math.round(this.seconds)});this.mode=this.shift===4?'complete':'between'}else{this.order=this.dishes.findIndex(d=>!d.served);this.message='הזמנה אחת הוגשה! הכינו את השנייה.'}return true}
+ serve(){if(this.dish.served||this.mode!=='play')return false;if(this.held?.food!=='dish'){this.message='הרימו את המנה ליד הקערה והביאו לחלון.';return false}const v=validateDish(this.dish,this.recipe);this.held=null;if(!v.ok){this.fail(v.reason,v.phrase);return false}this.dish.served=true;this.tips+=Math.max(10,50-this.shiftMistakes*5);this.log('serve',true);if(this.dishes.every(d=>d.served)){this.results.push({shift:this.shift+1,unaided:this.firstUnaided,guided:this.shift===0,mistakes:this.shiftMistakes,seconds:Math.round(this.seconds)});this.mode=this.shift===4?'complete':'between'}else{this.order=this.dishes.findIndex(d=>!d.served);this.message='הזמנה אחת הוגשה! הכינו את השנייה.'}return true}
  selectOrder(i:number){if(this.held){this.message='פנו ידיים לפני החלפת הזמנה.';return}if(!this.dishes[i]?.served){this.order=i;this.message='';this.phrase=''}}
  next(){if(this.mode!=='between')return;this.shift++;this.order=0;this.dishes=this.spec.recipes.map(()=>freshDish());this.assisted=false;this.shiftMistakes=0;this.seconds=0;this.pearPrepared=false;if(this.shift===4)this.dish.clean=false;this.mode='read';this.message='';this.phrase='';this.held=null;this.log('next')}
  tick(dt:number){if(this.mode==='play')this.seconds+=dt}
