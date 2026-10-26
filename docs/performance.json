@@ -1,0 +1,103 @@
+{
+  "viewport": "1280x720",
+  "browser": "Chrome on macOS, Metal",
+  "errors": [],
+  "measured": {
+    "frames": 151,
+    "elapsed": 2514,
+    "fps": 60.06364359586316
+  },
+  "initialResponseBytes": 3010912,
+  "assets": {
+    "realCook": true,
+    "riggedCook": true,
+    "joints": 65,
+    "clips": [
+      "idle",
+      "walk",
+      "Goblin Kitchen carrying motion: walk steadily in place, holding"
+    ],
+    "activeAnimation": "idle",
+    "realProp": true,
+    "status": "Local Tripo cook, full-body rig and motion clips loaded"
+  },
+  "payload": [
+    {
+      "name": "index-D_Ft9ZPB.js",
+      "bytes": 178962,
+      "decoded": 693958
+    },
+    {
+      "name": "index-CmQ_L-q4.css",
+      "bytes": 3825,
+      "decoded": 17131
+    },
+    {
+      "name": "heebo-hebrew-400-normal-CVTJgQVK.woff2",
+      "bytes": 5084,
+      "decoded": 5084
+    },
+    {
+      "name": "heebo-latin-800-normal-CXX3wFtI.woff2",
+      "bytes": 12132,
+      "decoded": 12132
+    },
+    {
+      "name": "heebo-latin-400-normal-BGyEuwIV.woff2",
+      "bytes": 11956,
+      "decoded": 11956
+    },
+    {
+      "name": "heebo-symbols-600-normal-RPS5qIGi.woff2",
+      "bytes": 5744,
+      "decoded": 5744
+    },
+    {
+      "name": "heebo-hebrew-800-normal-CDdwy3LD.woff2",
+      "bytes": 5168,
+      "decoded": 5168
+    },
+    {
+      "name": "heebo-hebrew-600-normal-CGRgQ0cj.woff2",
+      "bytes": 5108,
+      "decoded": 5108
+    },
+    {
+      "name": "heebo-latin-600-normal-C0GLQ-RT.woff2",
+      "bytes": 12256,
+      "decoded": 12256
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 351,
+      "decoded": 351
+    },
+    {
+      "name": "heebo-math-600-normal-DCATifNU.woff2",
+      "bytes": 9636,
+      "decoded": 9636
+    },
+    {
+      "name": "goblin-kitchen-cook.glb",
+      "bytes": 1921716,
+      "decoded": 1921716
+    },
+    {
+      "name": "favicon.svg",
+      "bytes": 327,
+      "decoded": 327
+    },
+    {
+      "name": "goblin-kitchen-bowl.glb",
+      "bytes": 838320,
+      "decoded": 838320
+    },
+    {
+      "name": "favicon.svg",
+      "bytes": 327,
+      "decoded": 327
+    }
+  ],
+  "distBytes": 3739836,
+  "limits": "Short desktop sample; no sustained mobile benchmark."
+}

@@ -1,6 +1,6 @@
 # Independent English and gameplay review
 
-Reviewer owns this file, CURRICULUM.md and tests/recipes.test.ts. Source implementation and browser behavior must be checked after the lead provides the game/API.
+Reviewer owns this file, CURRICULUM.md, tests/recipes.test.ts and the authorized browser regression script. Final integrated-build status (26 October 2026): 24 rule tests, typecheck and the full normal-input browser regression passed with the local rigged cook and bowl. Historical blocked/pending notes below describe earlier builds; the final verification section supersedes them.
 
 ## Pre-implementation findings
 
@@ -90,3 +90,38 @@ The default pear/transfer reading panels are neutral, and optional vocabulary ma
 The transfer fixture also has a grouping ambiguity: “First, slice two apples. Put the slices...” can imply both are sliced before any slices enter the bowl, while the baseline accepts interleaved prep/add. The reviewer recommended clarifying the original scenario to “Slice two apples and put the slices in a clean bowl. Add three tablespoons of yogurt. Then stir and serve.” unless staging/group-order is actually implemented. This preserves the intended count/state/quantity transfer without inventing a hidden dependency.
 
 Post-integration success, error/recovery, transfer and touch verification remains pending. Prior browser passes do not establish the behavior of newly integrated models or mechanics.
+
+## Focused mechanics verification — renewed pass
+
+24 rule tests and typecheck passed after adding three tray regressions: parked leftover count is conserved per order while another order is cooked; an occupied tray refuses overwrite without deleting either ingredient; putting a carried dish down preserves its contents and next/restart clears parked stock.
+
+`node scripts/browser-playtest.cjs --focused` passed with normal pointer/keyboard input. It now checks that a toss heads to the actual hatch at x=5.85,z=0.5, awards no tips/result before arrival, freezes projectile coordinates and action time during midair pause, returns an invalid three-tablespoon dish to MIX without losing contents, permits remove-one/restir recovery, and shows a catch before the completion overlay. It also parks two leftover bread slices, fills the other order, retrieves/parks the leftovers, and serves both dishes without discarding that bread. No page errors occurred. Machine-readable evidence is `work/reviewer-focused-results.json`.
+
+Visually inspected actual captures: `reviewer-toss-midair.png`, `reviewer-toss-paused.png`, `reviewer-return-flight.png`, `reviewer-hatch-catch.png` and `reviewer-tray-juggle.png`. The arc, caught bowl, two dishes and parked bread are now visible. The pause panel's secondary buttons have insufficient contrast; reported to lead. Capture helper now waits for the brief CSS feedback fade while the deterministic game clock is stopped, so feedback remains legible in saved captures.
+
+This is a mechanics check with the current procedural cook. Real-model/animation integration and its full success/error/transfer/touch regression are still pending and are not covered by this pass.
+
+## Base Tripo cook and UI corrections — focused verification
+
+A further `node scripts/browser-playtest.cjs --focused` run passed after loading the real local Tripo cook base on desktop and mobile. The script now waits for `assets.realCook` before captures. Runtime evidence explicitly reports `realCook: true`, `riggedCook: false`, `joints: 0`, `clips: []`, `realProp: false`; this confirms the acquired static base, not a rig or animated export. The full model/prop requirement remains pending.
+
+The run repeated hatch timing, midair pause, rejected-dish return/recovery and two-order tray juggling, and verified the corrected “2 slices of bread” carry/tray labels. The updated desktop peel/tray captures visibly include the real cook. At 390×844, normal touch movement and park/retrieve worked; all four wrapped tray buttons fit, the carry label no longer overlaps the controls, and reading/help/restart passed. The updated pause capture confirms readable secondary button contrast. There were no page errors. Captures include `reviewer-shift1-peel.png`, `reviewer-tray-juggle.png`, `reviewer-toss-paused.png`, `reviewer-mobile-tray.png` and `reviewer-mobile.png`.
+
+These captures show the current static base pose. They do not establish animation playback, hand binding, or final art fidelity; full success/error/transfer/touch regression is reserved for the downloaded rig/animation and prop integration.
+
+
+## Final integrated rig, prop and complete slice verification — 26 October 2026
+
+Commands: `npm test`, `npm run typecheck`, `node scripts/browser-playtest.cjs`. All 24 rule tests passed, typecheck passed, and the final full browser regression passed with no page errors or console errors. It used normal keyboard, pointer and touch inputs; `advanceTime` controlled elapsed time only. The browser closed successfully after the run. Machine-readable results and captured hook states are saved in `work/reviewer-browser-results.json`.
+
+Desktop and mobile runtime assertions confirmed the actual local assets: `realCook: true`, `riggedCook: true`, 65 joints, `realProp: true`, and exactly three clips: `idle`, `walk`, and `Goblin Kitchen carrying motion: walk steadily in place, holding`. Normal movement selected walk, carrying selected the carry clip, and stopping selected idle. A rendered-canvas hash changed during running movement/animation, then stayed exactly equal across two seconds of paused stepping; action time also froze. This checks the displayed rig/scene rather than trusting only the active-animation label.
+
+The full route completed all five shifts, including both bread orders with parked leftovers and station relocation. Three tablespoons in shift 1 were rejected at the hatch, visibly returned to MIX, then corrected by remove-one/restir. The wrong prepared pear was rejected; the player-prepared pear succeeded. The changed-layout transfer washed the dirty bowl, sliced two source apples, added three tablespoons, stirred and served without help. The clarified transfer fixture is now implemented and mapped in CURRICULUM.md. Final results were 285 tips, two deliberate mistakes, guided first-shift practice, three first-unaided completions out of the four later shifts, and an unaided transfer.
+
+Hatch timing assertions confirmed no reward/result before arrival, midair pause preserved projectile coordinates, and the caught dish remained visible before the results overlay. Touch pickup, MIX park/retrieve, all four wrapped action buttons, non-overlapping carry text, reading/help pause and restart passed at 390×844. Bread carry/bowl/tray labels use slices/loaves correctly.
+
+Visually inspected final captures include `reviewer-rig-walk.png`, `reviewer-rig-pause.png`, `reviewer-carry-banana.png`, `reviewer-carry-dish.png`, `reviewer-transfer-ready.png`, `reviewer-five-shifts-complete.png` and `reviewer-mobile-tray.png`. They show the real cook, visible carry posture with ingredient/dish in front of the body, the acquired ceramic bowl, prepared fruit above yogurt, readable recipe/current-contents text and the completed finite slice. The generated target remains conceptual evidence; these files are actual browser captures.
+
+No remaining blocker was found in the tested gameplay/asset paths. This review does not establish child engagement, learning gains, audible sound quality through physical speakers, performance on a physical low-end phone, or every possible animation pose. Portrait station labels remain small. The decorative customers and kitchen architecture are intentionally procedural; the cook and bowl are the actual local Tripo assets verified above.
+
+Final text/artifact correction: the Hebrew completion paragraph originally reversed the visual order of the unaided ratio. The lead wrapped it in `<bdi dir="ltr">`; the final full browser run passed again with explicit `dir="ltr"` and exact `3 / 4` text assertions. The refreshed `reviewer-five-shifts-complete.png` was visually inspected and now displays the ratio correctly. The initial asset note also describes loading rather than the obsolete blocked state. No further blocker was found; this last run again completed all five shifts, rig/prop assertions, error recovery and touch checks with zero browser errors, then closed its browser.

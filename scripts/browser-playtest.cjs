@@ -99,7 +99,10 @@ mkdirSync(root + '/work', {recursive:true});
     assert.equal((await state()).mode, 'between');
     await next(); assert.equal((await state()).bowl.clean, false); await go('sink'); await action('wash');
     await ingredient('fruit', 'take', 1); await ingredient('fruit', 'take', 1); await yogurt(3); await action('stir'); await capture('transfer-ready'); await service(false);
-    assert.equal((await state()).mode, 'complete'); assert.equal((await state()).results.length, 5); assert.equal((await state()).results[4].unaided, true); await capture('five-shifts-complete');
+    assert.equal((await state()).mode, 'complete'); assert.equal((await state()).results.length, 5); assert.equal((await state()).results[4].unaided, true);
+    const unaidedFraction = `${(await state()).results.filter(r => r.unaided).length} / 4`;
+    assert.equal(await page.locator('#overlay bdi').getAttribute('dir'), 'ltr');
+    assert.equal(await page.locator('#overlay bdi').innerText(), unaidedFraction); await capture('five-shifts-complete');
     // Header controls cannot reenter a finished shift.
     await page.click('#read', { force: true }); assert.equal((await state()).mode, 'complete');
     }
