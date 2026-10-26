@@ -1,1 +1,10 @@
-{"cook":null,"prop":null,"status":"Blocked: Chrome control timed out; no Tripo assets acquired."}
+{
+  "cook": "models/goblin-kitchen-cook.glb",
+  "prop": "models/goblin-kitchen-bowl.glb",
+  "clips": {
+    "idle": "idle",
+    "walk": "walk",
+    "carry": "Goblin Kitchen carrying motion: walk steadily in place, holding"
+  },
+  "status": "Original local Tripo cook with 65-joint Mixamo rig and three full-body clips; original ceramic mixing bowl."
+}

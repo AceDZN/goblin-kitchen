@@ -10,7 +10,7 @@ export const shifts: {name:string;he:string;recipes:Recipe[];hint:string}[] = [
  {name:'TWO OF WHAT?',he:'שתיים של מה?',hint:'slice = פרוסה; loaf = כיכר. בלשון רבים: loaves. פרוסה וכיכר הן צורות שונות, גם אם שתיהן לחם.',recipes:[{id:'bread-slices',text:'Add two slices of bread. Serve.',food:'bread',form:'sliced',count:2,stir:false},{id:'bread-loaves',text:'Add two loaves of bread. Serve.',food:'bread',form:'whole',count:2,stir:false}]},
  {name:'ORDER MATTERS',he:'הסדר חשוב',hint:'First = קודם; Next = אחר כך; Then = אז; Finally = לבסוף. cup = כוס מדידה, tablespoon = כף מדידה.',recipes:[{id:'banana-sequence',text:'First, peel the banana. Next, slice it. Then add the slices and one cup of yogurt to the bowl. Finally, stir and serve.',food:'banana',form:'sliced',count:1,yogurt:{unit:'cup',amount:1},stir:true}]},
  {name:'THE PEAR YOU PREPARED',he:'האגס שהכנתם',hint:'the pear that you prepared = האגס שאתם הכנתם. a little = כמות קטנה כלשהי, בלי מספר מדויק.',recipes:[{id:'pear-reference',text:'Use the pear that you prepared. Put it in the bowl. Add a little yogurt. Stir gently and serve.',food:'pear',form:'prepared',count:1,yogurt:{unit:'tablespoon'},stir:true,prepared:true}]},
- {name:'NEW NIGHT, NEW RECIPE',he:'עכשיו לבד',hint:'',recipes:[{id:'apple-transfer',text:'First, slice two apples. Put the slices in a clean bowl. Add three tablespoons of yogurt. Then stir and serve.',food:'apple',form:'sliced',count:2,yogurt:{unit:'tablespoon',amount:3},stir:true}]}
+ {name:'NEW NIGHT, NEW RECIPE',he:'עכשיו לבד',hint:'',recipes:[{id:'apple-transfer',text:'Slice two apples and put the slices in a clean bowl. Add three tablespoons of yogurt. Then stir and serve.',food:'apple',form:'sliced',count:2,yogurt:{unit:'tablespoon',amount:3},stir:true}]}
 ];
 export const freshDish = ():Dish=>({items:[],yogurt:[],stirred:false,clean:true,served:false});
 export function validateDish(d:Dish,r:Recipe):{ok:boolean;reason:string;phrase:string} {
@@ -35,11 +35,12 @@ export function prepare(item:Item):Item|undefined{
  if(item.food==='bread'&&item.form==='whole')return {...item,form:'sliced',count:item.count*4,preparedByPlayer:true};
  return undefined;
 }
+export type Carry = Item|{food:'yogurt';unit:Unit;count:number}|{food:'dish'};
 export type Mode='intro'|'read'|'play'|'pause'|'between'|'complete';
 export type Event={shift:number;action:string;success?:boolean;hint?:boolean;retry?:number;unaided:boolean};
 export class Kitchen {
- shift=0;order=0;mode:Mode='intro';held:Item|{food:'yogurt';unit:Unit;count:number}|{food:'dish'}|null=null;
- dishes: Dish[]=[freshDish()];tool:Unit='tablespoon';tips=0;mistakes=0;assisted=false;shiftMistakes=0;seconds=0;stirTime=0;
+ shift=0;order=0;mode:Mode='intro';held:Carry|null=null;
+ dishes: Dish[]=[freshDish()];staged:(Carry|null)[]=[null];tool:Unit='tablespoon';tips=0;mistakes=0;assisted=false;shiftMistakes=0;seconds=0;stirTime=0;
  message='';phrase='';events:Event[]=[];results:{shift:number;unaided:boolean;guided:boolean;mistakes:number;seconds:number}[]=[];
  pearPrepared=false;priorAssistance=new Set<number>();priorMistakes=new Set<number>();
  get firstUnaided(){return this.shift>0&&!this.assisted&&this.shiftMistakes===0&&!this.priorAssistance.has(this.shift)&&!this.priorMistakes.has(this.shift)}
@@ -60,13 +61,14 @@ export class Kitchen {
   this.dish.yogurt.push({unit:h.unit,amount:1});this.held=null;
  }else{this.dish.items.push({...h,count:1});if(h.count>1)this.held={...h,count:h.count-1};else this.held=null}
  this.dish.stirred=false;this.log('add-'+h.food);this.message='';}
+ stage(){if(this.held?.food==='dish'){this.held=null;this.message='הנחתם את המנה בחזרה.';this.log('put-dish-down');return}if(this.held){if(this.staged[this.order]){this.message='המגש תפוס. קחו ממנו לפני שמניחים עוד.';return}this.staged[this.order]=this.held;this.held=null;this.message='מה שהחזקתם מחכה על המגש של ההזמנה הזאת.';this.log('park-item')}else if(this.staged[this.order]){this.held=this.staged[this.order];this.staged[this.order]=null;this.message='חזרה לידיים.';this.log('retrieve-item')}else this.message='המגש ריק.'}
  remove(){if(this.held){this.message='פנו ידיים קודם.';return}const y=this.dish.yogurt.pop();if(y){this.dish.stirred=false;this.message='מנה אחת של יוגורט הוצאה. אפשר לתקן ולערבב שוב.';this.log('remove-'+y.unit)}else this.message='אין יוגורט להוציא.'}
  stir(){if(this.held){this.message='פנו ידיים לפני הערבוב.';return}if(!this.dish.items.length){this.fail('קערה ריקה עושה רעש מצחיק, אבל אין מה לערבב.','stir');return}this.dish.stirred=true;this.message='מעורבב בעדינות.';this.log('stir')}
  lift(){if(this.held){this.message='פנו ידיים לפני הרמת הקערה.';return}this.held={food:'dish'};this.log('lift')}
  wash(){if(this.held){this.held=null;this.message='הנחתם את מה שהחזקתם. לחיצה נוספת מרוקנת ושוטפת את הקערה.';this.log('discard-held');return}this.dishes[this.order]=freshDish();this.message='קערה נקייה, התחלה חדשה.';this.log('wash')}
  serve(){if(this.dish.served||this.mode!=='play')return false;if(this.held?.food!=='dish'){this.message='הרימו את המנה ליד הקערה והביאו לחלון.';return false}const v=validateDish(this.dish,this.recipe);this.held=null;if(!v.ok){this.fail(v.reason,v.phrase);return false}this.dish.served=true;this.tips+=Math.max(10,50-this.shiftMistakes*5);this.log('serve',true);if(this.dishes.every(d=>d.served)){this.results.push({shift:this.shift+1,unaided:this.firstUnaided,guided:this.shift===0,mistakes:this.shiftMistakes,seconds:Math.round(this.seconds)});this.mode=this.shift===4?'complete':'between'}else{this.order=this.dishes.findIndex(d=>!d.served);this.message='הזמנה אחת הוגשה! הכינו את השנייה.'}return true}
  selectOrder(i:number){if(this.held){this.message='פנו ידיים לפני החלפת הזמנה.';return}if(!this.dishes[i]?.served){this.order=i;this.message='';this.phrase=''}}
- next(){if(this.mode!=='between')return;this.shift++;this.order=0;this.dishes=this.spec.recipes.map(()=>freshDish());this.assisted=false;this.shiftMistakes=0;this.seconds=0;this.pearPrepared=false;if(this.shift===4)this.dish.clean=false;this.mode='read';this.message='';this.phrase='';this.held=null;this.log('next')}
+ next(){if(this.mode!=='between')return;this.shift++;this.order=0;this.dishes=this.spec.recipes.map(()=>freshDish());this.staged=this.spec.recipes.map(()=>null);this.assisted=false;this.shiftMistakes=0;this.seconds=0;this.pearPrepared=false;if(this.shift===4)this.dish.clean=false;this.mode='read';this.message='';this.phrase='';this.held=null;this.log('next')}
  tick(dt:number){if(this.mode==='play')this.seconds+=dt}
  restart(){const events=this.events,priorAssistance=this.priorAssistance,priorMistakes=this.priorMistakes;for(const r of this.results)priorAssistance.add(r.shift-1);priorAssistance.add(this.shift);Object.assign(this,new Kitchen());this.events=events;this.priorAssistance=priorAssistance;this.priorMistakes=priorMistakes;this.mode='read';this.log('restart')}
 }

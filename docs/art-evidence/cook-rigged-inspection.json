@@ -1,0 +1,5526 @@
+{
+  "path": "work/tripo-originals/goblin-kitchen-cook-3anims.glb",
+  "bytes": 1921716,
+  "sha256": "5dab7524aa7723e78f943eb4993b188e78e6c991b6bd0d5fbb7c247d1fd3dca1",
+  "generator": "Tripo",
+  "glbVersion": 2,
+  "declaredLengthMatches": true,
+  "nodes": 67,
+  "nodeTransforms": [
+    {
+      "index": 0,
+      "name": "mixamorig:LeftToe_End",
+      "translation": [
+        -3.2729076338000596e-08,
+        0.05407433956861496,
+        -1.4036913853487931e-09
+      ],
+      "rotation": [
+        5.284763560098327e-08,
+        -1.5768451703479514e-05,
+        2.2350729267373026e-08,
+        1
+      ],
+      "scale": [
+        1.0000001192092896,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "name": "mixamorig:LeftToeBase",
+      "translation": [
+        1.3504177331924438e-08,
+        0.09317687898874283,
+        -1.4959368854761124e-08
+      ],
+      "rotation": [
+        0.2564519941806793,
+        0.17030520737171173,
+        -0.04594625160098076,
+        0.9503249526023865
+      ],
+      "scale": [
+        0.9999998211860657,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "name": "mixamorig:LeftFoot",
+      "translation": [
+        9.313225746154785e-09,
+        0.19096721708774567,
+        3.4458935260772705e-08
+      ],
+      "rotation": [
+        0.2757449150085449,
+        0.3657636344432831,
+        -0.5342983603477478,
+        0.7104273438453674
+      ],
+      "scale": [
+        1.0000001192092896,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "index": 3,
+      "name": "mixamorig:LeftLeg",
+      "translation": [
+        9.080395102500916e-09,
+        0.22003664076328278,
+        3.637978807091713e-09
+      ],
+      "rotation": [
+        0.042381830513477325,
+        -0.12818267941474915,
+        0.14191144704818726,
+        0.9806294441223145
+      ],
+      "scale": [
+        0.9999998807907104,
+        0.9999998807907104,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 4,
+      "name": "mixamorig:LeftUpLeg",
+      "translation": [
+        4.891277161078733e-09,
+        -0.035156186670064926,
+        -0.0781249850988388
+      ],
+      "rotation": [
+        -0.9985016584396362,
+        0.0084391413256526,
+        0.008423260413110256,
+        0.05340651050209999
+      ],
+      "scale": [
+        1.0000009536743164,
+        1,
+        1.000032901763916
+      ]
+    },
+    {
+      "index": 5,
+      "name": "mixamorig:RightToe_End",
+      "translation": [
+        1.933358362293802e-09,
+        0.054074112325906754,
+        1.596163201611489e-10
+      ],
+      "rotation": [
+        -5.3040309921925655e-09,
+        -2.656680044310633e-05,
+        -1.4904114209457475e-07,
+        1
+      ]
+    },
+    {
+      "index": 6,
+      "name": "mixamorig:RightToeBase",
+      "translation": [
+        2.8325302992016077e-08,
+        0.09317665547132492,
+        -2.6659108698368073e-08
+      ],
+      "rotation": [
+        0.24136413633823395,
+        0.36353838443756104,
+        -0.0980936661362648,
+        0.8944053053855896
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 7,
+      "name": "mixamorig:RightFoot",
+      "translation": [
+        3.91155481338501e-08,
+        0.1909673511981964,
+        6.076879799365997e-08
+      ],
+      "rotation": [
+        0.1287466585636139,
+        0.5988423228263855,
+        -0.5873103737831116,
+        0.5290355682373047
+      ],
+      "scale": [
+        1.0000001192092896,
+        1.0000001192092896,
+        1.000000238418579
+      ]
+    },
+    {
+      "index": 8,
+      "name": "mixamorig:RightLeg",
+      "translation": [
+        7.450580596923828e-09,
+        0.22003668546676636,
+        3.277091309428215e-08
+      ],
+      "rotation": [
+        0.00634499778971076,
+        -0.1647639125585556,
+        0.14796894788742065,
+        0.9751501679420471
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 9,
+      "name": "mixamorig:RightUpLeg",
+      "translation": [
+        -6.129162954948697e-09,
+        -0.0351562537252903,
+        0.0781249850988388
+      ],
+      "rotation": [
+        0.9984928369522095,
+        -0.009391537867486477,
+        -0.009408494457602501,
+        0.05324728414416313
+      ],
+      "scale": [
+        1.0000009536743164,
+        1,
+        1.000032901763916
+      ]
+    },
+    {
+      "index": 10,
+      "name": "mixamorig:LeftHandIndex4",
+      "translation": [
+        -1.4901161193847656e-08,
+        0.021659772843122482,
+        4.7031790018081665e-08
+      ],
+      "rotation": [
+        -4.889443161459894e-08,
+        1.303851515643828e-08,
+        1.7136335372924805e-07,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 11,
+      "name": "mixamorig:LeftHandIndex3",
+      "translation": [
+        0,
+        0.022246260195970535,
+        -7.916241884231567e-08
+      ],
+      "rotation": [
+        -7.124618264242599e-07,
+        9.54605710035139e-08,
+        -1.993030309677124e-07,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 12,
+      "name": "mixamorig:LeftHandIndex2",
+      "translation": [
+        2.7939677238464355e-08,
+        0.03267621621489525,
+        -5.2852556109428406e-08
+      ],
+      "rotation": [
+        -0.1646287441253662,
+        -0.0511544868350029,
+        0.01629888080060482,
+        0.9848933815956116
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        1
+      ]
+    },
+    {
+      "index": 13,
+      "name": "mixamorig:LeftHandIndex1",
+      "translation": [
+        0.0349804125726223,
+        0.0713922455906868,
+        0.0017758505418896675
+      ],
+      "rotation": [
+        -0.13750189542770386,
+        0.04234118387103081,
+        -0.08649539202451706,
+        0.9858088493347168
+      ],
+      "scale": [
+        1.0000001192092896,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 14,
+      "name": "mixamorig:LeftHandMiddle4",
+      "translation": [
+        2.075438487736392e-09,
+        0.022463258355855942,
+        -5.51405925364179e-08
+      ],
+      "rotation": [
+        6.203371150093062e-15,
+        -1.0803341154996815e-07,
+        -2.072985161305496e-08,
+        1
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 15,
+      "name": "mixamorig:LeftHandMiddle3",
+      "translation": [
+        -1.5879209058766719e-09,
+        0.022441264241933823,
+        9.890035457260637e-09
+      ],
+      "rotation": [
+        -5.215405707303944e-08,
+        -7.823110337312755e-08,
+        1.3697321499250847e-08,
+        1
+      ]
+    },
+    {
+      "index": 16,
+      "name": "mixamorig:LeftHandMiddle2",
+      "translation": [
+        -1.3969838619232178e-08,
+        0.032676298171281815,
+        2.5494955480098724e-08
+      ],
+      "rotation": [
+        -0.3402542471885681,
+        -0.06019484996795654,
+        0.034932516515254974,
+        0.9377544522285461
+      ],
+      "scale": [
+        0.9999998807907104,
+        0.9999998807907104,
+        0.9999998807907104
+      ]
+    },
+    {
+      "index": 17,
+      "name": "mixamorig:LeftHandMiddle1",
+      "translation": [
+        0.009290110319852829,
+        0.07432369887828827,
+        0.0013995844637975097
+      ],
+      "rotation": [
+        -0.13186883926391602,
+        -0.01142297126352787,
+        -0.000686311163008213,
+        0.9912011623382568
+      ],
+      "scale": [
+        1,
+        1,
+        0.9999998807907104
+      ]
+    },
+    {
+      "index": 18,
+      "name": "mixamorig:LeftHandPinky4",
+      "translation": [
+        1.5832483768463135e-08,
+        0.017664263024926186,
+        -4.7031790018081665e-08
+      ],
+      "rotation": [
+        3.6670826375484467e-09,
+        1.3131648302078247e-07,
+        -1.862645149230957e-09,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 19,
+      "name": "mixamorig:LeftHandPinky3",
+      "translation": [
+        3.725290298461914e-09,
+        0.01745232194662094,
+        -2.0954757928848267e-08
+      ],
+      "rotation": [
+        8.475035997435043e-07,
+        -7.450580596923828e-08,
+        1.0337680578231812e-07,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 20,
+      "name": "mixamorig:LeftHandPinky2",
+      "translation": [
+        5.587935447692871e-09,
+        0.021026400849223137,
+        -1.257285475730896e-07
+      ],
+      "rotation": [
+        -0.21589891612529755,
+        0.03403652831912041,
+        -0.01042270939797163,
+        0.975766658782959
+      ]
+    },
+    {
+      "index": 21,
+      "name": "mixamorig:LeftHandPinky1",
+      "translation": [
+        -0.03940428048372269,
+        0.0670963004231453,
+        -0.002915626857429743
+      ],
+      "rotation": [
+        -0.24805596470832825,
+        -0.09377208352088928,
+        0.11300138384103775,
+        0.9575519561767578
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 22,
+      "name": "mixamorig:LeftHandRing4",
+      "translation": [
+        -8.262286854687773e-09,
+        0.018857693299651146,
+        -5.2672007200271764e-08
+      ],
+      "rotation": [
+        1.0952353477478027e-06,
+        -8.195607392735837e-08,
+        -9.877395257262833e-08,
+        1
+      ]
+    },
+    {
+      "index": 23,
+      "name": "mixamorig:LeftHandRing3",
+      "translation": [
+        -9.318242177869251e-09,
+        0.021037859842181206,
+        4.0948215485059336e-08
+      ],
+      "rotation": [
+        3.799796672865341e-07,
+        7.450594807778543e-08,
+        7.830162473965174e-08,
+        1
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 24,
+      "name": "mixamorig:LeftHandRing2",
+      "translation": [
+        1.0074138856452919e-08,
+        0.028742097318172455,
+        -6.154586174034193e-08
+      ],
+      "rotation": [
+        -0.35158631205558777,
+        -6.57667911241333e-08,
+        3.5045616186835105e-08,
+        0.9361554980278015
+      ]
+    },
+    {
+      "index": 25,
+      "name": "mixamorig:LeftHandRing1",
+      "translation": [
+        -0.014785690233111382,
+        0.0712132677435875,
+        -0.0005676820874214172
+      ],
+      "rotation": [
+        -0.15962713956832886,
+        -0.05023228004574776,
+        0.05673028901219368,
+        0.9842649698257446
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 26,
+      "name": "mixamorig:LeftHandThumb4",
+      "translation": [
+        -1.30385160446167e-08,
+        0.014203149825334549,
+        5.587935447692871e-09
+      ],
+      "rotation": [
+        4.991889568373153e-07,
+        1.1362136120851574e-07,
+        2.561137080192566e-07,
+        1
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 27,
+      "name": "mixamorig:LeftHandThumb3",
+      "translation": [
+        -7.450580596923828e-09,
+        0.018814291805028915,
+        -4.6100467443466187e-08
+      ],
+      "rotation": [
+        -4.3492764234542847e-07,
+        3.91155481338501e-08,
+        -6.705522537231445e-08,
+        1
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        1
+      ]
+    },
+    {
+      "index": 28,
+      "name": "mixamorig:LeftHandThumb2",
+      "translation": [
+        -7.35744833946228e-08,
+        0.05250938609242439,
+        -2.8870999813079834e-08
+      ],
+      "rotation": [
+        -0.2175440490245819,
+        -0.3710310161113739,
+        0.22418276965618134,
+        0.8745014071464539
+      ],
+      "scale": [
+        0.9999999403953552,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "index": 29,
+      "name": "mixamorig:LeftHandThumb1",
+      "translation": [
+        0.020845768973231316,
+        0.012251926586031914,
+        -0.0074174050241708755
+      ],
+      "rotation": [
+        -0.09112033247947693,
+        0.262911319732666,
+        -0.4286535680294037,
+        0.8595527410507202
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 30,
+      "name": "mixamorig:LeftHand",
+      "translation": [
+        7.450580596923828e-09,
+        0.12055953592061996,
+        8.870847523212433e-08
+      ],
+      "rotation": [
+        -0.08358339220285416,
+        -0.008965914137661457,
+        0.002293466357514262,
+        0.9964578151702881
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        1
+      ]
+    },
+    {
+      "index": 31,
+      "name": "mixamorig:LeftForeArm",
+      "translation": [
+        -8.847564458847046e-09,
+        0.13338567316532135,
+        9.720679372549057e-09
+      ],
+      "rotation": [
+        0.027696233242750168,
+        0.03224538639187813,
+        -0.05702757090330124,
+        0.9974672794342041
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1
+      ]
+    },
+    {
+      "index": 32,
+      "name": "mixamorig:LeftArm",
+      "translation": [
+        -1.4901161193847656e-08,
+        0.05565543845295906,
+        1.2433156371116638e-07
+      ],
+      "rotation": [
+        -0.42484480142593384,
+        0.16368067264556885,
+        -0.30897435545921326,
+        0.8350152373313904
+      ],
+      "scale": [
+        0.9999999403953552,
+        0.9999999403953552,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 33,
+      "name": "mixamorig:LeftShoulder",
+      "translation": [
+        0.0077183423563838005,
+        0.007601193152368069,
+        -0.06609638780355453
+      ],
+      "rotation": [
+        -0.6910703182220459,
+        0.23830419778823853,
+        0.20297680795192719,
+        0.6514855623245239
+      ],
+      "scale": [
+        0.9999999403953552,
+        0.9999998807907104,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 34,
+      "name": "mixamorig:HeadTop_End",
+      "translation": [
+        -3.387685865163803e-08,
+        0.1472485065460205,
+        -9.89530235528946e-09
+      ],
+      "rotation": [
+        6.644362837704421e-09,
+        -2.7939677238464355e-09,
+        1.0202841238537985e-08,
+        1
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "index": 35,
+      "name": "mixamorig:Head",
+      "translation": [
+        5.227047950029373e-08,
+        0.06176318600773811,
+        2.4563632905483246e-08
+      ],
+      "rotation": [
+        -1.3263879994340755e-09,
+        3.632158396271734e-08,
+        -1.0733742783486377e-08,
+        1
+      ],
+      "scale": [
+        0.9999998807907104,
+        0.9999999403953552,
+        0.9999998807907104
+      ]
+    },
+    {
+      "index": 36,
+      "name": "mixamorig:Neck",
+      "translation": [
+        -0.001082706730812788,
+        0.05481637269258499,
+        -5.586619954556227e-05
+      ],
+      "rotation": [
+        -0.024994589388370514,
+        -0.18233734369277954,
+        -0.18386872112751007,
+        0.9655675292015076
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 37,
+      "name": "mixamorig:RightHandIndex4",
+      "translation": [
+        -3.166496753692627e-08,
+        0.02146371454000473,
+        2.6542693376541138e-08
+      ],
+      "rotation": [
+        6.807968020439148e-07,
+        -1.3364477524646645e-07,
+        1.303851515643828e-08,
+        1
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 38,
+      "name": "mixamorig:RightHandIndex3",
+      "translation": [
+        2.60770320892334e-08,
+        0.022065987810492516,
+        -2.7939677238464355e-08
+      ],
+      "rotation": [
+        -3.012828528881073e-07,
+        9.173527359962463e-08,
+        -1.210719347000122e-08,
+        1
+      ]
+    },
+    {
+      "index": 39,
+      "name": "mixamorig:RightHandIndex2",
+      "translation": [
+        2.60770320892334e-08,
+        0.033974744379520416,
+        -7.543712854385376e-08
+      ],
+      "rotation": [
+        0.17149512469768524,
+        -0.042380571365356445,
+        0.08255983889102936,
+        0.9808043241500854
+      ],
+      "scale": [
+        1.0000001192092896,
+        1,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 40,
+      "name": "mixamorig:RightHandIndex1",
+      "translation": [
+        0.034217290580272675,
+        0.07254921644926071,
+        0.009696990251541138
+      ],
+      "rotation": [
+        0.1603175848722458,
+        0.07120583951473236,
+        -0.021724779158830643,
+        0.9842540621757507
+      ],
+      "scale": [
+        0.9999999403953552,
+        0.9999999403953552,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 41,
+      "name": "mixamorig:RightHandMiddle4",
+      "translation": [
+        -4.3655745685100555e-10,
+        0.024888619780540466,
+        -1.132139004766941e-08
+      ],
+      "rotation": [
+        2.686283551156521e-08,
+        6.705522537231445e-08,
+        2.0489096641540527e-08,
+        1
+      ]
+    },
+    {
+      "index": 42,
+      "name": "mixamorig:RightHandMiddle3",
+      "translation": [
+        3.725290298461914e-09,
+        0.024917440488934517,
+        -2.478191163390875e-08
+      ],
+      "rotation": [
+        -2.0359584596008062e-07,
+        3.585591912269592e-08,
+        -3.958120942115784e-09,
+        1
+      ]
+    },
+    {
+      "index": 43,
+      "name": "mixamorig:RightHandMiddle2",
+      "translation": [
+        3.725290298461914e-09,
+        0.03423849493265152,
+        -2.468004822731018e-08
+      ],
+      "rotation": [
+        0.33307507634162903,
+        -0.02369868941605091,
+        0.05662903934717178,
+        0.9408998489379883
+      ],
+      "scale": [
+        0.9999998807907104,
+        0.9999999403953552,
+        0.9999998211860657
+      ]
+    },
+    {
+      "index": 44,
+      "name": "mixamorig:RightHandMiddle1",
+      "translation": [
+        0.0094721969217062,
+        0.07582753896713257,
+        0.0005703684873878956
+      ],
+      "rotation": [
+        0.1805105209350586,
+        -0.025082724168896675,
+        0.04201773181557655,
+        0.982354998588562
+      ],
+      "scale": [
+        1,
+        0.9999998807907104,
+        0.9999998807907104
+      ]
+    },
+    {
+      "index": 45,
+      "name": "mixamorig:RightHandPinky4",
+      "translation": [
+        1.30385160446167e-08,
+        0.018217410892248154,
+        1.0896474123001099e-07
+      ],
+      "rotation": [
+        1.2456439435482025e-08,
+        -1.3969838619232178e-09,
+        -3.725290298461914e-09,
+        1
+      ]
+    },
+    {
+      "index": 46,
+      "name": "mixamorig:RightHandPinky3",
+      "translation": [
+        0,
+        0.018081359565258026,
+        6.565824151039124e-08
+      ],
+      "rotation": [
+        1.6188713516385178e-06,
+        1.5832483768463135e-08,
+        1.7229467630386353e-07,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 47,
+      "name": "mixamorig:RightHandPinky2",
+      "translation": [
+        2.60770320892334e-08,
+        0.023641027510166168,
+        1.043081283569336e-07
+      ],
+      "rotation": [
+        0.18612907826900482,
+        0.023273097351193428,
+        -0.053193021565675735,
+        0.9808082580566406
+      ]
+    },
+    {
+      "index": 48,
+      "name": "mixamorig:RightHandPinky1",
+      "translation": [
+        -0.036283496767282486,
+        0.06596145778894424,
+        -0.007744797505438328
+      ],
+      "rotation": [
+        0.25159206986427307,
+        -0.168691486120224,
+        0.14302653074264526,
+        0.9422250390052795
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 49,
+      "name": "mixamorig:RightHandRing4",
+      "translation": [
+        2.3151471850724192e-09,
+        0.020791498944163322,
+        -4.146154708450922e-08
+      ],
+      "rotation": [
+        -2.3841855067985307e-07,
+        -1.1920926112907182e-07,
+        8.958686947835304e-08,
+        1
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 50,
+      "name": "mixamorig:RightHandRing3",
+      "translation": [
+        -1.1777192554518479e-09,
+        0.022768473252654076,
+        4.26169055600667e-09
+      ],
+      "rotation": [
+        5.364417461350968e-07,
+        -4.470353331953447e-08,
+        -8.180796129408918e-08,
+        1
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 51,
+      "name": "mixamorig:RightHandRing2",
+      "translation": [
+        -4.99012386967479e-09,
+        0.030533986166119576,
+        2.500769369362388e-09
+      ],
+      "rotation": [
+        0.35406768321990967,
+        1.1419054146699636e-07,
+        6.92043258254671e-08,
+        0.9352197647094727
+      ]
+    },
+    {
+      "index": 52,
+      "name": "mixamorig:RightHandRing1",
+      "translation": [
+        -0.013946309685707092,
+        0.07241663336753845,
+        -0.003710786812007427
+      ],
+      "rotation": [
+        0.17349877953529358,
+        -0.08994727581739426,
+        0.08196834474802017,
+        0.9772864580154419
+      ],
+      "scale": [
+        1,
+        0.9999997615814209,
+        0.9999998807907104
+      ]
+    },
+    {
+      "index": 53,
+      "name": "mixamorig:RightHandThumb4",
+      "translation": [
+        -2.60770320892334e-08,
+        0.014018978923559189,
+        3.958120942115784e-09
+      ],
+      "rotation": [
+        -5.003530532121658e-07,
+        7.450580596923828e-08,
+        -1.30385160446167e-08,
+        1
+      ]
+    },
+    {
+      "index": 54,
+      "name": "mixamorig:RightHandThumb3",
+      "translation": [
+        1.862645149230957e-09,
+        0.018599290400743484,
+        6.05359673500061e-09
+      ],
+      "rotation": [
+        -6.682239472866058e-08,
+        -1.4156103134155273e-07,
+        -1.955777406692505e-08,
+        1
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 55,
+      "name": "mixamorig:RightHandThumb2",
+      "translation": [
+        -5.4016709327697754e-08,
+        0.057657212018966675,
+        -2.9802322387695312e-08
+      ],
+      "rotation": [
+        -0.07826612144708633,
+        -0.2290172427892685,
+        0.3334008455276489,
+        0.9111912250518799
+      ],
+      "scale": [
+        1.0000001192092896,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 56,
+      "name": "mixamorig:RightHandThumb1",
+      "translation": [
+        0.014783104881644249,
+        0.012144185602664948,
+        0.01209887396544218
+      ],
+      "rotation": [
+        0.4260404109954834,
+        0.3575199842453003,
+        -0.16402362287044525,
+        0.8147179484367371
+      ],
+      "scale": [
+        0.9999999403953552,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "index": 57,
+      "name": "mixamorig:RightHand",
+      "translation": [
+        2.2351741790771484e-08,
+        0.12067283689975739,
+        1.0244548320770264e-08
+      ],
+      "rotation": [
+        0.08370977640151978,
+        -0.023408683016896248,
+        0.026923440396785736,
+        0.9958513379096985
+      ],
+      "scale": [
+        1,
+        0.9999998807907104,
+        1.0000001192092896
+      ]
+    },
+    {
+      "index": 58,
+      "name": "mixamorig:RightForeArm",
+      "translation": [
+        -2.0954757928848267e-08,
+        0.13338562846183777,
+        -8.987262845039368e-08
+      ],
+      "rotation": [
+        -0.029807530343532562,
+        0.10903564840555191,
+        -0.06173701211810112,
+        0.9916709661483765
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 59,
+      "name": "mixamorig:RightArm",
+      "translation": [
+        3.725290298461914e-08,
+        0.05565538629889488,
+        5.541369318962097e-08
+      ],
+      "rotation": [
+        -0.24428652226924896,
+        0.8201344013214111,
+        -0.46506157517433167,
+        0.22676293551921844
+      ],
+      "scale": [
+        1,
+        0.9999998211860657,
+        0.9999999403953552
+      ]
+    },
+    {
+      "index": 60,
+      "name": "mixamorig:RightShoulder",
+      "translation": [
+        0.0008771796710789204,
+        0.00760110467672348,
+        0.06653972715139389
+      ],
+      "rotation": [
+        -0.3119068145751953,
+        0.6644284725189209,
+        0.6492241621017456,
+        0.19939130544662476
+      ],
+      "scale": [
+        0.9999999403953552,
+        1,
+        1
+      ]
+    },
+    {
+      "index": 61,
+      "name": "mixamorig:Spine2",
+      "translation": [
+        -4.089088179171085e-09,
+        0.058723632246255875,
+        -5.820766091346741e-11
+      ],
+      "rotation": [
+        0.0004436145245563239,
+        -0.007517539896070957,
+        -0.0075046406127512455,
+        0.9999434947967529
+      ]
+    },
+    {
+      "index": 62,
+      "name": "mixamorig:Spine1",
+      "translation": [
+        1.4959368854761124e-08,
+        0.05911261588335037,
+        -1.3969838619232178e-09
+      ],
+      "rotation": [
+        0.003278570482507348,
+        -0.03296762332320213,
+        -0.03282228112220764,
+        0.99891197681427
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 63,
+      "name": "mixamorig:Spine",
+      "translation": [
+        1.2885234212944852e-08,
+        0.046874940395355225,
+        -1.0084300061663498e-10
+      ],
+      "rotation": [
+        -0.004386029671877623,
+        0.06608179956674576,
+        0.06608178466558456,
+        0.9956139922142029
+      ]
+    },
+    {
+      "index": 64,
+      "name": "mixamorig:Hips",
+      "translation": [
+        0.001953127095475793,
+        0.5019533634185791,
+        -0.01367187686264515
+      ],
+      "rotation": [
+        -1.2292847628714298e-08,
+        -0.7071068286895752,
+        -1.2292845852357459e-08,
+        0.7071067094802856
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        1
+      ]
+    },
+    {
+      "index": 65,
+      "name": "tripo_node_07a12aac-7f9d-4040-b705-6ab5cc0f8eaa",
+      "skin": 0,
+      "mesh": 0
+    },
+    {
+      "index": 66,
+      "name": "Armature"
+    }
+  ],
+  "skins": [
+    {
+      "name": "Armature",
+      "jointCount": 65,
+      "jointNames": [
+        "mixamorig:Hips",
+        "mixamorig:LeftUpLeg",
+        "mixamorig:LeftLeg",
+        "mixamorig:LeftFoot",
+        "mixamorig:LeftToeBase",
+        "mixamorig:LeftToe_End",
+        "mixamorig:RightUpLeg",
+        "mixamorig:RightLeg",
+        "mixamorig:RightFoot",
+        "mixamorig:RightToeBase",
+        "mixamorig:RightToe_End",
+        "mixamorig:Spine",
+        "mixamorig:Spine1",
+        "mixamorig:Spine2",
+        "mixamorig:LeftShoulder",
+        "mixamorig:LeftArm",
+        "mixamorig:LeftForeArm",
+        "mixamorig:LeftHand",
+        "mixamorig:LeftHandIndex1",
+        "mixamorig:LeftHandIndex2",
+        "mixamorig:LeftHandIndex3",
+        "mixamorig:LeftHandIndex4",
+        "mixamorig:LeftHandMiddle1",
+        "mixamorig:LeftHandMiddle2",
+        "mixamorig:LeftHandMiddle3",
+        "mixamorig:LeftHandMiddle4",
+        "mixamorig:LeftHandPinky1",
+        "mixamorig:LeftHandPinky2",
+        "mixamorig:LeftHandPinky3",
+        "mixamorig:LeftHandPinky4",
+        "mixamorig:LeftHandRing1",
+        "mixamorig:LeftHandRing2",
+        "mixamorig:LeftHandRing3",
+        "mixamorig:LeftHandRing4",
+        "mixamorig:LeftHandThumb1",
+        "mixamorig:LeftHandThumb2",
+        "mixamorig:LeftHandThumb3",
+        "mixamorig:LeftHandThumb4",
+        "mixamorig:Neck",
+        "mixamorig:Head",
+        "mixamorig:HeadTop_End",
+        "mixamorig:RightShoulder",
+        "mixamorig:RightArm",
+        "mixamorig:RightForeArm",
+        "mixamorig:RightHand",
+        "mixamorig:RightHandIndex1",
+        "mixamorig:RightHandIndex2",
+        "mixamorig:RightHandIndex3",
+        "mixamorig:RightHandIndex4",
+        "mixamorig:RightHandMiddle1",
+        "mixamorig:RightHandMiddle2",
+        "mixamorig:RightHandMiddle3",
+        "mixamorig:RightHandMiddle4",
+        "mixamorig:RightHandPinky1",
+        "mixamorig:RightHandPinky2",
+        "mixamorig:RightHandPinky3",
+        "mixamorig:RightHandPinky4",
+        "mixamorig:RightHandRing1",
+        "mixamorig:RightHandRing2",
+        "mixamorig:RightHandRing3",
+        "mixamorig:RightHandRing4",
+        "mixamorig:RightHandThumb1",
+        "mixamorig:RightHandThumb2",
+        "mixamorig:RightHandThumb3",
+        "mixamorig:RightHandThumb4"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "startSeconds": 0,
+      "endSeconds": 15.333333333333334,
+      "durationSeconds": 15.333333333333334,
+      "channels": 195,
+      "targetNodes": 65,
+      "skinJointTargetNodes": 65,
+      "varyingChannels": 52,
+      "varyingSkinJointNodes": 51,
+      "paths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "keyframeInputAccessors": 2,
+      "targets": [
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        }
+      ]
+    },
+    {
+      "name": "walk",
+      "startSeconds": 0,
+      "endSeconds": 2.3333333333333335,
+      "durationSeconds": 2.3333333333333335,
+      "channels": 195,
+      "targetNodes": 65,
+      "skinJointTargetNodes": 65,
+      "varyingChannels": 45,
+      "varyingSkinJointNodes": 44,
+      "paths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "keyframeInputAccessors": 2,
+      "targets": [
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        }
+      ]
+    },
+    {
+      "name": "Goblin Kitchen carrying motion: walk steadily in place, holding",
+      "startSeconds": 0,
+      "endSeconds": 4.958333333333333,
+      "durationSeconds": 4.958333333333333,
+      "channels": 195,
+      "targetNodes": 65,
+      "skinJointTargetNodes": 65,
+      "varyingChannels": 23,
+      "varyingSkinJointNodes": 22,
+      "paths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "keyframeInputAccessors": 2,
+      "targets": [
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 64,
+          "nodeName": "mixamorig:Hips",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 4,
+          "nodeName": "mixamorig:LeftUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 3,
+          "nodeName": "mixamorig:LeftLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 2,
+          "nodeName": "mixamorig:LeftFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 1,
+          "nodeName": "mixamorig:LeftToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 0,
+          "nodeName": "mixamorig:LeftToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 9,
+          "nodeName": "mixamorig:RightUpLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 8,
+          "nodeName": "mixamorig:RightLeg",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 7,
+          "nodeName": "mixamorig:RightFoot",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 6,
+          "nodeName": "mixamorig:RightToeBase",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 5,
+          "nodeName": "mixamorig:RightToe_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 63,
+          "nodeName": "mixamorig:Spine",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 62,
+          "nodeName": "mixamorig:Spine1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 61,
+          "nodeName": "mixamorig:Spine2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 33,
+          "nodeName": "mixamorig:LeftShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 32,
+          "nodeName": "mixamorig:LeftArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 31,
+          "nodeName": "mixamorig:LeftForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 30,
+          "nodeName": "mixamorig:LeftHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 13,
+          "nodeName": "mixamorig:LeftHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 12,
+          "nodeName": "mixamorig:LeftHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 11,
+          "nodeName": "mixamorig:LeftHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 10,
+          "nodeName": "mixamorig:LeftHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 17,
+          "nodeName": "mixamorig:LeftHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 16,
+          "nodeName": "mixamorig:LeftHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 15,
+          "nodeName": "mixamorig:LeftHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 14,
+          "nodeName": "mixamorig:LeftHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 21,
+          "nodeName": "mixamorig:LeftHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 20,
+          "nodeName": "mixamorig:LeftHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 19,
+          "nodeName": "mixamorig:LeftHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 18,
+          "nodeName": "mixamorig:LeftHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 25,
+          "nodeName": "mixamorig:LeftHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 24,
+          "nodeName": "mixamorig:LeftHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 23,
+          "nodeName": "mixamorig:LeftHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 22,
+          "nodeName": "mixamorig:LeftHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 29,
+          "nodeName": "mixamorig:LeftHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 28,
+          "nodeName": "mixamorig:LeftHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 27,
+          "nodeName": "mixamorig:LeftHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 26,
+          "nodeName": "mixamorig:LeftHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 36,
+          "nodeName": "mixamorig:Neck",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 35,
+          "nodeName": "mixamorig:Head",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 34,
+          "nodeName": "mixamorig:HeadTop_End",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 60,
+          "nodeName": "mixamorig:RightShoulder",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 59,
+          "nodeName": "mixamorig:RightArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 58,
+          "nodeName": "mixamorig:RightForeArm",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": true
+        },
+        {
+          "node": 57,
+          "nodeName": "mixamorig:RightHand",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 40,
+          "nodeName": "mixamorig:RightHandIndex1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 39,
+          "nodeName": "mixamorig:RightHandIndex2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 38,
+          "nodeName": "mixamorig:RightHandIndex3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 37,
+          "nodeName": "mixamorig:RightHandIndex4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 44,
+          "nodeName": "mixamorig:RightHandMiddle1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 43,
+          "nodeName": "mixamorig:RightHandMiddle2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 42,
+          "nodeName": "mixamorig:RightHandMiddle3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 41,
+          "nodeName": "mixamorig:RightHandMiddle4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 48,
+          "nodeName": "mixamorig:RightHandPinky1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 47,
+          "nodeName": "mixamorig:RightHandPinky2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 46,
+          "nodeName": "mixamorig:RightHandPinky3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 45,
+          "nodeName": "mixamorig:RightHandPinky4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 52,
+          "nodeName": "mixamorig:RightHandRing1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 51,
+          "nodeName": "mixamorig:RightHandRing2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 50,
+          "nodeName": "mixamorig:RightHandRing3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 49,
+          "nodeName": "mixamorig:RightHandRing4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 56,
+          "nodeName": "mixamorig:RightHandThumb1",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 55,
+          "nodeName": "mixamorig:RightHandThumb2",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 54,
+          "nodeName": "mixamorig:RightHandThumb3",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "translation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "rotation",
+          "isSkinJoint": true,
+          "outputVaries": false
+        },
+        {
+          "node": 53,
+          "nodeName": "mixamorig:RightHandThumb4",
+          "path": "scale",
+          "isSkinJoint": true,
+          "outputVaries": false
+        }
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "tripo_mesh_07a12aac-7f9d-4040-b705-6ab5cc0f8eaa",
+      "primitives": [
+        {
+          "attributes": [
+            "POSITION",
+            "NORMAL",
+            "TEXCOORD_0",
+            "JOINTS_0",
+            "WEIGHTS_0"
+          ],
+          "vertexCount": 12053,
+          "positionMin": [
+            -0.3002622127532959,
+            -2.616556002976722e-07,
+            -0.13778677582740784
+          ],
+          "positionMax": [
+            0.300262451171875,
+            1,
+            0.1377868950366974
+          ],
+          "indices": 56784
+        }
+      ]
+    }
+  ],
+  "materials": 1,
+  "images": [
+    {
+      "bufferView": 6,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-cook-3anims_normal"
+    },
+    {
+      "bufferView": 7,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-cook-3anims_basecolor"
+    },
+    {
+      "bufferView": 8,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-cook-3anims_rm"
+    }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": []
+}

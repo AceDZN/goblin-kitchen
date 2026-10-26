@@ -201,3 +201,34 @@ test('a consequential error marks later events as corrected rather than first un
   assert.equal(k.events.at(-1)?.unaided, false); assert.equal(k.events.at(-1)?.retry, 1);
   k.log('retry-preparation'); assert.equal(k.events.at(-1)?.unaided, false);
 });
+
+test('parked bread preserves leftover count and stays with its order while the other dish is cooked', () => {
+  const k = new Kitchen(); k.begin(); k.start(); finishFirst(k); next(k);
+  k.take('bread'); k.board(); k.add(); k.add(); k.stage();
+  assert.equal(k.held, null); assert.equal(k.staged[0]?.food, 'bread');
+  assert.equal(k.staged[0] && 'count' in k.staged[0] ? k.staged[0].count : 0, 2);
+  assert.equal(k.dishes[0].items.reduce((n, i) => n + i.count, 0), 2);
+  k.selectOrder(1); k.take('bread'); k.add(); k.take('bread'); k.add(); assert.equal(serve(k), true);
+  assert.equal(k.order, 0); assert.equal(k.dishes[0].served, false);
+  k.stage(); assert.deepEqual(k.held, { food: 'bread', form: 'sliced', count: 2, preparedByPlayer: true });
+  assert.equal(k.staged[0], null); k.stage(); assert.equal(k.held, null);
+  assert.equal(serve(k), true); assert.equal(k.mode, 'between');
+  next(k); assert.deepEqual(k.staged, [null], 'old leftover bread is not transferred into the next recipe');
+});
+
+test('an occupied tray rejects a replacement without losing either ingredient', () => {
+  const k = new Kitchen(); k.begin(); k.start();
+  k.take('banana'); const banana = structuredClone(k.held); k.stage();
+  k.take('bread'); const bread = structuredClone(k.held); k.stage();
+  assert.deepEqual(k.staged[0], banana); assert.deepEqual(k.held, bread);
+  k.wash(); k.stage(); assert.equal(k.held?.food, 'banana'); assert.equal(k.staged[0], null);
+});
+
+test('putting down a carried dish preserves its contents and restart clears parked stock', () => {
+  const k = new Kitchen(); k.begin(); k.start(); bananaBowl(k); addYogurt(k, 2); k.stir();
+  const ready = structuredClone(k.dish); k.lift(); k.stage();
+  assert.equal(k.held, null); assert.deepEqual(k.dish, ready); assert.equal(k.staged[0], null);
+  assert.equal(serve(k), true); next(k); k.take('bread'); k.stage();
+  assert.deepEqual(k.staged.map(item => item?.food).filter(Boolean), ['bread']); k.restart();
+  assert.deepEqual(k.staged, [null]); assert.equal(k.held, null); assert.deepEqual(k.dish, freshDish());
+});

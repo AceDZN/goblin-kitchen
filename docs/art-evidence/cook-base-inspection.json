@@ -1,0 +1,40 @@
+{
+  "source": "Normal Chrome UI Export GLB 1k from Tripo, downloaded by root",
+  "taskUrl": "https://studio.tripo3d.ai/workspace/generate/189e84bb-b317-484b-a787-ac9d72af83aa",
+  "originalPath": "work/tripo-originals/goblin-kitchen-cook-base.glb",
+  "bytes": 1148140,
+  "sha256": "ab92ff9ad44821b231fc4b01b048f8445076c9917cd687da9575158b839f32cd",
+  "generator": "Tripo",
+  "glbVersion": 2,
+  "declaredLengthMatches": true,
+  "meshBoundsMin": [
+    -0.3002624809741974,
+    0,
+    -0.1377868801355362
+  ],
+  "meshBoundsMax": [
+    0.3002624809741974,
+    1,
+    0.1377868801355362
+  ],
+  "meshDimensions": [
+    0.6005249619483948,
+    1,
+    0.2755737602710724
+  ],
+  "nodeTransforms": [
+    {
+      "name": "tripo_node_c8dee6a1-9705-4d7c-9d93-9e99f68e8683"
+    }
+  ],
+  "skins": 0,
+  "jointCounts": [],
+  "clips": [],
+  "meshes": 1,
+  "materials": 1,
+  "textures": 3,
+  "extensionsUsed": [],
+  "runtimeCandidate": null,
+  "optimization": "None: 1.15 MB base reference already below 3 MB target. Exact original preserved; unused public base candidate removed. Final runtime cook is the separate rigged export.",
+  "referenceOnlyPath": "work/tripo-originals/goblin-kitchen-cook-base.glb"
+}

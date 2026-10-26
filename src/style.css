@@ -2,3 +2,7 @@
 
 #contents{font:600 10px/1.6 Heebo,sans-serif;letter-spacing:.3px;color:#795a40;border-top:1px solid #b48b5a66;padding:6px 0;margin-bottom:5px} @media(max-width:760px){#contents{font-size:9px}}
 @media(min-width:761px) and (max-width:1350px){#recipe{width:300px;padding:12px 16px}#recipe p{font-size:17px;line-height:1.35}#contents{font-size:9px}}
+
+#actions{flex-wrap:wrap}
+
+.panel button:not(.primary){background:#e1cfad;color:#49313a;border-color:#9b7a58} @media(max-width:760px){#carry{bottom:185px}#touch-move{bottom:175px}}

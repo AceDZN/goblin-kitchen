@@ -1,0 +1,64 @@
+{
+  "path": "work/tripo-originals/goblin-kitchen-bowl.glb",
+  "bytes": 838320,
+  "sha256": "7aa5155b84aac5d36037ade7f50af0d83504064ee0302d3150e78299b5ab97c5",
+  "generator": "Tripo",
+  "glbVersion": 2,
+  "declaredLengthMatches": true,
+  "nodes": 1,
+  "nodeTransforms": [
+    {
+      "index": 0,
+      "name": "tripo_node_9dc4c47a-870c-40bc-a3f8-25b960a2a2dc",
+      "mesh": 0
+    }
+  ],
+  "skins": [],
+  "animations": [],
+  "meshes": [
+    {
+      "name": "tripo_mesh_9dc4c47a-870c-40bc-a3f8-25b960a2a2dc",
+      "primitives": [
+        {
+          "attributes": [
+            "POSITION",
+            "NORMAL",
+            "TEXCOORD_0"
+          ],
+          "vertexCount": 11442,
+          "positionMin": [
+            -0.5000001192092896,
+            0,
+            -0.4617615342140198
+          ],
+          "positionMax": [
+            0.5000001192092896,
+            0.49847412109375,
+            0.4617615342140198
+          ],
+          "indices": 56196
+        }
+      ]
+    }
+  ],
+  "materials": 1,
+  "images": [
+    {
+      "bufferView": 4,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-bowl_normal"
+    },
+    {
+      "bufferView": 5,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-bowl_basecolor"
+    },
+    {
+      "bufferView": 6,
+      "mimeType": "image/jpeg",
+      "name": "goblin-kitchen-bowl_rm"
+    }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": []
+}
