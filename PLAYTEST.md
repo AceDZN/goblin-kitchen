@@ -1,58 +1,48 @@
-# Verification · 26 October 2026
+# Verification · 28 October 2026
 
-## Result
+## Current campaign
 
-All five shifts completed through normal browser controls with the final **real Tripo cook, 65-joint Mixamo rig, three motion clips and ceramic bowl** loaded. The independent regression verifies both desktop and touch. No inventory, recipe outcome or win state is injected; `advanceTime` advances simulation time only.
+The game now has **36 regular progressive levels, 60 orders, six venues, ten foods and five processing tools**. There is no school-grade selector or grade-based content limit. Success unlocks the next level; local progress stores completed levels, best stars and the last played level. Retry keeps the current level. A validated Workbook `?level=N` link can open any level 1–36 directly.
 
-The renewed pass adds order trays, a hatch-targeted toss that awards success only on arrival, recoverable return flights, hand-bound carrying and consistent guided/unaided results. The mandatory Tripo acquisition/integration is complete. Original prompts, UI task URLs, actual file inspection, hashes and credit use are in `ASSETS.md`.
+## Rule and progression tests
 
-## Commands and checks
+`npm test`: **78/78 pass**. Each of the 36 levels is solved through actual Kitchen actions, and a continuous 1→36 run ends only after the final feast. Coverage includes:
 
-- `npm test`: **24/24 pass**. All five solutions, either bread-order sequence, counted heads, preparation states, cup versus tablespoon, source-apple quantities, clean bowl, player-prepared pear, multiple valid “a little” amounts, remove/restir and wash recovery, pause, assistance/restart history, duplicate service, guided-first-shift reporting, and tray conservation/occupied-tray refusal.
-- `npm run typecheck` and `npm run build`: **pass**. Static relative-path output. Vite reports a JS chunk above 500 KB raw; measured compressed responses are below.
-- `node scripts/browser-playtest.cjs http://127.0.0.1:5201`: **pass** after actual rig/prop integration. The script waits for both models, asserts 65 joints and exact three clip names, and completes the real gameplay route. It uses local Playwright and installed Chrome with Metal flags on macOS. Captures are in `docs/captures`; transient machine-readable results stay in ignored `work/reviewer-browser-results.json`.
-- `node scripts/browser-playtest.cjs --focused`: earlier focused checks passed during the mechanics/base-model integration. The later full run supersedes that asset status.
-- Built preview **4201** loads both GLBs and enters play with zero JavaScript/console errors. Dev **5201** remains running. Production deployment was not performed.
+- All 60 courses have available ingredients, tools, liquids and units; counts are bounded, and all six venues have six levels.
+- The five opening English fixtures are preserved; level 5 now continues to level 6.
+- Ingredient identity, source counts, preparation, player-prepared referents and raw/toasted/roasted states remain consequential.
+- Exact measures distinguish volumes/units and liquid identity; multiple liquids retain separate requirements.
+- “A little” accepts small positive volume in available units, including teaspoons and equivalent mixed small units, without an unstated tablespoon-only rule. Oversized amounts still fail.
+- Layer order, required blending, unwanted blending, additions after blending and explicit course order are tested with near misses and recovery.
+- Trays conserve leftovers; rejected service preserves dish contents; restart/pause/help/history and duplicate service remain covered.
+- Saved progress round-trips, clamps invalid values, unlocks the next level and preserves better replay records. Soft time targets never block completion.
 
-## Actual browser cases
+`npm run typecheck` and `npm run build` pass. Vite continues to warn about the Three.js-containing chunk above 500 KB raw.
 
-The reviewer deliberately made the first recipe with three tablespoons. Tips/results remained unchanged during the outward flight. Midair pause froze the projectile and action time. The hatch rejected the dish, quoted “2 tablespoons”, and returned the bowl to MIX preserving its ingredients. Removing one portion invalidated the old stir; restirring and serving succeeded. A caught bowl and customer reaction appeared before the result overlay.
+## Full browser campaign
 
-The bread shift used separate order bowls and trays. The reviewer parked two leftover slices, cooked the other order, retrieved the slices and served both orders without discarding the leftovers. Carry/tray labels correctly say “2 slices of bread”. The PREP counter was relocated before shift 3. Peeling then slicing a banana and measuring one cup solved that recipe.
+`node scripts/campaign-playtest.cjs http://127.0.0.1:5201` **passed every level 1→36 and all 60 orders through normal pointer/keyboard controls**, with zero browser errors. The catalog supplies a cooking plan; no inventory, dish or win state is injected. `advanceTime` advances simulation time only.
 
-The prepared-pear near miss was rejected; washing/remaking with a whole pear prepared by the player and two tablespoons recovered. The transfer changed station locations and pantry fruit, started with a dirty bowl, and accepted two sliced source apples, three tablespoons and a final stir after washing. Its wording permits preparing/adding each apple independently, without an unstated grouping constraint. The final transfer completed without help.
+The run used every tool and liquid, all six layout permutations and all six venues. It verified the initial 36-button map, the one-level new-save unlock, completion unlocking the next level, save/reload, continuation through the map, all 36 completed records, all unlocked replay buttons and a replay/reload of level 7. Both actual GLBs were loaded, with 65 cook joints. The test profile finished with 36 completed levels and 105 stars; that is a scripted test profile, not a student result.
 
-One final deterministic route recorded 285 tips, two intentional errors, guided shift 1, three first-attempt unaided later shifts out of four, and unaided transfer. Simulation times were approximately 86 / 73 / 45 / 100 / 95 seconds. These are scripted cooking times, not a student timing study.
+Evidence: `docs/captures/campaign/` contains new/completed-save maps, ready dishes from levels 1/7/14/17/22/27/33/36 and each chapter's completion. Transient machine-readable results are in ignored `work/campaign-browser-results.json`. The test closes its own browser in `finally`.
 
-## Rig, controls and responsive checks
+After that continuous run, the “a little” volume rule and half-cup cup geometry were refined. The full rule suite and targeted browser/visual checks cover those refinements; the continuous route itself used the earlier strict-unit version and original cup cap. Valid solutions from that route remain accepted.
 
-Normal input selected **idle → walk → carrying** clips; the rendered scene was nonblank and changed during motion. Pausing held the canvas pixels and clock exactly unchanged. Separate file inspection establishes a real skin with weights and changing joint tracks. Fresh screenshots show the patterned bowl and carried items meeting the cook’s hands below the face. The AI clip carries at chest height; it does not exactly reproduce the requested waist-height pose.
+## Independent recovery and responsive checks
 
-Touch at **390×844** moved to stations and parked/retrieved ingredients. All four wrapped MIX buttons fit inside the viewport, and the carry label stays above the action area. Reading, vocabulary, pause, reduced motion and restart passed. Vocabulary marks assistance; restart preserves prior exposure. The completed-state header guard prevents reentering a finished shift. Final Hebrew result fractions use an explicit LTR isolation element.
+The committed `scripts/browser-playtest.cjs` retains the opening-five deliberate wrong-amount/pear, return flight, pause, recovery, tray and transfer cases while checking continuation to level 6. It also supplies independent normal-input probes for wrong layers (9), wrong service order/current retry (11), an unwanted blend (22), and flexible small yogurt versus exact broth quantity (28). The opening-five/mobile/layer-9 run passed. After correcting the UI retry guard for later host-deep-linked levels, `node scripts/browser-playtest.cjs --probes-only` passed service-order/retry 11, blend recovery 22, and flexible/exact quantity 28 with zero errors. Live half-cup and aggregate labels were asserted and captured. Details are in `docs/REVIEW.md`.
 
-Earlier normal-input exploration also verified keyboard movement, counter/wall collision, mute labels, fullscreen enter/exit and reading/help freezing. Actual audible sound quality and physical-device performance were not measured. English speech depends on an available browser voice; text remains visible.
+Art checks used normal controls to grate two carrots, slice an apple, measure yogurt, blend a held dish and put it down. The held/plated visuals both refresh to a smooth surface. Full versus half broth measures now have a real open cup interior and different visible liquid heights. Typecheck and the targeted cup capture check pass with zero errors.
 
-## Required skill client
+At **390×844**, a late three-order recipe note scrolls within a compact cream panel, leaving stations tappable. Actual touch reached PANTRY, MEASURE and MIX in level 36; the header recipe control opened the full paused reading panel. The six venue captures, three visible bowls, food forms/heat, tools and touch evidence are in `docs/art-evidence/campaign/` and described in `VISUAL_REVIEW.md`.
 
-The installed `develop-web-game` action client was used. Its initial hardcoded SwiftShader launch stalled on this host. Ignored `work/client-metal.mjs` retains that client, changing only its Playwright import resolution and launch flags to Metal. The final action burst entered cooking and moved right, producing an inspected screenshot/text pair with both real models and 65 joints:
+The required installed web-game action client is used via the previously documented ignored `work/client-metal.mjs`, whose import resolution and Metal launch flags adapt the existing client to this host. The final run opened level 36, entered play and moved right; the lead inspected its screenshot/state showing `mode: play`, level36/36 and both real models. Its image is copied to `docs/captures/campaign/skill-client-level-36.png`. The committed campaign script supplies the complete normal-input route.
 
-```sh
-node work/client-metal.mjs --url http://127.0.0.1:5201 \
-  --click-selector '#start-btn' \
-  --actions-json '{"steps":[{"buttons":["left_mouse_button"],"frames":2,"mouse_x":790,"mouse_y":525},{"buttons":[],"frames":60},{"buttons":["right"],"frames":20},{"buttons":[],"frames":1}]}' \
-  --iterations 1 --pause-ms 750 --screenshot-dir work/final-rig-client
-```
+## Runtime and limitations
 
-The lead opened the resulting pixels and state; no error file was emitted. The committed normal-input script supplies the reproducible full route.
+The original Tripo cook retains its 65-joint Mixamo skin and idle/walk/carry clips; the ceramic bowl/ladle remains the original local prop. Runtime GLBs are unchanged at **2,760,036 bytes** total. New foods, tools and venue decorations are original procedural geometry. No new Tripo credits or external services were used for the campaign expansion.
 
-## Size and performance
+`node scripts/static-preview-check.cjs` checked the final built output at levels 1 and 36, both at 1280×720. Each short desktop sample measured approximately **60.3 FPS**, with zero errors and both real models. Initial encoded response bodies totaled **3,033,232 bytes (~3.03 MB)**; the complete static output is **3,798,348 bytes (~3.80 MB)**. Measurements/resources are saved in `docs/performance.json`. Dev 5201 and built preview 4201 remain available locally. Production deployment is separate.
 
-The two runtime GLBs total **2,760,036 bytes**: cook 1,921,716; bowl 838,320. Each is below 3 MB, so original embedded 1k textures, geometry and animations were retained without a compression decoder. The unused base export is preserved outside the runtime folder.
-
-A built-preview browser at **1280×720** counted **151 animation frames in 2.514 seconds: 60.1 FPS**, with both models loaded. Measured initial encoded response bodies totaled approximately **3.01 MB**, including local fonts and a duplicated favicon fetch; HTML adds about 0.5 KB. Exact resource measurements are saved in `docs/performance.json`. The JS bundle is approximately **694 KB raw / 180 KB gzip**. Complete static output is about **3.7 MB**, including unused font subsets. DPR is capped at 1.5, shadows at 1024, floor tiles are instanced, and paused scenes render only when necessary. This is a short desktop sample, not a sustained/mobile benchmark.
-
-## Evidence and limits
-
-Fresh captures include `reviewer-carry-banana.png`, `reviewer-carry-dish.png`, `reviewer-rig-walk.png`, `reviewer-rig-pause.png`, `reviewer-toss-midair.png`, `reviewer-return-flight.png`, `reviewer-hatch-catch.png`, `reviewer-tray-juggle.png`, `reviewer-transfer-ready.png`, `reviewer-five-shifts-complete.png`, `reviewer-mobile-tray.png` and `static-desktop.png`. Generated images in `docs/visual-targets` remain labeled design targets. `VISUAL_REVIEW.md` compares actual pixels with that target.
-
-The game retains a simpler, more elevated diorama than the generated target. Background customers, architecture and exact food portions are procedural. No child engagement, learning-gain, speaking-assessment or Ministry-approval claim is made. No microphone or remote analytics is used.
+Saved progress is local to this browser/device. Automated solvability and browser completion do not establish child engagement or learning gains. The implemented elevated diorama remains simpler than the generated targets. English speech depends on an installed browser voice; no microphone or speaking assessment is implemented. Physical-speaker audio quality and sustained performance on low-end phones are not established by the desktop checks.

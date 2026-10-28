@@ -215,9 +215,13 @@ export class KitchenScene {
  renderMeasure(parent:T.Group,item:Extract<Carry,{food:'yogurt'}>){
   const liquid=item.liquid??'yogurt';
   if(item.unit==='cup'||item.unit==='half-cup'){
-   this.cylinder(.22,.17,.36,'cream',parent);this.cylinder(.18,.18,.025,liquid,parent,0,item.unit==='half-cup'?.035:.19,0);
+   const wall=[new T.Vector2(0,-.18),new T.Vector2(.14,-.18),new T.Vector2(.17,-.15),new T.Vector2(.22,.18),new T.Vector2(.195,.18),new T.Vector2(.15,-.13),new T.Vector2(0,-.13)];
+   this.mesh(new T.LatheGeometry(wall,24),'cream',parent);
+   const half=item.unit==='half-cup',radius=half?.16:.185;
+   this.cylinder(radius,radius,.025,liquid,parent,0,half?.005:.14,0);
+   const rim=this.mesh(new T.TorusGeometry(.208,.012,6,24),'brass',parent,0,.18,0);rim.rotation.x=Math.PI/2;
    const handle=this.mesh(new T.TorusGeometry(.12,.035,8,16),'brass',parent,.24,0,0);handle.rotation.y=Math.PI/2;
-   if(item.unit==='half-cup')this.box(.15,.025,.015,'brass',parent,0,.04,.185);
+   if(half)this.box(.15,.025,.015,'brass',parent,0,.005,.202);
   }else{const spoon=new T.Group();parent.add(spoon);spoon.scale.setScalar(item.unit==='teaspoon'?.7:1);this.spoon(spoon,0,0,0);this.sphere(.12,liquid,spoon,0,.04,.3,1,.5,1)}
  }
  sync(){

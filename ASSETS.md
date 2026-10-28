@@ -1,5 +1,17 @@
 # Asset provenance and acquisition status
 
+## Scene expansion — 28 October 2026
+
+The 36-level expansion reuses the same original local Tripo cook and patterned bowl, including the real 65-joint skin and idle/walk/carry clips. No Chrome interaction, model generation, rig processing or additional Tripo credit use occurred in this scene pass. The existing two original model generations and 120 observed credits below are the acquisition record; this is not a reset of that allowance.
+
+New venue backdrops, skyline/vent, bakery oven/wheat, market planters, harbour sail/rope, royal banners/crowns, tool silhouettes, ten foods, preparation/heat markers, liquid vessels, three-bowl plating and per-order trays are original procedural Three.js geometry in `src/scene.ts`. They do not add model or texture downloads. The generated rooftop design target and exact prompt are saved under `docs/visual-targets/campaign-rooftop-*`; they are design evidence, not runtime assets or actual software captures.
+
+The real cook's animation selection and hand-bone attachment remain in place. Bowl instances clone model geometry; model materials/maps remain shared. Dynamic scene cleanup disposes owned instance geometry and uniquely owned procedural surface materials, while preserving shared model textures. Blended dish state participates in the held-item cache, so processing a held bowl updates its rendered contents.
+
+Measuring cups now use original open lathed wall/bottom geometry and a brass rim, with distinct interior full/half liquid surfaces. The cream and brass materials remain shared; only the instance geometry is new. A focused normal-input cup/half-cup broth check and typecheck passed after this visual refinement. It adds no external asset or decoder dependency.
+
+Actual six-venue captures, rooftop prep/blend transitions, and portrait touch evidence are in `docs/art-evidence/campaign/`; the detailed target comparison and verification limits are in `VISUAL_REVIEW.md`. No new asset-source or licensing claim is made for these procedural additions.
+
 ## Current acquired assets — 26 October 2026
 
 **Chrome recovery succeeded on root through native normal UI.** The prior access failures below are historical. Root is sole Chrome owner and coordinates the shared native UI lock; this helper performs local inspection only. Two original model generations have now been used out of the three-model allowance. Both required real local GLBs are now acquired: the cook with a real 65-joint skin and three full-body clips, and the original ceramic bowl/ladle prop. Local file inspection and lead integration checks are complete. The manifest points to both real runtime GLBs and the three exact clip names. Lead runtime hooks report `realCook: true`, `riggedCook: true`, 65 joints, 3 clips and `realProp: true`; inspected runtime images show the textured cook and bowl. The independent gameplay reviewer subsequently completed the final normal-input success/mistake/recovery/restart/transfer/touch regression, with all assets loaded and no page/console errors; details and limits are in `docs/REVIEW.md`.

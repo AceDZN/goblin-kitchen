@@ -42,6 +42,7 @@ let vocabOpen=false,mapOpen=false,mapReturn:Mode='intro',lastStep=0,measuredFram
 let servingVisual:T.Group|null=null,throwOrigin=new T.Vector3(),throwEnd=new T.Vector3(),celebration=0;
 let cart:T.Group|undefined,cartBump=0,lastRenderedMode='';
 const unitLabel:Record<Unit,string>={tablespoon:'tablespoon',cup:'cup',teaspoon:'teaspoon','half-cup':'½ cup'};
+function measureLabel(amount:number,unit:Unit,liquid?:Liquid){const quantity=unit==='half-cup'?(amount===1?'½ cup':`${amount} × ½ cup`):`${amount} ${unitLabel[unit]}${amount===1?'':'s'}`;return quantity+(liquid?' of '+liquid:'')}
 const toolLabel:Record<Tool,string>={dice:'Dice',grate:'Grate',toast:'Toast',roast:'Roast',blend:'Blend dish'};
 const nextChoice=<T,>(list:T[],current:T)=>list[(Math.max(0,list.indexOf(current))+1)%list.length];
 function sound(type='tap'){
@@ -53,7 +54,7 @@ function save(){
 }
 function itemLabel(h:Kitchen['held']):string{
  if(!h)return 'ידיים פנויות';if(h.food==='dish')return game.dish.blended?'BLENDED DISH · ready to carry':'DISH · ready to carry';
- if(h.food==='yogurt')return `1 ${unitLabel[h.unit]} of ${h.liquid??'yogurt'}`;
+ if(h.food==='yogurt')return measureLabel(1,h.unit,h.liquid??'yogurt');
  const heat=h.heat&&h.heat!=='raw'?h.heat+' ':'';
  if(h.food==='bread'){const head=h.form==='whole'?(h.count===1?'loaf':'loaves'):(h.count===1?'slice':'slices');return `${h.count} ${heat}${head} of bread`}
  const plural=h.food==='potato'?'potatoes':h.food==='tomato'?'tomatoes':h.food+'s';return `${h.count} ${heat}${h.form} ${h.count===1?h.food:plural}`;
@@ -61,14 +62,14 @@ function itemLabel(h:Kitchen['held']):string{
 function bowlLabel(){
  const d=game.dish;const groups:Record<string,typeof d.items[number]>={};for(const i of d.items){const k=i.food+i.form+i.heat;groups[k]=groups[k]?{...groups[k],count:groups[k].count+i.count}:{...i}}
  const liquids:Record<string,{unit:Unit;liquid:Liquid;amount:number}>={};for(const m of d.yogurt){const liquid=m.liquid??'yogurt',key=liquid+m.unit;liquids[key]??={unit:m.unit,liquid,amount:0};liquids[key].amount+=m.amount}
- return [`IN BOWL · ${d.clean?'CLEAN':'DIRTY'}`,Object.keys(groups).length?Object.values(groups).map(i=>itemLabel(i)).join(', '):'empty',...Object.values(liquids).map(m=>`${m.amount} ${unitLabel[m.unit]}${m.amount>1&&m.unit!=='half-cup'?'s':''} of ${m.liquid}`),d.blended?'blended':d.stirred?'stirred':'',game.staged[game.order]?'TRAY: '+itemLabel(game.staged[game.order]):''].filter(Boolean).join(' · ');
+ return [`IN BOWL · ${d.clean?'CLEAN':'DIRTY'}`,Object.keys(groups).length?Object.values(groups).map(i=>itemLabel(i)).join(', '):'empty',...Object.values(liquids).map(m=>measureLabel(m.amount,m.unit,m.liquid)),d.blended?'blended':d.stirred?'stirred':'',game.staged[game.order]?'TRAY: '+itemLabel(game.staged[game.order]):''].filter(Boolean).join(' · ');
 }
 function buttons(s?:Station){
  if(!s)return [];switch(s.id){
  case 'fruit':return game.spec.pantry.filter(f=>f!=='bread').map((f,i)=>({id:'take-'+f,label:`${i===0?'E · ':''}Take ${f}`}));
  case 'bread':return [{id:'bread',label:'E · Take loaf'}];
  case 'board':return [{id:'prep',label:`E · ${game.held?.food==='banana'&&game.held.form==='whole'?'Peel':'Prepare / slice'}`}];
- case 'yogurt':return [{id:'measure',label:`E · Measure 1 ${unitLabel[game.tool]}`},...(game.spec.units.length>1?[{id:'tool',label:`Use ${unitLabel[nextChoice(game.spec.units,game.tool)]}`}]:[]),...(game.spec.liquids.length>1?[{id:'liquid',label:`Choose ${nextChoice(game.spec.liquids,game.liquid)}`}]:[])];
+ case 'yogurt':return [{id:'measure',label:`E · Measure ${measureLabel(1,game.tool)}`},...(game.spec.units.length>1?[{id:'tool',label:`Use ${unitLabel[nextChoice(game.spec.units,game.tool)]}`}]:[]),...(game.spec.liquids.length>1?[{id:'liquid',label:`Choose ${nextChoice(game.spec.liquids,game.liquid)}`}]:[])];
  case 'prepared':return game.spec.tools.length?game.spec.tools.map((t,i)=>({id:'process-'+t,label:`${i===0?'E · ':''}${toolLabel[t]}`})):game.spec.pantry.includes('pear')?[{id:'pear-whole',label:'E · Take whole pear'},{id:'pear-prepared',label:'Take prepared pear'}]:[];
  case 'bowl':return game.held?.food==='dish'?[{id:'stage',label:'E · Put dish down'}]:game.held?[{id:'add',label:'E · Add'},{id:'stage',label:'Park on tray'}]:[{id:'stir',label:'E · Stir gently'},{id:'lift',label:'Take dish'},{id:'remove',label:'Remove 1 measure'},...(game.staged[game.order]?[{id:'stage',label:'Take from tray'}]:[])];
  case 'serve':return [{id:'serve',label:'E · Toss & serve'}];
@@ -143,7 +144,7 @@ app.addEventListener('click',e=>{
  case 'read':if(!mapOpen&&['play','read','pause'].includes(game.mode))game.mode=game.mode==='play'?'read':'play';break;
  case 'pause':case 'settings':if(!mapOpen&&['play','read','pause'].includes(game.mode))game.mode=game.mode==='play'?'pause':'play';break;
  case 'next':if(game.mode==='between')openLevel(game.shift+1);return;
- case 'restart':game.priorAssistance.add(game.shift);openLevel(game.shift);return;
+ case 'restart':game.priorAssistance.add(game.shift);openLevel(game.shift,true);return;
  case 'mute':muted=!muted;if(muted)window.speechSynthesis?.cancel();writeLocal('gk-muted',muted?'1':'0');break;
  case 'motion':reduced=!reduced;scene.reduced=reduced;writeLocal('gk-motion',reduced?'1':'0');break;
  case 'vocab':if(['play','read','pause'].includes(game.mode)){game.help();vocabOpen=true}break;

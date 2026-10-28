@@ -10,20 +10,26 @@ export type Item={food:Food;form:Form;count:number;preparedByPlayer?:boolean;hea
 export type Dish={items:Item[];yogurt:Measure[];stirred:boolean;blended:boolean;clean:boolean;served:boolean};
 export const freshDish=():Dish=>({items:[],yogurt:[],stirred:false,blended:false,clean:true,served:false});
 export const ingredients=(r:Recipe):Ingredient[]=>[{food:r.food,form:r.form,count:r.count,heat:r.heat,prepared:r.prepared},...(r.extra??[])];
+export const measureVolume:Record<Unit,number>={tablespoon:1,teaspoon:1/3,'half-cup':8,cup:16};
 export const measures=(r:Recipe):{liquid:Liquid;unit:Unit;amount?:number}[]=>r.dressings?.map(m=>({...m,liquid:m.liquid??'yogurt'}))??(r.yogurt?[{...r.yogurt,liquid:r.sauce??'yogurt'}]:[]);
+function ingredientPhrase(req:Ingredient){
+ const heat=req.heat&&req.heat!=='raw'?req.heat+' ':'';
+ if(req.food==='bread'){const head=req.form==='whole'?(req.count===1?'loaf':'loaves'):(req.count===1?'slice':'slices');return `${req.count} ${heat}${head} of bread`}
+ const plural=req.food==='tomato'?'tomatoes':req.food==='potato'?'potatoes':req.food+'s';return `${req.count} ${heat}${req.form} ${req.count===1?req.food:plural}`;
+}
 export function validateDish(d:Dish,r:Recipe):{ok:boolean;reason:string;phrase:string}{
  const bad=(reason:string,phrase:string)=>({ok:false,reason,phrase});
  if(!d.clean)return bad('הקערה מלוכלכת. רוקנו ושטפו בכיור.','a clean bowl');
  const wanted=ingredients(r);
  if(d.items.some(i=>!wanted.some(w=>w.food===i.food)))return bad('נכנס מרכיב שלא מופיע בהזמנה. רוקנו בכיור והכינו מחדש.',r.text);
  for(const req of wanted){const items=d.items.filter(i=>i.food===req.food);
-  if(items.some(i=>i.form!==req.form||req.prepared&&!i.preparedByPlayer))return bad(req.food==='bread'?'פרוסה וכיכר הן צורות שונות. בדקו מה התבקשתם להגיש.':'בדקו את מצב המרכיב: שלם, מקולף, פרוס, חתוך לקוביות או מגורר.',req.prepared?`the ${req.food} that you prepared`:`${req.form} ${req.food}`);
+  if(items.some(i=>i.form!==req.form||req.prepared&&!i.preparedByPlayer))return bad(req.food==='bread'?'פרוסה וכיכר הן צורות שונות. בדקו מה התבקשתם להגיש.':'בדקו את מצב המרכיב: שלם, מקולף, פרוס, חתוך לקוביות או מגורר.',req.prepared?`the ${req.food} that you prepared`:ingredientPhrase(req));
   if(items.some(i=>(i.heat??'raw')!==(req.heat??'raw')))return bad('בדקו אם המתכון מבקש מרכיב קלוי, צלוי או ללא חימום. השתמשו בכלי המתאים.',`${req.heat??'raw'} ${req.food}`);
-  const n=items.reduce((a,i)=>a+i.count,0);if(n!==req.count)return bad(`כמות ${req.food} אינה מתאימה. בקערה יש ${n}. אפשר לרוקן ולהכין שוב.`,`${req.count} ${req.form} ${req.food}`);
+  const n=items.reduce((a,i)=>a+i.count,0);if(n!==req.count)return bad(`כמות ${req.food} אינה מתאימה. בקערה יש ${n}. אפשר לרוקן ולהכין שוב.`,ingredientPhrase(req));
  }
  const expected=measures(r);
- if(d.yogurt.some(m=>!expected.some(e=>e.liquid===(m.liquid??'yogurt')&&e.unit===m.unit)))return bad('בדקו גם את הנוזל וגם את יחידת המדידה. הוציאו מנה עודפת ובחרו כלי מתאים.',expected.map(m=>`${m.unit} of ${m.liquid}`).join(', ')||'without sauce');
- for(const m of expected){const amount=d.yogurt.filter(x=>(x.liquid??'yogurt')===m.liquid&&x.unit===m.unit).reduce((n,x)=>n+x.amount,0);if(m.amount===undefined?amount<=0||amount>4:amount!==m.amount)return bad(m.amount===undefined?'צריך מעט, בלי מספר מדויק. ביחידות המשחק אפשר 1–4 כפות.':'כמות המדידה אינה מתאימה. אפשר להוציא מנה, למדוד שוב ולערבב.',m.amount===undefined?`a little ${m.liquid}`:`${m.amount} ${m.unit}${m.amount===1?'':'s'} of ${m.liquid}`);}
+ if(d.yogurt.some(m=>!expected.some(e=>e.liquid===(m.liquid??'yogurt')&&(e.amount===undefined||e.unit===m.unit))))return bad('בדקו גם את הנוזל וגם את יחידת המדידה. הוציאו מנה עודפת ובחרו כלי מתאים.',expected.map(m=>m.amount===undefined?`a little ${m.liquid}`:`${m.unit} of ${m.liquid}`).join(', ')||'without sauce');
+ for(const m of expected){const amount=d.yogurt.filter(x=>(x.liquid??'yogurt')===m.liquid&&(m.amount===undefined||x.unit===m.unit)).reduce((n,x)=>n+x.amount*(m.amount===undefined?measureVolume[x.unit]:1),0);if(m.amount===undefined?!Number.isFinite(amount)||amount<=0||amount>4+1e-9:amount!==m.amount)return bad(m.amount===undefined?'צריך מעט, בלי כלי או מספר מדויק. במשחק זו כמות חיובית עד נפח של ארבע כפות; גם כפיות יכולות להתאים.':'כמות המדידה אינה מתאימה. אפשר להוציא מנה, למדוד שוב ולערבב.',m.amount===undefined?`a little ${m.liquid}`:m.unit==='half-cup'?`${m.amount===1?'half a cup':m.amount+' half-cup measures'} of ${m.liquid}`:`${m.amount} ${m.unit}${m.amount===1?'':'s'} of ${m.liquid}`);}
  if(r.layers){const actual=d.items.flatMap(i=>Array.from({length:i.count},()=>i.food));const order=r.layers.flatMap(f=>Array.from({length:wanted.find(w=>w.food===f)?.count??0},()=>f));if(actual.join(',')!==order.join(','))return bad('הכמויות נכונות, אבל סדר השכבות שונה. הרכיבו מחדש לפי before / after.',r.layers.join(' → '));}
  if(r.blend===false&&d.blended)return bad('ההזמנה מבקשת חתיכות, אבל המנה נטחנה. רוקנו והכינו שוב בלי בלנדר.','serve the pieces');
  if(r.blend&&!d.blended)return bad('המנה עדיין לא נטחנה. הרימו אותה והביאו לבלנדר בתחנת TOOLS.','blend');

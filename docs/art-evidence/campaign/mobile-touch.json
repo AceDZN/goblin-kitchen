@@ -1,0 +1,92 @@
+{
+  "css": {
+    "overflow": "auto",
+    "maxHeight": "202.56px",
+    "height": 199,
+    "scrollHeight": 280,
+    "box": {
+      "x": 12,
+      "y": 91,
+      "width": 248,
+      "height": 202.546875,
+      "top": 91,
+      "right": 260,
+      "bottom": 293.546875,
+      "left": 12
+    }
+  },
+  "errors": [],
+  "evidence": [
+    {
+      "station": "fruit",
+      "player": {
+        "x": -3.65,
+        "z": 3.07
+      },
+      "near": "fruit",
+      "actions": [
+        {
+          "id": "take-cucumber",
+          "label": "E · Take cucumber"
+        },
+        {
+          "id": "take-carrot",
+          "label": "Take carrot"
+        },
+        {
+          "id": "take-potato",
+          "label": "Take potato"
+        },
+        {
+          "id": "take-pepper",
+          "label": "Take pepper"
+        }
+      ]
+    },
+    {
+      "station": "yogurt",
+      "player": {
+        "x": 3.68,
+        "z": -2.95
+      },
+      "near": "yogurt",
+      "actions": [
+        {
+          "id": "measure",
+          "label": "E · Measure 1 tablespoon"
+        },
+        {
+          "id": "tool",
+          "label": "Use cup"
+        },
+        {
+          "id": "liquid",
+          "label": "Choose broth"
+        }
+      ]
+    },
+    {
+      "station": "bowl",
+      "player": {
+        "x": 0.02,
+        "z": -1.74
+      },
+      "near": "bowl",
+      "actions": [
+        {
+          "id": "stir",
+          "label": "E · Stir gently"
+        },
+        {
+          "id": "lift",
+          "label": "Take dish"
+        },
+        {
+          "id": "remove",
+          "label": "Remove 1 measure"
+        }
+      ]
+    }
+  ],
+  "fullRecipePaused": true
+}

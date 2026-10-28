@@ -172,3 +172,18 @@ test('progress rejects malformed versions/IDs and clamps persisted bounds',()=>{
  const locked=readProgress('{"version":1,"unlocked":2,"lastLevel":36}',36);assert.equal(locked.lastLevel,2);
  for(const n of [0,37,-1,NaN,1.5])assert.deepEqual(completeLevel(newProgress(),result(n),36),newProgress());
 });
+
+function littlePear(){const k=new Kitchen();k.enter(27);k.start();k.selectOrder(1);addIngredient(k,ingredients(k.recipe)[0]);return k}
+test('a little yogurt accepts small positive available measures, including equivalent mixed units',()=>{
+ for(const amount of [1,3,12]){
+  const k=littlePear();assert.ok(k.spec.units.includes('teaspoon'));measure(k,'yogurt','teaspoon',amount);k.stir();
+  assert.equal(validateDish(k.dish,k.recipe).ok,true,`${amount} teaspoon(s) is within four game tablespoons; the recipe names no exact unit`);
+ }
+ const mixed=littlePear();measure(mixed,'yogurt','tablespoon',1);measure(mixed,'yogurt','teaspoon',9);mixed.stir();
+ assert.equal(validateDish(mixed.dish,mixed.recipe).ok,true,'one tablespoon plus nine teaspoons is four tablespoons, allowing numeric tolerance');
+});
+test('a little yogurt still rejects more than the small-portion bound',()=>{
+ for(const [unit,amount]of [['teaspoon',13],['half-cup',1],['cup',1]] as const){
+  const k=littlePear();measure(k,'yogurt',unit,amount);k.stir();assert.equal(validateDish(k.dish,k.recipe).ok,false,`${amount} ${unit} is more than four tablespoons`);
+ }
+});

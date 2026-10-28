@@ -1,5 +1,38 @@
 # Generated target versus real gameplay
 
+## Current campaign scene pass — 28 October 2026
+
+The campaign expansion uses the new built-in-imagegen target `docs/visual-targets/campaign-rooftop-target.png`, with exact mode/prompt in `campaign-rooftop-prompt.txt`. The lead generated and inspected it before expanded scene implementation; the art owner also opened it before changing `src/scene.ts`. It remains a generated design target, not a software screenshot. The original local Tripo cook, full-body rig/clips and patterned bowl are retained across the 36-level campaign. No new Tripo generation was needed for this pass.
+
+The art owner opened actual gameplay captures for all six venues at 1440×900. Their physical palettes and backdrop geometry change visibly while the familiar station IDs, real cook and bowl remain consistent:
+
+| Venue / actual capture | Visible chapter identity |
+|---|---|
+| `docs/art-evidence/campaign/venue-level-1.png` | Ember Alley: amber lanterns, brick hearth and striped awning |
+| `docs/art-evidence/campaign/venue-level-10.png` | Bread Yard: bakery oven arch, flour sacks/wheat and warm ochre surfaces |
+| `docs/art-evidence/campaign/venue-level-18.png` | Garden Market: green backdrop, leafy trellis and planter boxes; three separate order bowls |
+| `docs/art-evidence/campaign/venue-level-23.png` | Harbour Canteen: blue/slate palette, dock posts, rope, sail and harbour-water edge; three bowls |
+| `docs/art-evidence/campaign/venue-level-27.png` | Rooftop Lab: purple evening palette, orange skyline blocks, brass telescope-like vent and planters |
+| `docs/art-evidence/campaign/venue-level-36.png` | Royal Feast: purple/cream palette, columns, crown relief and royal banners; three bowls |
+
+### Functional visual states checked
+
+Food geometry now distinguishes ten pantry foods, plus whole/peeled/sliced/prepared/diced/grated forms and toasted/roasted marks. MEASURE shows the currently available yogurt, broth and oil vessels; held cup, half-cup, tablespoon and teaspoon shapes differ. TOOLS gains a compact oven, grater, knife/dicing board and blender as those actions unlock. These are original procedural geometry, not additional acquired GLBs. Quantities, preparation and tool availability remain authoritative engine state rather than inferred mesh appearance.
+
+A normal-input rooftop action check prepared two grated carrots and one sliced apple, added a cup of yogurt, lifted the actual bowl, blended it while held and put it down. The inspected `rooftop-before-blend.png`, `rooftop-blended-in-hands.png` and `rooftop-blended-plated.png` in `docs/art-evidence/campaign/` show visible pieces changing to a smooth surface, including refresh while the same dish remains held. `held-grated-carrot.png` shows the grater/tools context and carried preparation state. The renderer supports all three order bowls and each order's parked inventory independently, rather than assuming only two bowls. Machine-readable art evidence is `action-visuals.json`; no page or console errors occurred.
+
+The cup mesh was subsequently refined to an open lathed wall with a bottom and brass rim. Full/half fill planes now sit at different visible interior depths, rather than hiding the half fill under a closed cylinder cap. A targeted normal-input broth-measure check passed and its browser closed with no errors; typecheck passed after this geometry-only change. Both full frames and native browser detail crops, `measure-cup*.png` and `measure-half-cup*.png`, were opened and inspected: the full amber surface sits near the rim, while the half measure exposes more cream interior wall. This refinement did not alter unit validation or campaign state. The art reviewer reported the ambiguous pre-correction inventory wording `1 ½ cup` to the lead for a separate text fix; the geometry captures preserve that pre-correction label.
+
+After the portrait recipe adjustment, a fresh 390×844 touch check verified PANTRY, MEASURE and MIX taps at level 36. Computed `overflowY` was `auto`, maximum note height 202.56 pixels, client height 199 and scroll height 280: the long note scrolls within its background. The header's מתכון control opened the full paused reading panel. `royal-touch-fruit.png`, `royal-touch-yogurt.png`, `royal-touch-bowl.png` and `royal-mobile-full-recipe.png` were captured; `mobile-touch.json` records the CSS and touch results with no errors. This is browser touch emulation, not a physical-phone performance claim.
+
+### Rooftop target comparison and limits
+
+The actual rooftop preserves the target's purple/orange skyline cues, brass vent, planters, warm counters, ceramic bowl and visible tools. The generated target is much closer to the chef and more detailed; the implemented scene retains a wider orthographic kitchen overview, simpler procedural architecture/customers, brighter broad illumination and smaller tools. Exact target fidelity is not claimed. The final authored level 27 recipe uses grated carrot, apple and yogurt rather than the concept image's diced-carrot/broth sentence; the live recipe and engine agree, and the concept text is not presented as a gameplay fixture.
+
+Typecheck passed after the scene expansion. The supplied develop-web-game client was executed against level 27; its SwiftShader `#cook` click timed out while waiting for stability and the resulting inspected capture remained in paused reading mode. The separate Metal browser art checks above reached gameplay and exercised the physical prep/blend and portrait paths. The lead subsequently reported a complete normal-input pass of all 36 levels / 60 orders, plus save/reload/replay/unlock checks with zero errors. That complete pass preceded the cup mesh-only refinement, which received its own focused capture/typecheck pass. Independent gameplay recovery probes are separate evidence. The following 26 October review is preserved as historical evidence of the initial five-shift slice, not proof of the entire expanded campaign.
+
+## Historical initial integration — 26 October 2026
+
 Independent art review, 26 October 2026, updated after actual Tripo model integration. The reviewer opened the image files and compared their pixels. Generated targets are concept evidence; runtime captures are software evidence.
 
 ## Evidence inspected
@@ -54,3 +87,5 @@ The independent gameplay reviewer records that `npm test` passed all 24 rule tes
 That browser route completed all five shifts, both bread orders with parked leftovers, station relocation, wrong-amount hatch rejection/return/remove-one recovery, wrong-prepared-pear recovery, unaided changed-layout transfer, restart and portrait touch/tray controls. The art reviewer separately inspected the final carry, catch, transfer, mobile-tray and completion pixels listed above. The visible catch, transfer food surface and held-bowl grip agree with the intended physical actions.
 
 No blocking visual defect was found in those final integrated captures. The target’s close framing, richer environment detail and more expressive customers remain beyond this finite slice. Portrait labels and the chest-height AI carry pose are known limitations. The minor RTL result-fraction issue was corrected with explicit LTR isolation; the reviewer reopened the refreshed completion capture and confirmed it visibly reads `3 / 4` correctly. Neither screenshots nor automated completion establish child engagement, fun, learning gains, physical-speaker audio quality or low-end physical-phone performance.
+
+Final lead verification (28 October): the required Metal-adapted skill client reached active play at level 36; `docs/captures/campaign/skill-client-level-36.png` and its state were inspected. The final `reviewer-half-cup-carry-label.png` visibly reads “½ cup of broth” with a “Measure ½ cup” action, correcting the earlier ambiguous label. Built-preview screenshots at levels 1/36 show the final local models and venues; both short desktop samples measured about 60.3 FPS with zero errors. The implemented wider overview and simpler scenery remain deliberate differences from the generated target.
