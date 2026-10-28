@@ -43,7 +43,7 @@ npm run typecheck
 npm run build
 ```
 
-Dev uses strict port **5201**; `npm run preview` uses **4201**. No backend, API key or runtime model service is required. `dist/` uses relative paths and `vercel.json` supplies static build settings. Production deployment is separate.
+Dev uses strict port **5201**; `npm run preview` uses **4201**. No backend, API key or runtime model service is required. `dist/` uses relative paths and `vercel.json` supplies static build settings. Workbook serves the published immutable game bundle from its English Games page; no separate game hosting project is required.
 
 The existing Workbook host bridge is preserved. `?level=N` opens any one-based campaign level from **1 to 36**, including a level not yet unlocked in the local save; it posts ready/start/complete events only to the validated host. No school-grade input controls this behavior.
 

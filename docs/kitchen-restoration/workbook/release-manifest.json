@@ -1,0 +1,441 @@
+{
+  "game": "goblin-kitchen",
+  "release": {
+    "version": "2026-10-28",
+    "poster": "poster.jpg",
+    "commit": "2bd6ad9"
+  },
+  "source": "https://github.com/AceDZN/goblin-kitchen/commit/2bd6ad9",
+  "base": "https://assets.acedzn.xyz/games/goblin-kitchen/2026-10-28/",
+  "checkedAt": "2026-10-28T18:26:30.260Z",
+  "catalogLevels": 36,
+  "titlesMatchSource": true,
+  "status": "pass",
+  "files": [
+    {
+      "file": "art/customers.glb",
+      "bytes": 659480,
+      "sha256": "c4b7cc7be6c184d47e328b74861157d874ea7e9cd9ffab0305e9517683290387",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/food.glb",
+      "bytes": 657416,
+      "sha256": "3e67d62b6b8ff9f6f050f0aa7724ff8a72a38701cb8476f275d24e0d167bb6eb",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/furniture.glb",
+      "bytes": 185472,
+      "sha256": "0d461b54dca06b553f1cfc7b7aa3c62f3e8a835e150270bcb61292c69456c3b4",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/kitchen.glb",
+      "bytes": 3071316,
+      "sha256": "73bd142bbdce574c19ca7bda02e6c932ff9e7f5440de53bcacab066694461507",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/licenses/Grab3D-Cucumber.txt",
+      "bytes": 760,
+      "sha256": "01908a56d6cada52704b20c5094c2aa16c9d8be6f124349c986764067abfd921",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/licenses/Innerscene-Four-Grate.txt",
+      "bytes": 802,
+      "sha256": "ae1a95402b7666eceb8b2f05e9561b54511ef86e098b71d7397510bd364fbf65",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/licenses/KayKit-Medieval.txt",
+      "bytes": 1027,
+      "sha256": "881e50d3629fba90629bedc65e9e6f47cfab3609598c296dcb7f70ea83174360",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/licenses/KayKit-Restaurant.txt",
+      "bytes": 862,
+      "sha256": "4da4ad3a3face68a71c11c8adc8e93017fdeb8fd67fcb0ca8286bd9c3dbbf674",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/licenses/Kenney-mirror.txt",
+      "bytes": 510,
+      "sha256": "6913dd72bdc20532b7f02d86469058f45d886c9dabf60831275ed16927aa523b",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/manifest.json",
+      "bytes": 486696,
+      "sha256": "57b41828524691f07a774135befd329f2b603fe3d9959ed5dc7e33302b4b4f92",
+      "status": 200,
+      "contentType": "application/json",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/nature.glb",
+      "bytes": 109860,
+      "sha256": "3ae63fa2cea66199c3b60b1fd00dfd7a021e6cf8a6393589083377c83bc15e61",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/special.glb",
+      "bytes": 1954672,
+      "sha256": "318dc387322c0ae5c0734283654da43ccde695803a4fb51a023d8adaa2a5d74b",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "art/world.glb",
+      "bytes": 2610884,
+      "sha256": "f673ff33c8e2b502d68a7dc90850050bbb653ea2bee06e2096b4a95518413e62",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-400-normal-CVTJgQVK.woff2",
+      "bytes": 5084,
+      "sha256": "2bc607f150e17d5e334f2ce917a2385661f5f4457f212b5b3bed6a22fc1d2077",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-400-normal-DoqplqF9.woff",
+      "bytes": 6544,
+      "sha256": "733f767fd2666807d86bd4fc7ccee34d5d40093b2280b77864b6fe5f11bdd762",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-600-normal-CGRgQ0cj.woff2",
+      "bytes": 5108,
+      "sha256": "50bb6125e9c76367d26dc5d0e5a7b55f48ef28abe75cb4979c9ab3fe0a107927",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-600-normal-OHUSVRAa.woff",
+      "bytes": 6596,
+      "sha256": "bb815bb9e583aff35a3bf49807e64d888307263e1a378fa30582e2bbd5225f99",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-800-normal-CDdwy3LD.woff2",
+      "bytes": 5168,
+      "sha256": "2854acdc4dd10739eaa1daceb1a4373574523f70548128f05db6ce98ab908c5c",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-800-normal-DvzqWKY1.woff",
+      "bytes": 6608,
+      "sha256": "937db032408ef998d2e3154b45b5aa4295b6b2aee199865cf162610cd0954dbb",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-400-normal-BGyEuwIV.woff2",
+      "bytes": 11956,
+      "sha256": "2fbe59e5561759450e111cff78825304c9278ec6ba5e808cbaff1c4a97dfa6fa",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-400-normal-BVgBBEsj.woff",
+      "bytes": 15636,
+      "sha256": "1933de59603701207891e7045dd2e27b105a6e47604c9719eeac260083a76cab",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-600-normal-2W86uxnp.woff",
+      "bytes": 15804,
+      "sha256": "b46f026a18775272f2ebcafb832c58b35e8d20087bbd2bc252561000fd685e52",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-600-normal-C0GLQ-RT.woff2",
+      "bytes": 12256,
+      "sha256": "b31610e11eb93ea9ee33f4847305bf9a6a3dc76e777214482877db9d7f211c94",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-800-normal-CXX3wFtI.woff2",
+      "bytes": 12132,
+      "sha256": "4890f322303544cf75def54d1065880f017dfe173f15d1b89a1a216e9855fe58",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-800-normal-jzg0ZXtx.woff",
+      "bytes": 15708,
+      "sha256": "768677de18dd82f90e320ed5421cc5f64f5ddbbcc6e604d26c36a4ef763adc42",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-400-normal-DRmJUxQB.woff2",
+      "bytes": 6348,
+      "sha256": "eb4965c54642ee582aa05c956c7415561ebd8b851b1f0b710d98bdfefd798df7",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-400-normal-DXPdCX6a.woff",
+      "bytes": 8564,
+      "sha256": "2c23637b65fd644fb3a5d9bf8733001c93372d93ccc27d730da40e6cfecbb722",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-600-normal-BYQD5BMZ.woff",
+      "bytes": 8668,
+      "sha256": "029e5e4ea173512acef68adb86164181f2ab2046605ae9f67f414a7f697ed143",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-600-normal-RIbyLypU.woff2",
+      "bytes": 6488,
+      "sha256": "ec3134f8f4c254b650aff4d346d973650c1e795742f522c26601ff11c2b08edf",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-800-normal-BXXnkLdf.woff2",
+      "bytes": 6556,
+      "sha256": "108d552a7c6a964ea2c931596e29da299bb2317b34c0a6caa06699ee4155b713",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-ext-800-normal-CaKn05T8.woff",
+      "bytes": 8664,
+      "sha256": "382da612a665a5f5b47c116d111ba0ccf8c6dc71ee4079849fc81f9f2d130a84",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-400-normal-B7IFZoQI.woff2",
+      "bytes": 9500,
+      "sha256": "ec5824cfbc0ff98059d011c979f7b43c1ab1e540f0d597b8ac3737966b3964f0",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-400-normal-BZIH-XlF.woff",
+      "bytes": 12100,
+      "sha256": "f68152bb8086002b4b1d5a8a1031cd729b28d36c34cfbfae69b14c65628410b1",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-600-normal-DA5TBT8e.woff",
+      "bytes": 12200,
+      "sha256": "5338153f1a37554e12f11b7c3fd9043b89436efc5f91678bcc0ad0a70b5b24f2",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-600-normal-DCATifNU.woff2",
+      "bytes": 9636,
+      "sha256": "97fb27f0d29e1ab896cc5d011240698730abbedf39e809c25ebb85726e17a2d4",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-800-normal-BsL7yxmb.woff2",
+      "bytes": 9632,
+      "sha256": "fcc6a6d8c7469d2c57fa46e20a486f46d1d6b3d389c64a6a1de6920bf1f0f135",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-math-800-normal-CkZgLaga.woff",
+      "bytes": 12144,
+      "sha256": "9f312e7f3aa57989a2e2c2f2734e076387dd6daa834f728297777ceafceb7abc",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-400-normal-5E_VKyNT.woff",
+      "bytes": 7120,
+      "sha256": "c99ec25cfc2e2a2430b2a259605e11ff725045896077ec8f011e569084afc1bd",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-400-normal-DYSXrd5A.woff2",
+      "bytes": 5544,
+      "sha256": "4c7b2cd6d4359367131859e055d68a3910bfb47fca87ed7e5c06e468929a0bc9",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-600-normal-r_-lVu18.woff",
+      "bytes": 7188,
+      "sha256": "4b16a3f5c64cc2fa63dff47a5059aaffadb277dc6b3cc6ab130c0a3ad5e44b62",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-600-normal-RPS5qIGi.woff2",
+      "bytes": 5744,
+      "sha256": "998346195522e9e7c1ca547634944a39af099fdb35a12ba57fa25422d60a6f5a",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-800-normal-BkpivR9G.woff",
+      "bytes": 7136,
+      "sha256": "ab90824c54f6d494cd63a51037f9b19ae58a55570340f00cf47bd424da4d82c2",
+      "status": 200,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-symbols-800-normal-FYIx6Vl3.woff2",
+      "bytes": 5680,
+      "sha256": "6a023a64d42b26bb829aa29f4c840db0e954e97bce725fa8666f7b9e5cd55d4e",
+      "status": 200,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/index-BvQS8aeD.js",
+      "bytes": 734449,
+      "sha256": "374e5d29fdc9e76b8ceea07587ea1ae9f53541637b5cdf1161392c3447b368de",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/index-C2Yb56tt.css",
+      "bytes": 27920,
+      "sha256": "730707579b12c355c06cec49b7a6eacf7cad1318f5bd2855f4c219c4525475c4",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "favicon.svg",
+      "bytes": 327,
+      "sha256": "baba63cd05a269be59c847c1f5564a325d703fbf80b2ddd2913db618bae0f1bb",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "index.html",
+      "bytes": 521,
+      "sha256": "77f85dea524a497af8d05d2150960a6338ddabc1dd3d0cdae10d76a16b853bfa",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/goblin-kitchen-bowl.glb",
+      "bytes": 838320,
+      "sha256": "7aa5155b84aac5d36037ade7f50af0d83504064ee0302d3150e78299b5ab97c5",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/goblin-kitchen-cook.glb",
+      "bytes": 1921716,
+      "sha256": "5dab7524aa7723e78f943eb4993b188e78e6c991b6bd0d5fbb7c247d1fd3dca1",
+      "status": 200,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/manifest.json",
+      "bytes": 351,
+      "sha256": "c6ea9f66f0f2bf7d1de9c2d980da85f18b77e691f153e551e517ba562faabac5",
+      "status": 200,
+      "contentType": "application/json",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "poster.jpg",
+      "bytes": 384299,
+      "sha256": "ddf91542fbf3f28de76e596ae7a4decdd07c0ca55d399c789561269063ca1790",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "textures/kitchen-ceramic.jpg",
+      "bytes": 364261,
+      "sha256": "345c82058aea3f75d509b213b932b5f12e303bdf16e40566cea98b2b921f1ee1",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "textures/town-paving.jpg",
+      "bytes": 834315,
+      "sha256": "2381c4b59d5255981a3afe714e5e31ac180e9b0040029064a89520f6c55e2f64",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ],
+  "totalBytes": 15113748
+}

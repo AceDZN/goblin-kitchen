@@ -12,6 +12,11 @@ Machine reports and actual captures: `docs/kitchen-restoration/campaign-verifica
 
 Both browser runs completed successfully during a brief scheduling overlap. They establish the stated functional checks, not FPS evidence. No new performance or physical-phone claim is made. The authored low-poly scene remains simpler than the generated design target, and the user's visual acceptance or student engagement is not inferred from these tests. Dev5201 and built preview4201 remain available locally.
 
+
+## Published Workbook release
+
+The restored campaign is live at https://english-games.workbook.co.il/goblin-kitchen via release2026-10-28/source2bd6ad9 and Workbook PR374. The custom-domain check opens all36 actual iframe links, verifies current real assets/ready/start, completes an order and Next, and prepares food by portrait touch. Current reports and inspected captures are in docs/kitchen-restoration/workbook/. All53 public release files match their tested local bytes. See that folder's README for the readiness-polling correction and the existing non-blocking Clerk sign-in allowlist warning; anonymous gameplay and game assets pass.
+
 ---
 
 # Historical verification · world overhaul · 28 October 2026

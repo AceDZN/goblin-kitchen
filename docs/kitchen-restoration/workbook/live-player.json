@@ -1,0 +1,1009 @@
+{
+  "host": "https://english-games.workbook.co.il",
+  "sourceCommit": "2bd6ad9",
+  "release": "2026-10-28",
+  "startedAt": "2026-10-28T19:18:14.613Z",
+  "status": "pass",
+  "errors": [],
+  "assetFailures": [],
+  "otherFailures": [
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    },
+    {
+      "url": "https://clerk.workbook.co.il/v1/client",
+      "status": 403
+    }
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=1",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=2",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=3",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 3
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=4",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=5",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 5
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=6",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 6
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=7",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 7
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=8",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 8
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=9",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 9
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=10",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 10
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=11",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 11
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=12",
+      "mode": "play",
+      "venue": "THE BREAD YARD",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 12
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=13",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 13
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=14",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 14
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=15",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 15
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=16",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 16
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=17",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 17
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=18",
+      "mode": "play",
+      "venue": "GARDEN MARKET",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 18
+        }
+      ]
+    },
+    {
+      "n": 19,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=19",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 19
+        }
+      ]
+    },
+    {
+      "n": 20,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=20",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 20
+        }
+      ]
+    },
+    {
+      "n": 21,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=21",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 21
+        }
+      ]
+    },
+    {
+      "n": 22,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=22",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 22
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=23",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 23
+        }
+      ]
+    },
+    {
+      "n": 24,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=24",
+      "mode": "play",
+      "venue": "HARBOUR CANTEEN",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 24
+        }
+      ]
+    },
+    {
+      "n": 25,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=25",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 25
+        }
+      ]
+    },
+    {
+      "n": 26,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=26",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 26
+        }
+      ]
+    },
+    {
+      "n": 27,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=27",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 27
+        }
+      ]
+    },
+    {
+      "n": 28,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=28",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 28
+        }
+      ]
+    },
+    {
+      "n": 29,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=29",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 29
+        }
+      ]
+    },
+    {
+      "n": 30,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=30",
+      "mode": "play",
+      "venue": "ROOFTOP LAB",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 30
+        }
+      ]
+    },
+    {
+      "n": 31,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=31",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 31
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=32",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 32
+        }
+      ]
+    },
+    {
+      "n": 33,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=33",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 33
+        }
+      ]
+    },
+    {
+      "n": 34,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=34",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 34
+        }
+      ]
+    },
+    {
+      "n": 35,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=35",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 35
+        }
+      ]
+    },
+    {
+      "n": 36,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=36",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 36
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "home card, current poster and all36 public level links",
+    {
+      "firstDish": "completed through normal UI",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 1
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-complete",
+          "level": 1,
+          "stars": 3,
+          "score": 50,
+          "durationMs": 1604
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 2
+        }
+      ]
+    }
+  ],
+  "mobile": {
+    "frameWidth": 390,
+    "frameHeight": 744,
+    "frameBox": {
+      "x": 0,
+      "y": 101,
+      "width": 390,
+      "height": 744
+    },
+    "stations": [
+      {
+        "id": "fruit",
+        "hit": "game"
+      },
+      {
+        "id": "board",
+        "hit": "game"
+      },
+      {
+        "id": "bread",
+        "hit": "game"
+      },
+      {
+        "id": "bowl",
+        "hit": "game"
+      },
+      {
+        "id": "yogurt",
+        "hit": "game"
+      },
+      {
+        "id": "serve",
+        "hit": "game"
+      },
+      {
+        "id": "sink",
+        "hit": "game"
+      },
+      {
+        "id": "prepared",
+        "hit": "game"
+      }
+    ],
+    "touchPrep": "pass"
+  },
+  "completedAt": "2026-10-28T19:19:03.439Z"
+}

@@ -1,0 +1,132 @@
+{
+  "host": "http://localhost:4471",
+  "sourceCommit": "2bd6ad9",
+  "release": "2026-10-28",
+  "startedAt": "2026-10-28T18:40:18.348Z",
+  "status": "pass",
+  "errors": [],
+  "assetFailures": [],
+  "otherFailures": [],
+  "levels": [
+    {
+      "n": 36,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=36",
+      "mode": "play",
+      "venue": "THE ROYAL FEAST",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 36
+        }
+      ]
+    },
+    {
+      "n": 1,
+      "src": "/play/goblin-kitchen/2026-10-28/index.html?level=1",
+      "mode": "play",
+      "venue": "EMBER ALLEY",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 1
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "home card, current poster and all36 public level links",
+    {
+      "firstDish": "completed through normal UI",
+      "messages": [
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "ready"
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 1
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-complete",
+          "level": 1,
+          "stars": 3,
+          "score": 50,
+          "durationMs": 3562
+        },
+        {
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "goblin-kitchen",
+          "type": "level-start",
+          "level": 2
+        }
+      ]
+    }
+  ],
+  "mobile": {
+    "frameWidth": 390,
+    "frameHeight": 744,
+    "stations": [
+      {
+        "id": "fruit",
+        "hit": "game"
+      },
+      {
+        "id": "board",
+        "hit": "game"
+      },
+      {
+        "id": "bread",
+        "hit": "game"
+      },
+      {
+        "id": "bowl",
+        "hit": "game"
+      },
+      {
+        "id": "yogurt",
+        "hit": "game"
+      },
+      {
+        "id": "serve",
+        "hit": "game"
+      },
+      {
+        "id": "sink",
+        "hit": "game"
+      },
+      {
+        "id": "prepared",
+        "hit": "game"
+      }
+    ],
+    "touchPrep": "pass"
+  },
+  "completedAt": "2026-10-28T18:40:50.165Z"
+}
