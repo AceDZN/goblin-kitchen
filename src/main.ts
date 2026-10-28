@@ -8,6 +8,7 @@ import {readProgress,newProgress,completeLevel,totalStars} from './campaign';
 import {KitchenScene,type Station} from './scene';
 import {initHost,parseLevelParam,postToHost,type HostMessage} from './host';
 import * as T from 'three';
+import {modelLibrary} from './model-library';
 
 initHost('goblin-kitchen');
 const game=new Kitchen();
@@ -27,7 +28,7 @@ app.innerHTML=`<canvas id="game" aria-label="מטבח תלת ממדי. אפשר 
 <header><div class="brand"><b dir="ltr">GOBLIN<br>KITCHEN<span>מטבח הגובלינים</span></b></div><div class="shift" dir="ltr"><span id="shift"></span><b id="tips"></b></div><nav><button id="levels-btn" title="מפת שלבים">שלבים</button><button id="read" title="מתכון והפסקה">מתכון</button><button id="pause" aria-label="הפסקה">Ⅱ</button><button id="mute" aria-label="צליל">♫</button><button id="settings" aria-label="הגדרות">⚙</button></nav></header>
 <aside id="recipe" dir="ltr"><div id="order-tabs"></div><span class="eyebrow" id="recipe-label"></span><p id="service-brief"></p><p id="recipe-text"></p><div id="contents"></div><button id="audio" title="Read English recipe aloud">▶ Listen</button><button id="vocab" title="Vocabulary pauses the kitchen">מילים</button></aside>
 <div id="toast" role="status"><span id="phrase" dir="ltr"></span><span id="message"></span></div>
-<div id="carry" dir="ltr"></div><div id="context"><span id="context-title" dir="ltr"></span><div id="actions"></div><div id="work-progress"></div></div>
+<div id="context"><div id="carry" dir="ltr"></div><span id="context-title" dir="ltr"></span><div id="actions"></div><div id="work-progress"></div></div>
 <div id="touch-move" aria-label="תנועה"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div>
 <div id="route" dir="rtl">לחצו על תחנה כדי ללכת · <b dir="ltr">WASD / חצים</b> תנועה · <b>E</b> פעולה · <b>Space</b> זריקה · <b>F</b> מסך מלא</div>
 <div id="overlay"></div><div id="asset-note">טוענים את השף וכלי המטבח…</div>`;
@@ -49,11 +50,11 @@ function sound(type='tap'){
  if(muted)return;try{audioContext??=new AudioContext();void audioContext.resume();const t=audioContext.currentTime;for(let i=0;i<(type==='serve'?4:1);i++){const osc=audioContext.createOscillator(),gain=audioContext.createGain();osc.type=type==='error'?'sawtooth':'sine';osc.frequency.value=type==='error'?110:type==='serve'?440*2**(i/3):280+Math.random()*200;gain.gain.setValueAtTime(.0001,t+i*.1);gain.gain.exponentialRampToValueAtTime(.09,t+.01+i*.1);gain.gain.exponentialRampToValueAtTime(.0001,t+.18+i*.1);osc.connect(gain).connect(audioContext.destination);osc.start(t+i*.1);osc.stop(t+.2+i*.1)}}catch{}
 }
 function save(){
- const seen=[...new Set([...game.priorAssistance,...game.priorMistakes,...game.events.filter(e=>e.action==='start').map(e=>e.shift-1)])];
+ const seen=[...new Set([...game.attemptedLevels,...game.priorAssistance,...game.priorMistakes,...game.events.filter(e=>e.action==='start').map(e=>e.shift-1)])];
  writeLocal('gk-seen-shifts',JSON.stringify(seen));writeLocal('goblin-kitchen-events',JSON.stringify(game.events));writeLocal('goblin-kitchen-results',JSON.stringify(game.results));writeLocal('gk-campaign-v1',JSON.stringify(progress));
 }
 function itemLabel(h:Kitchen['held']):string{
- if(!h)return 'ידיים פנויות';if(h.food==='dish')return game.dish.blended?'BLENDED DISH · ready to carry':'DISH · ready to carry';
+ if(!h)return 'ידיים פנויות';if(h.food==='dish')return game.dish.blended?'BLENDED DISH · ready to carry':game.dish.pureed?'PUREED DISH · contains additions':'DISH · ready to carry';
  if(h.food==='yogurt')return measureLabel(1,h.unit,h.liquid??'yogurt');
  const heat=h.heat&&h.heat!=='raw'?h.heat+' ':'';
  if(h.food==='bread'){const head=h.form==='whole'?(h.count===1?'loaf':'loaves'):(h.count===1?'slice':'slices');return `${h.count} ${heat}${head} of bread`}
@@ -62,7 +63,7 @@ function itemLabel(h:Kitchen['held']):string{
 function bowlLabel(){
  const d=game.dish;const groups:Record<string,typeof d.items[number]>={};for(const i of d.items){const k=i.food+i.form+i.heat;groups[k]=groups[k]?{...groups[k],count:groups[k].count+i.count}:{...i}}
  const liquids:Record<string,{unit:Unit;liquid:Liquid;amount:number}>={};for(const m of d.yogurt){const liquid=m.liquid??'yogurt',key=liquid+m.unit;liquids[key]??={unit:m.unit,liquid,amount:0};liquids[key].amount+=m.amount}
- return [`IN BOWL · ${d.clean?'CLEAN':'DIRTY'}`,Object.keys(groups).length?Object.values(groups).map(i=>itemLabel(i)).join(', '):'empty',...Object.values(liquids).map(m=>measureLabel(m.amount,m.unit,m.liquid)),d.blended?'blended':d.stirred?'stirred':'',game.staged[game.order]?'TRAY: '+itemLabel(game.staged[game.order]):''].filter(Boolean).join(' · ');
+ return [`IN BOWL · ${d.clean?'CLEAN':'DIRTY'}`,Object.keys(groups).length?Object.values(groups).map(i=>itemLabel(i)).join(', '):'empty',...Object.values(liquids).map(m=>measureLabel(m.amount,m.unit,m.liquid)),d.blended?'blended':d.pureed?'pureed · additions not blended':d.stirred?'stirred':'',game.staged[game.order]?'TRAY: '+itemLabel(game.staged[game.order]):''].filter(Boolean).join(' · ');
 }
 function buttons(s?:Station){
  if(!s)return [];switch(s.id){
@@ -88,7 +89,7 @@ function act(action:string){
  case 'pear-whole':game.take('pear');break;case 'pear-prepared':game.take('pear',true);break;case 'bread':game.take('bread');break;
  case 'prep':job={action,elapsed:0,duration:game.held?.food==='pear'?1.4:.65};break;
  case 'measure':game.yogurt();break;case 'tool':game.tool=nextChoice(game.spec.units,game.tool);break;case 'liquid':game.liquid=nextChoice(game.spec.liquids,game.liquid);break;
- case 'add':game.add();break;case 'stir':job={action,elapsed:0,duration:.9};break;case 'lift':game.lift();break;case 'remove':game.remove();break;case 'stage':game.stage();break;case 'wash':job={action,elapsed:0,duration:.6};break;
+ case 'add':game.add();break;case 'stir':job={action,elapsed:0,duration:.9};break;case 'lift':game.lift();if(game.held?.food==='dish'){const hatch=scene.stations.find(s=>s.id==='serve')!;scene.look=Math.atan2(hatch.pos.x-scene.position.x,hatch.pos.z-scene.position.z);scene.player.rotation.y=scene.look}break;case 'remove':game.remove();break;case 'stage':game.stage();break;case 'wash':job={action,elapsed:0,duration:.6};break;
  case 'serve':if(game.held?.food!=='dish'){game.message='הרימו את המנה ב־MIX והביאו לחלון.';break}job={action,elapsed:0,duration:.8};throwDish();break;
  }
  scene.sync();save();ui(true);
@@ -124,7 +125,7 @@ function ui(force=false){
  $('recipe-text').textContent=game.recipe.text;$('service-brief').textContent=game.spec.brief??'';$('service-brief').hidden=!game.spec.brief;$('contents').textContent=bowlLabel();
  $('order-tabs').innerHTML=game.dishes.length>1?game.spec.recipes.map((r,i)=>`<button data-order="${i}" class="${game.order===i?'active':''}" ${game.dishes[i].served?'disabled':''}>${r.title??'ORDER '+(i+1)} ${game.dishes[i].served?'✓':''}</button>`).join(''):'';
  $('message').textContent=game.message;$('phrase').textContent=game.phrase;$('toast').classList.toggle('visible',!!game.message);$('carry').textContent=itemLabel(game.held);
- $('context-title').textContent=s?.id==='yogurt'?`MEASURE · ${game.liquid} · ${unitLabel[game.tool]}`:s?.label??'CLICK A STATION · WALK TO IT';$('actions').innerHTML=buttons(s).map(b=>`<button data-action="${b.id}">${b.label}</button>`).join('');$('mute').textContent=muted?'♪̸':'♫';
+ $('context-title').textContent=s?.id==='yogurt'?`MEASURE · ${game.liquid} · ${unitLabel[game.tool]}`:s?.label??'CLICK A STATION · WALK TO IT';$('actions').innerHTML=buttons(s).map(b=>`<button data-action="${b.id}">${b.label}</button>`).join('');$('mute').textContent=muted?'♪̸':'♫';document.documentElement.style.setProperty('--action-height',`${$('context').offsetHeight}px`);
  const overlay=$('overlay'),visible=mapOpen||vocabOpen||(game.mode!=='play'&&celebration<=0);overlay.classList.toggle('visible',visible);overlay.classList.toggle('map-open',mapOpen);
  if(!visible){overlay.innerHTML='';return}if(mapOpen){overlay.innerHTML=campaignMap();return}
  if(vocabOpen){overlay.innerHTML=`<section class="panel"><span class="kicker" dir="ltr">WORDS · הפעולה מושהית</span><h2>מילים למטבח</h2><div class="words" dir="ltr">peel · לקלף<br>slice · לפרוס / פרוסה<br>dice · לחתוך לקוביות<br>grate · לגרר<br>toast / roast · לקלות / לצלות<br>blend · לטחון בבלנדר<br>loaf / loaves · כיכר / כיכרות<br>tablespoon / teaspoon · כף / כפית מדידה<br>half a cup · חצי כוס מדידה<br>broth / oil · ציר / שמן<br>before / after · לפני / אחרי<br>prepared · מוכן אחרי הכנה<br>a little · מעט, בלי מספר מדויק</div>${!game.spec.transfer&&game.spec.hint?`<p>${game.spec.hint}</p>`:'<p>עזרת מילים מסמנת את הניסיון כנעזר.</p>'}<button id="close-vocab" class="primary">חזרה למטבח</button></section>`;return}
@@ -135,7 +136,7 @@ function ui(force=false){
 }
 app.addEventListener('click',e=>{
  const b=(e.target as HTMLElement).closest('button');if(!b)return;sound();
- if(b.dataset.level){openLevel(Number(b.dataset.level)-1);return}if(b.dataset.action){act(b.dataset.action);return}if(b.dataset.order){game.selectOrder(Number(b.dataset.order));ui(true);return}
+ if(b.dataset.level){openLevel(Number(b.dataset.level)-1);return}if(b.dataset.action){act(b.dataset.action);return}if(b.dataset.order){if(!job&&celebration<=0&&!mapOpen&&!vocabOpen)game.selectOrder(Number(b.dataset.order));ui(true);return}
  switch(b.id){
  case 'start-btn':openLevel(progress.lastLevel-1);return;
  case 'levels-btn':case 'intro-map':case 'result-map':case 'pause-map':showMap();return;
@@ -180,17 +181,24 @@ function update(dt:number){
    scene.move(dx,dz,dt);
   }
   const traffic=game.spec.cart;
-  if(traffic>0){if(!cart){cart=new T.Group();scene.scene.add(cart);scene.box(1.15,.5,.75,'wood',cart,0,.55,0);for(const x of [-.4,.4])for(const z of [-.3,.3])scene.sphere(.13,'dark',cart,x,.25,z)}cart.visible=true;cart.position.set(Math.sin(game.seconds*(.35+traffic*.45))*2.5,0,.65);cartBump=Math.max(0,cartBump-dt);if(!job&&scene.position.distanceTo(cart.position)<.85&&cartBump===0){cartBump=3;const p=scene.position.clone();p.z+=.6;if(!scene.collision(p))scene.position.copy(p);game.message='העגלה דחפה אתכם! המצרכים נשארו בידיים.';sound('error')}}else if(cart)cart.visible=false;
+  if(traffic>0){if(!cart){cart=new T.Group();scene.scene.add(cart);scene.model('world/wheelbarrow',cart,0,0,0,[1.15,.8,.75],Math.PI/2)}cart.visible=true;cart.position.set(Math.sin(game.seconds*(.35+traffic*.45)+Math.PI/2)*2.5,0,.65);cartBump=Math.max(0,cartBump-dt);if(!job&&scene.position.distanceTo(cart.position)<.85&&cartBump===0){cartBump=3;const p=scene.position.clone();p.z+=.6;if(!scene.collision(p))scene.position.copy(p);game.message='העגלה דחפה אתכם! המצרכים נשארו בידיים.';sound('error')}}else if(cart)cart.visible=false;
   scene.tick(dt);if(job?.action==='serve'||job?.action==='return'){scene.held.visible=false;scene.bowl.visible=false}ui();
  }else{scene.moving=false;scene.sync()}
  if(!stepping&&(game.mode==='play'||celebration>0||lastRenderedMode!==game.mode)){scene.render();lastRenderedMode=game.mode}
 }
 function frame(t:number){const realDt=(t-lastStep)/1000||1/60;lastStep=t;if(autoClock)update(Math.min(realDt,.05));measuredFrames++;measuredSeconds+=realDt;if(measuredSeconds>2){measuredFPS=measuredFrames/measuredSeconds;measuredFrames=0;measuredSeconds=0}requestAnimationFrame(frame)}
 Object.assign(window,{
- render_game_to_text:()=>JSON.stringify({mode:game.mode,mapOpen,vocabularyOpen:vocabOpen,level:game.shift+1,shift:game.shift+1,totalLevels:levels.length,campaign:{unlocked:progress.unlocked,completed:Object.keys(progress.completed).map(Number),stars:totalStars(progress),lastLevel:progress.lastLevel},venue:venues[game.spec.venue].name,venueIndex:game.spec.venue,layout:game.spec.layout,pantry:game.spec.pantry,availableTools:game.spec.tools,availableUnits:game.spec.units,availableLiquids:game.spec.liquids,order:game.order+1,objective:game.recipe.text,serviceBrief:game.spec.brief??'',coordinateSystem:'x right, z toward near edge; origin floor center; y up',player:{x:+scene.position.x.toFixed(2),z:+scene.position.z.toFixed(2)},held:game.held,bowl:game.dish,orders:game.dishes,staged:game.staged,tool:game.tool,liquid:game.liquid,near:scene.nearest()?.id??null,stations:scene.stations.map(s=>({id:s.id,x:s.pos.x,z:s.pos.z,screen:scene.stationScreen(s.id)})),message:game.message,phrase:game.phrase,actions:buttons(scene.nearest()),tips:game.tips,mistakes:game.mistakes,assisted:game.assisted,firstAttemptUnaided:game.firstUnaided,guided:!!game.spec.guided,seconds:+game.seconds.toFixed(1),targetSeconds:game.spec.targetSeconds,results:game.results,assets:{realCook:scene.realCook,riggedCook:scene.riggedCook,joints:scene.jointCount,clips:scene.clipNames,activeAnimation:scene.activeAnimation,realProp:scene.realProp,status:scene.modelStatus},fps:+measuredFPS.toFixed(1),job:job?.action??null,serving:servingVisual?{phase:job?.action??'caught',x:+servingVisual.position.x.toFixed(2),y:+servingVisual.position.y.toFixed(2),z:+servingVisual.position.z.toFixed(2),target:{x:throwEnd.x,z:throwEnd.z}}:null}),
+ render_game_to_text:()=>JSON.stringify({mode:game.mode,mapOpen,vocabularyOpen:vocabOpen,level:game.shift+1,shift:game.shift+1,totalLevels:levels.length,campaign:{unlocked:progress.unlocked,completed:Object.keys(progress.completed).map(Number),stars:totalStars(progress),lastLevel:progress.lastLevel},venue:venues[game.spec.venue].name,venueIndex:game.spec.venue,layout:game.spec.layout,pantry:game.spec.pantry,availableTools:game.spec.tools,availableUnits:game.spec.units,availableLiquids:game.spec.liquids,order:game.order+1,objective:game.recipe.text,serviceBrief:game.spec.brief??'',coordinateSystem:'x right, z toward near edge; origin floor center; y up',player:{x:+scene.position.x.toFixed(2),z:+scene.position.z.toFixed(2)},held:game.held,bowl:game.dish,orders:game.dishes,staged:game.staged,tool:game.tool,liquid:game.liquid,near:scene.nearest()?.id??null,stations:scene.stations.map(s=>({id:s.id,x:s.pos.x,z:s.pos.z,screen:scene.stationScreen(s.id)})),message:game.message,phrase:game.phrase,actions:buttons(scene.nearest()),tips:game.tips,mistakes:game.mistakes,assisted:game.assisted,firstAttemptUnaided:game.firstUnaided,guided:!!game.spec.guided,seconds:+game.seconds.toFixed(1),targetSeconds:game.spec.targetSeconds,results:game.results,assets:{realCook:scene.realCook,riggedCook:scene.riggedCook,joints:scene.jointCount,clips:scene.clipNames,activeAnimation:scene.activeAnimation,realProp:scene.realProp,worldReady:scene.worldReady,authoredModels:scene.authoredInstances,libraryNames:modelLibrary.names,missingModels:[...scene.missingModels],venueVisuals:scene.venueVisuals,status:scene.modelStatus},fps:+measuredFPS.toFixed(1),job:job?.action??null,serving:servingVisual?{phase:job?.action??'caught',x:+servingVisual.position.x.toFixed(2),y:+servingVisual.position.y.toFixed(2),z:+servingVisual.position.z.toFixed(2),target:{x:throwEnd.x,z:throwEnd.z}}:null}),
  advanceTime:(ms:number)=>{stepping=true;try{for(let t=0;t<ms;t+=1000/60)update(Math.min(1000/60,ms-t)/1000)}finally{stepping=false;scene.render()}},set_game_test_clock:(enabled:boolean)=>{autoClock=!enabled}
 });
 new ResizeObserver(()=>document.documentElement.style.setProperty('--action-height',`${$('context').offsetHeight}px`)).observe($('context'));
 const deepLevel=parseLevelParam(location.search,levels.length);if(deepLevel!==null)openLevel(deepLevel,true);else{scene.layout(0);ui(true)}
 requestAnimationFrame(frame);
-fetch(`${import.meta.env.BASE_URL}models/manifest.json`).then(r=>r.ok?r.json():null).then(async m=>{if(m?.cook){await scene.loadModels(`${import.meta.env.BASE_URL}${m.cook}`,m.prop?`${import.meta.env.BASE_URL}${m.prop}`:undefined,m.clips);$('asset-note').hidden=scene.riggedCook&&scene.realProp;if(!$('asset-note').hidden)$('asset-note').textContent='לא כל כלי המטבח נטענו. אפשר לרענן את העמוד.'}}).catch(()=>{$('asset-note').textContent='לא ניתן לטעון את כלי המטבח. נסו לרענן.'}).finally(markReady);
+Promise.all([
+ scene.loadWorld(),
+ fetch(`${import.meta.env.BASE_URL}models/manifest.json`).then(r=>{if(!r.ok)throw new Error('Cook manifest unavailable');return r.json()}).then(m=>scene.loadModels(`${import.meta.env.BASE_URL}${m.cook}`,`${import.meta.env.BASE_URL}${m.prop}`,m.clips))
+]).then(()=>{
+ $('asset-note').hidden=scene.worldReady&&scene.riggedCook&&scene.realProp;
+ if(!$('asset-note').hidden)throw new Error('Some kitchen assets did not load');
+ scene.modelStatus='Authored kitchen, food and surrounding world; rigged Tripo cook and ceramic bowl';
+}).catch(error=>{console.error('Kitchen asset loading',error);$('asset-note').textContent='לא ניתן לטעון את המטבח. נסו לרענן.'}).finally(markReady);

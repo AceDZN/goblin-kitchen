@@ -1,0 +1,12 @@
+Four Grate - Kitchen Tool
+Publisher/source: Innerscene - original model
+Source page: https://www.innerscene.com/tools/library/3d-parts/four-grate-kitchen-tool-22c54bea
+Download: https://www.innerscene.com/api/library/four-grate-kitchen-tool-22c54bea/download
+Observed: 28 October 2026
+
+The publisher dedicates this original model to the public domain under CC0 1.0:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Source statement: "Public domain (CC0). Free to use, modify and redistribute for any purpose, including commercially, with no credit required."
+
+The model was downloaded from the publisher's public download link. The game build bakes/joins its static components by material without removing the grating holes or PBR textures. Source and final SHA-256 records are in ../manifest.json.

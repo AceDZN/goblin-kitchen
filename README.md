@@ -49,9 +49,9 @@ The existing Workbook host bridge is preserved. `?level=N` opens any one-based c
 
 ## Art and evidence
 
-The original Tripo cook has a **65-joint Mixamo skin** with idle, walk and custom carrying clips. Carried items follow its actual hand bones. The patterned ceramic bowl/ladle is also an original local Tripo asset. Both GLBs total **2.76 MB**. New foods, tools, colliders and six venue environments use original procedural geometry; Tripo is not needed at runtime.
+The original Tripo cook has a **65-joint Mixamo skin** with idle, walk and custom carrying clips. Carried items follow its actual hand bones. The patterned ceramic bowl/ladle is also an original local Tripo asset. Both GLBs total **2.76 MB**. Kitchen appliances, counters, utensils, foods and preparation states, customers, buildings and foliage now use licensed authored GLB models. Generated ceramic and paving textures ground the six complete surroundings. The additional seven model atlases total 9.25 MB; colliders and quantities remain independent game state. All assets load locally; Tripo is not needed at runtime.
 
-78 rule/progression tests pass, along with the build and a full normal-input browser run of all 36 levels / 60 orders. Independent recovery, touch and save/replay checks are recorded in `PLAYTEST.md`.
+84 rule/progression tests and the build pass. The current-art normal-input browser run, independent recovery, touch and save/replay checks are recorded in `PLAYTEST.md`.
 
 `src/levels.ts` contains all authored tasks. `CURRICULUM.md` documents the original language scenarios and their source basis; advanced tasks extend that practice without claiming a grade-specific assessment. `PLAYTEST.md` records current verification and limits. `ASSETS.md` and `VISUAL_REVIEW.md` document provenance and generated-target versus actual evidence.
 

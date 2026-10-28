@@ -1,6 +1,16 @@
 # Generated target versus real gameplay
 
-## Current campaign scene pass — 28 October 2026
+## Current world overhaul — 28 October 2026
+
+The user rejected the isolated platform presentation and simple props. A new built-in-imagegen design target was generated and inspected before the overhaul (`docs/visual-targets/world-overhaul-target.png`; exact prompt beside it). It is a concept reference, not a software screenshot. The renderer now uses seven authored asset atlases, preserving the original rigged Tripo goblin and ceramic bowl. Provenance and preparation-state derivations are in ASSETS.md; file/node/bounds validation is in `docs/art-evidence/source-model-validation.json`.
+
+The lead opened fresh actual browser captures for all six venues at1440×900, then corrected the dominant black checkerboard, off-camera surroundings, hidden water, roof support, initial cart collision, and preparation-state silhouettes. The kitchen has cream ceramic material, continuous counters with matching collision, real sink/faucet and oven models, plates and utensils. Continuous paving reaches the frame edges. Adjacent modeled buildings, seating, plants and customers establish a town rather than a suspended base. Garden Market has stalls/greenery; Harbour Canteen has an actual water surface/quay/boat; Rooftop Lab has a terrace with supporting exterior walls and neighboring roofs; the Royal Feast has castle architecture/banners.
+
+Relative to the generated target, the implementation keeps a wider overhead view and compact note so all playable stations remain reachable. Its authored low-poly scenery is simpler than the concept's dense illustrated detail; exact target fidelity is not claimed. The goblin's generated carrying clip remains at chest height. These are implementation differences, not missing model placeholders. No primitive customer, home-built appliance or primitive ingredient is used as the visible substitute for the acquired assets. Surface meshes, liquid fills, colliders, labels and particles are ordinary engine geometry.
+
+Current full-campaign captures are in `docs/captures/campaign-overhaul/`; all36 levels/60 courses must pass normal controls and be visually reviewed before final delivery. Old captures and reviews below are historical only.
+
+## Historical first campaign scene pass — 28 October 2026
 
 The campaign expansion uses the new built-in-imagegen target `docs/visual-targets/campaign-rooftop-target.png`, with exact mode/prompt in `campaign-rooftop-prompt.txt`. The lead generated and inspected it before expanded scene implementation; the art owner also opened it before changing `src/scene.ts`. It remains a generated design target, not a software screenshot. The original local Tripo cook, full-body rig/clips and patterned bowl are retained across the 36-level campaign. No new Tripo generation was needed for this pass.
 

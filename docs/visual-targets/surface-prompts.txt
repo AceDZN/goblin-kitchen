@@ -1,0 +1,7 @@
+Built-in image_gen, new image generations, opaque backgrounds. Generated seamless surface images used as ordinary material textures; meshes remain real 3D.
+
+Town paving:
+Use case: texture-asset. Create a single square seamless tileable albedo texture for a high-quality stylized 3D fantasy cooking game: weathered warm grey limestone cobblestone street, closely fitted rounded rectangular small stones with restrained color variation, shallow charcoal mortar gaps, subtle worn surface detail. Straight overhead orthographic view, no perspective, no vignette, no cast shadows, no directional lighting, no objects, no leaves, no writing, no edges or border. Cozy authored game texture, painterly realism with fine natural stone detail, not crude cartoon lines, not photographic harshness. Seamless on all four sides; uniform stone scale throughout. Opaque background.
+
+Kitchen ceramic:
+Use case: texture-asset. Generate one square seamless tileable albedo texture for a polished stylized fantasy kitchen game: small warm cream ceramic square floor tiles in a straight regular grid, subtle honey beige and pale ivory variation, softly beveled edges, thin muted warm grey grout. Cozy bright bakery, gently worn glazed ceramic, fine restrained surface grain. Perfect straight overhead orthographic view. Flat even albedo lighting, no perspective, no shadows, no writing, no furniture, no patterns or border, no black tiles. Seamless all four edges, uniform tile scale throughout. 8 by 8 square tiles. Professional game surface texture, not crude hand-drawn outlines.

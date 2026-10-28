@@ -1,6 +1,35 @@
 # Asset provenance and acquisition status
 
-## Scene expansion — 28 October 2026
+## Current sourced model library — 28 October 2026
+
+The latest art commission replaces the earlier handmade station, food, customer and town silhouettes with acquired model assets. The original Tripo cook and patterned bowl remain. The new library contains **314 independent source/derived templates and 17 explicit aliases (331 keys)** in `public/art/manifest.json`. The loader in `src/model-library.ts` creates floor-centered instances with private geometry and independent skeletons, while sharing immutable materials and textures. There is no primitive-model fallback in this loader.
+
+The sources are the official **KayKit Restaurant Bits** and **KayKit Medieval Hexagon Pack** repositories, **Kenney Food/Furniture/Nature/Mini Characters/Pirate** assets from a pinned permitted public conversion mirror, and downloaded **Grab3D cucumber** and **Innerscene Four Grate** assets. All are supplied under CC0. The original creator links, pinned revisions, acquisition route, source limitations and exact retained license files are documented in [docs/AUTHORED_ASSETS.md](docs/AUTHORED_ASSETS.md); each model entry also records its source URL, source/dependency SHA-256 hashes, original bounds and any transformation. Direct official Kenney archives returned HTTP 403, so they are not claimed as the acquisition source.
+
+| Runtime atlas | Templates | Bytes before HTTP compression |
+|---|---:|---:|
+| Kitchen appliances, counters, walls, dishes, tools and source food states | 144 | 3,071,316 |
+| Medieval buildings, market/shop fronts, walls, fences, props and actual Kenney rowboat | 75 | 2,610,884 |
+| Foods and source-derived preparation states | 51 | 657,416 |
+| Blender, toaster, furniture and potted plants | 20 | 185,472 |
+| Lush trees, shrubs, flowers and nature details | 15 | 109,860 |
+| Four static customer poses with original skins | 4 | 659,480 |
+| Detailed grater, textured cucumber parts and cucumber preparation states | 5 | 1,954,672 |
+| **New library total** | **314** | **9,249,100** |
+
+Together with the two retained Tripo files, the model payload is **12,009,136 bytes (12.01 MB decimal)** before HTTP compression. The library uses seven self-contained GLBs, embedded/shared maps and standard glTF materials. No Draco, Meshopt or KTX2 runtime decoder is required. `node scripts/prepare-art.mjs` rebuilds the library from the ignored source cache using pinned glTF Transform 4.5.1 and validates the written GLBs; no source repositories are loaded at runtime.
+
+Prepared food states use actual source halves/slices/chopped pieces where available. All ten foods also have source-derived closed diced chunks and grated strips. Banana slices are clipped from the acquired banana mesh and capped; its peeled state is a disclosed cream-flesh recolor of the source shape, without separately modeled peel flaps. The cucumber source supplies textured whole/stem and sliced components. Its publisher explicitly discloses Blender-script construction with AI-assisted code; it is a detailed downloaded textured asset, not a tube built by this game's runtime. The grater is the publisher's detailed original model; static parts are joined by material to reduce draw calls. These transformations are recorded rather than represented as unmodified source files.
+
+The actual rowboat is `world/boat`, from Kenney Pirate Kit, with original source hash `c7f1521885d7a4a54092349de394770af77d1bfeba7456de23dcf4126091eafd` and dimensions **2.748538 × 0.847696 × 2.372146**. Root owns its harbour placement, the complete town composition, lighting and camera. The generated full-town target is design evidence; it is not a runtime capture. `docs/art-evidence/source-model-validation.json` records actual binary/node/bounds/hash checks. Final scene and gameplay evidence belong to the lead and independent reviewer; successful packaging alone does not establish target fidelity or frame rate.
+
+No Chrome/Tripo action, new generation, purchase or upgrade occurred during this curation pass. The earlier **two original Tripo generations and 120 observed credits** below remain the complete known Tripo acquisition record.
+
+## Generated material surfaces — current world overhaul
+
+Two opaque surface textures were generated with the built-in image_gen tool and visually inspected by the lead: `public/textures/town-paving.jpg` and `public/textures/kitchen-ceramic.jpg`. Exact prompts/mode are preserved in `docs/visual-targets/surface-prompts.txt`. Tool-returned originals remain in the generation cache; runtime copies use JPEG compression at86 quality. They are original game-specific stone/ceramic materials, not downloaded asset-pack textures or screenshots used as scenery. They repeat over actual 3D ground/floor surfaces. They total 1198576 bytes before HTTP compression. The new target `docs/visual-targets/world-overhaul-target.png` is saved only as a design reference; it is never displayed as the game world.
+
+## Historical procedural scene expansion — 28 October 2026 (superseded by sourced art)
 
 The 36-level expansion reuses the same original local Tripo cook and patterned bowl, including the real 65-joint skin and idle/walk/carry clips. No Chrome interaction, model generation, rig processing or additional Tripo credit use occurred in this scene pass. The existing two original model generations and 120 observed credits below are the acquisition record; this is not a reset of that allowance.
 
