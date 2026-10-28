@@ -7,7 +7,7 @@ export {levels};
 /** Retained alias for the host bridge and earlier curriculum evidence. */
 export const shifts=levels;
 export type Item={food:Food;form:Form;count:number;preparedByPlayer?:boolean;heat?:'raw'|'toasted'|'roasted'};
-export type Dish={items:Item[];yogurt:Measure[];stirred:boolean;blended:boolean;clean:boolean;served:boolean};
+export type Dish={items:Item[];yogurt:Measure[];stirred:boolean;blended:boolean;pureed?:boolean;blendedItems?:number;clean:boolean;served:boolean};
 export const freshDish=():Dish=>({items:[],yogurt:[],stirred:false,blended:false,clean:true,served:false});
 export const ingredients=(r:Recipe):Ingredient[]=>[{food:r.food,form:r.form,count:r.count,heat:r.heat,prepared:r.prepared},...(r.extra??[])];
 export const measureVolume:Record<Unit,number>={tablespoon:1,teaspoon:1/3,'half-cup':8,cup:16};
@@ -31,7 +31,7 @@ export function validateDish(d:Dish,r:Recipe):{ok:boolean;reason:string;phrase:s
  if(d.yogurt.some(m=>!expected.some(e=>e.liquid===(m.liquid??'yogurt')&&(e.amount===undefined||e.unit===m.unit))))return bad('בדקו גם את הנוזל וגם את יחידת המדידה. הוציאו מנה עודפת ובחרו כלי מתאים.',expected.map(m=>m.amount===undefined?`a little ${m.liquid}`:`${m.unit} of ${m.liquid}`).join(', ')||'without sauce');
  for(const m of expected){const amount=d.yogurt.filter(x=>(x.liquid??'yogurt')===m.liquid&&(m.amount===undefined||x.unit===m.unit)).reduce((n,x)=>n+x.amount*(m.amount===undefined?measureVolume[x.unit]:1),0);if(m.amount===undefined?!Number.isFinite(amount)||amount<=0||amount>4+1e-9:amount!==m.amount)return bad(m.amount===undefined?'צריך מעט, בלי כלי או מספר מדויק. במשחק זו כמות חיובית עד נפח של ארבע כפות; גם כפיות יכולות להתאים.':'כמות המדידה אינה מתאימה. אפשר להוציא מנה, למדוד שוב ולערבב.',m.amount===undefined?`a little ${m.liquid}`:m.unit==='half-cup'?`${m.amount===1?'half a cup':m.amount+' half-cup measures'} of ${m.liquid}`:`${m.amount} ${m.unit}${m.amount===1?'':'s'} of ${m.liquid}`);}
  if(r.layers){const actual=d.items.flatMap(i=>Array.from({length:i.count},()=>i.food));const order=r.layers.flatMap(f=>Array.from({length:wanted.find(w=>w.food===f)?.count??0},()=>f));if(actual.join(',')!==order.join(','))return bad('הכמויות נכונות, אבל סדר השכבות שונה. הרכיבו מחדש לפי before / after.',r.layers.join(' → '));}
- if(r.blend===false&&d.blended)return bad('ההזמנה מבקשת חתיכות, אבל המנה נטחנה. רוקנו והכינו שוב בלי בלנדר.','serve the pieces');
+ if((r.blend!==true||r.layers)&&(d.blended||d.pureed))return bad('ההזמנה מבקשת חתיכות, אבל המנה נטחנה. רוקנו והכינו שוב בלי בלנדר.','serve the pieces');
  if(r.blend&&!d.blended)return bad('המנה עדיין לא נטחנה. הרימו אותה והביאו לבלנדר בתחנת TOOLS.','blend');
  if(r.stir&&!d.stirred)return bad('המרכיבים עוד לא עורבבו. ערבבו ליד MIX.','stir');
  return {ok:true,reason:'',phrase:''};
@@ -50,12 +50,12 @@ export type Event={shift:number;action:string;success?:boolean;hint?:boolean;ret
 export class Kitchen{
  shift=0;order=0;mode:Mode='intro';held:Carry|null=null;
  dishes: Dish[]=[freshDish()];staged:(Carry|null)[]=[null];tool:Unit='tablespoon';liquid:Liquid='yogurt';tips=0;mistakes=0;assisted=false;shiftMistakes=0;seconds=0;
- message='';phrase='';events:Event[]=[];results:LevelResult[]=[];pearPrepared=false;priorAssistance=new Set<number>();priorMistakes=new Set<number>();
+ message='';phrase='';events:Event[]=[];results:LevelResult[]=[];pearPrepared=false;attemptedLevels=new Set<number>();priorAssistance=new Set<number>();priorMistakes=new Set<number>();
  get firstUnaided(){return !this.spec.guided&&!this.assisted&&this.shiftMistakes===0&&!this.priorAssistance.has(this.shift)&&!this.priorMistakes.has(this.shift)}
  get spec(){return levels[this.shift]}get recipe(){return this.spec.recipes[this.order]}get dish(){return this.dishes[this.order]}
  log(action:string,success?:boolean,hint=false){this.events.push({shift:this.shift+1,action,success,hint,unaided:this.firstUnaided,retry:this.shiftMistakes});this.events=this.events.slice(-250)}
  begin(){this.enter(0);this.log('begin')}
- start(){if(!['read','pause','play'].includes(this.mode))return;this.mode='play';this.message='';this.log('start')}
+ start(){if(!['read','pause','play'].includes(this.mode))return;this.mode='play';this.attemptedLevels.add(this.shift);this.message='';this.log('start')}
  help(){this.assisted=true;this.priorAssistance.add(this.shift);this.log('vocabulary',undefined,true)}
  fail(reason:string,phrase=''){this.message=reason;this.phrase=phrase;this.mistakes++;this.shiftMistakes++;this.priorMistakes.add(this.shift);this.tips=Math.max(0,this.tips-5);this.log('mistake',false)}
  take(food:Food,prepared=false){if(this.held){this.message='הידיים תפוסות. הניחו ב־MIX או על המגש.';return}this.held={food,form:prepared?'prepared':'whole',count:1,preparedByPlayer:prepared?false:undefined};this.log('take-'+food+(prepared?'-prepared':''))}
@@ -66,7 +66,7 @@ export class Kitchen{
   this.dish.stirred=false;this.dish.blended=false;this.log('add-'+h.food);this.message='';
  }
  process(tool:Tool){if(!this.spec.tools.includes(tool)){this.message='הכלי הזה עדיין לא בתחנה הזאת.';return}const h=this.held;
-  if(tool==='blend'){if(h?.food!=='dish'){this.message='הרימו את המנה ב־MIX והביאו לבלנדר.';return}if(!this.dish.items.length){this.fail('אין מרכיבים בבלנדר. מלאו את הקערה קודם.','blend');return}this.dish.blended=true;this.dish.stirred=true;this.message='טחינה הושלמה. אפשר להגיש או להניח ב־MIX.';this.log('blend');return;}
+  if(tool==='blend'){if(h?.food!=='dish'){this.message='הרימו את המנה ב־MIX והביאו לבלנדר.';return}if(!this.dish.items.length){this.fail('אין מרכיבים בבלנדר. מלאו את הקערה קודם.','blend');return}this.dish.blended=true;this.dish.pureed=true;this.dish.blendedItems=this.dish.items.length;this.dish.stirred=true;this.message='טחינה הושלמה. אפשר להגיש או להניח ב־MIX.';this.log('blend');return;}
   if(!h||h.food==='dish'||h.food==='yogurt'){this.message='הביאו מרכיב מוכן לכלי.';return}
   const cold=(h.heat??'raw')==='raw';
   if((tool==='dice'||tool==='grate')&&['sliced','prepared'].includes(h.form)&&cold)this.held={...h,form:tool==='dice'?'diced':'grated',preparedByPlayer:true};
@@ -85,12 +85,12 @@ export class Kitchen{
   if(!v.ok){this.fail(v.reason,v.phrase);return false}
   if(this.spec.serveInOrder&&this.dishes.slice(0,this.order).some(d=>!d.served)){this.fail('הגישו את המנות לפי הסדר שבכרטיס השירות.',this.spec.brief??'Serve in order');return false}
   this.dish.served=true;this.tips+=Math.max(10,50-this.shiftMistakes*5);this.log('serve',true);
-  if(this.dishes.every(d=>d.served)){const stars=1+Number(this.shiftMistakes===0)+Number(this.seconds<=this.spec.targetSeconds);const result={shift:this.shift+1,unaided:this.firstUnaided,guided:!!this.spec.guided,mistakes:this.shiftMistakes,seconds:Math.round(this.seconds),stars};this.results=this.results.filter(r=>r.shift!==result.shift).concat(result);this.mode=this.shift===levels.length-1?'complete':'between';}
+  if(this.dishes.every(d=>d.served)){const stars=1+Number(this.shiftMistakes===0)+Number(this.seconds<=this.spec.targetSeconds);const result={shift:this.shift+1,unaided:this.firstUnaided,guided:!!this.spec.guided,mistakes:this.shiftMistakes,seconds:Math.ceil(this.seconds),stars};this.results=this.results.filter(r=>r.shift!==result.shift).concat(result);this.mode=this.shift===levels.length-1?'complete':'between';}
   else{this.order=this.dishes.findIndex(d=>!d.served);this.message='מנה הוגשה! ההזמנה הבאה מחכה.'}return true;
  }
  selectOrder(i:number){if(this.mode!=='play'||this.held){this.message='פנו ידיים לפני החלפת הזמנה.';return}if(Number.isInteger(i)&&i>=0&&i<this.dishes.length&&!this.dishes[i].served){this.order=i;this.message='';this.phrase=''}}
  next(){if(this.mode!=='between')return;this.enter(this.shift+1);this.log('next')}
- enter(shift:number){if(!Number.isInteger(shift)||shift<0||shift>=levels.length)return false;if(this.events.some(e=>e.shift===this.shift+1&&e.action==='start'))this.priorAssistance.add(this.shift);this.shift=shift;this.order=0;this.dishes=this.spec.recipes.map(()=>freshDish());if(this.spec.dirty)for(const d of this.dishes)d.clean=false;this.staged=this.spec.recipes.map(()=>null);this.assisted=false;this.shiftMistakes=0;this.seconds=0;this.pearPrepared=false;this.tool=this.spec.units[0]??'tablespoon';this.liquid=this.spec.liquids[0]??'yogurt';this.mode='read';this.message='';this.phrase='';this.held=null;return true}
+ enter(shift:number){if(!Number.isInteger(shift)||shift<0||shift>=levels.length)return false;if(this.attemptedLevels.has(shift))this.priorAssistance.add(shift);this.shift=shift;this.order=0;this.dishes=this.spec.recipes.map(()=>freshDish());if(this.spec.dirty)for(const d of this.dishes)d.clean=false;this.staged=this.spec.recipes.map(()=>null);this.assisted=false;this.shiftMistakes=0;this.seconds=0;this.pearPrepared=false;this.tool=this.spec.units[0]??'tablespoon';this.liquid=this.spec.liquids[0]??'yogurt';this.mode='read';this.message='';this.phrase='';this.held=null;return true}
  tick(dt:number){if(this.mode==='play'&&Number.isFinite(dt)&&dt>0)this.seconds+=dt}
  restart(){const level=this.shift;this.priorAssistance.add(level);this.enter(level);this.log('restart')}
 }

@@ -85,6 +85,16 @@ test('the five opening English fixtures remain exact while the campaign continue
  ]);
 });
 
+test('each concurrent course has a distinct physical answer, including same-ingredient contrasts',()=>{
+ for(const [index,level] of levels.entries())for(const [order,recipe] of level.recipes.entries()){
+  if(level.recipes.length===1)continue;
+  const k=new Kitchen();k.enter(index);k.start();k.selectOrder(order);build(k,recipe);
+  assert.equal(validateDish(k.dish,recipe).ok,true,`own course ${index+1}/${order+1}`);
+  for(const [other,otherRecipe] of level.recipes.entries())if(other!==order)
+   assert.equal(validateDish(k.dish,otherRecipe).ok,false,`level ${index+1}: ${recipe.id} must not satisfy ${otherRecipe.id}`);
+ }
+});
+
 test('half a cup cannot be replaced by one cup with the same raw count',()=>{
  const k=new Kitchen();k.enter(13);k.start();for(const req of ingredients(k.recipe))addIngredient(k,req);
  measure(k,'broth','cup',1);k.stir();assert.equal(serve(k),false);assert.equal(k.shiftMistakes,1);
@@ -138,6 +148,31 @@ test('stirring a chunky soup and blending a smooth soup are not interchangeable'
  assert.equal(validateDish(k.dish,k.recipe).ok,false);k.lift();k.process('blend');assert.equal(k.serve(),true);
 });
 
+test('blending destroys the explicit layers of a stack and washing is required to rebuild it',()=>{
+ for(const index of [25,32]){
+  const k=new Kitchen();k.enter(index);k.start();build(k,k.recipe);
+  assert.ok(k.recipe.layers);assert.equal(validateDish(k.dish,k.recipe).ok,true);
+  k.lift();k.process('blend');assert.equal(k.dish.blended,true);
+  assert.equal(k.serve(),false,`level ${index+1}: a puree cannot retain the requested food layers`);
+  k.wash();build(k,k.recipe);assert.equal(serve(k),true,'washing and rebuilding restores the actual layers');
+ }
+});
+
+test('adding dressing after blending cannot restore sliced salad ingredients',()=>{
+ const k=new Kitchen();k.enter(24);k.start();for(const req of ingredients(k.recipe))addIngredient(k,req);
+ k.lift();k.process('blend');k.stage();
+ for(const m of measures(k.recipe))measure(k,m.liquid,m.unit,m.amount!);k.stir();
+ assert.equal(serve(k),false,'new yogurt/oil cannot undo the earlier pureeing of tomato and cucumber');
+ k.wash();build(k,k.recipe);assert.equal(serve(k),true);
+});
+
+test('removing and replacing broth cannot unblend a soup that requires pieces',()=>{
+ const k=new Kitchen();k.enter(21);k.start();k.selectOrder(1);build(k,k.recipe);
+ k.lift();k.process('blend');k.stage();k.remove();measure(k,'broth','half-cup',1);k.stir();
+ assert.equal(serve(k),false,'liquid correction does not reconstruct blended mushroom slices or tomato pieces');
+ k.wash();build(k,k.recipe);assert.equal(serve(k),true);
+});
+
 test('serving a valid main before the stated starter fails without destroying either dish',()=>{
  const k=new Kitchen();k.enter(10);k.start();k.selectOrder(1);build(k,k.recipe);assert.equal(serve(k),false);
  assert.equal(k.dishes[1].served,false);assert.equal(validateDish(k.dishes[1],k.spec.recipes[1]).ok,true);
@@ -150,6 +185,22 @@ test('passing a soft pace target never prevents completion, and restart keeps th
  assert.equal(k.mode,'between');assert.equal(k.results[0].stars,2);
  const prior=k.results[0];k.restart();assert.equal(k.shift,30);assert.equal(k.mode,'read');assert.deepEqual(k.results,[prior]);
  assert.equal(k.firstUnaided,false);solve(k);assert.equal(k.results.filter(r=>r.shift===31).length,1);
+});
+
+test('first-attempt exposure survives eviction from the bounded telemetry log',()=>{
+ const k=new Kitchen();k.enter(6);k.start();assert.equal(k.firstUnaided,true);
+ for(let n=0;n<130;n++){k.take('bread');k.wash()}
+ assert.equal(k.events.some(e=>e.shift===7&&e.action==='start'),false,'the scenario actually evicted its start event');
+ assert.equal(k.shiftMistakes,0);k.enter(7);k.enter(6);k.start();
+ assert.equal(k.firstUnaided,false,'reopening a practiced level cannot regain first-attempt credit when old log entries are dropped');
+});
+
+test('a missed pace star is accompanied by a recorded time beyond the displayed target',()=>{
+ for(const excess of [-.25,0,.25]){
+  const k=new Kitchen();k.enter(6);k.start();build(k,k.recipe);k.tick(k.spec.targetSeconds+excess);assert.equal(serve(k),true);
+  const result=k.results[0];assert.equal(result.mistakes,0);assert.equal(result.stars,excess>0?2:3);
+  if(result.stars===2)assert.ok(result.seconds>k.spec.targetSeconds,'the result must not appear to meet a target whose pace star was denied');
+ }
 });
 
 const result=(shift:number,stars=3,seconds=60):LevelResult=>({shift,stars,seconds,mistakes:0,unaided:true,guided:shift===1});
