@@ -1,0 +1,22 @@
+{
+  "method": "Offline inspection of actual canvas readbacks; no browser launched",
+  "sourceImages": [
+    "blender-idle-a.png",
+    "blender-idle-b.png",
+    "blender-motion-a.png",
+    "blender-motion-b.png"
+  ],
+  "cropSize": [
+    61,
+    89
+  ],
+  "baseRegionXYXYExclusive": [
+    15,
+    56,
+    50,
+    79
+  ],
+  "idleChangedPixels": 0,
+  "workingChangedPixels": 590,
+  "unrelatedContent": "Full crop includes chef/held bowl at its top; base region excludes that content"
+}

@@ -1,4 +1,20 @@
-# Verification · final world overhaul · 28 October 2026
+# Verification · restored kitchen · 28 October 2026
+
+Source checkpoint `907ca96` restores the original three-quarter camera direction and open workstation islands while preserving the accepted surroundings, authored assets and all36 progressive levels. The user rejected the previous visual/play-feel result despite its solver passing; the historical report below is evidence of that earlier build only.
+
+- `npm test`:84/84 pass. Typecheck/build pass; Vite retains its existing large-chunk advisory. Asset binary verification passes331 keys.
+- `CAPTURE_DIR=docs/kitchen-restoration/campaign node scripts/campaign-playtest.cjs http://127.0.0.1:5201`:all36 levels/60 courses pass with no page/console errors, warnings, failed requests or missing models. The route uses normal pointer/action controls and time stepping; it does not inject wins, ingredients or positions. Save/unlock/reload/replay and relocated PREP/reset also pass.
+- `node scripts/kitchen-restoration-check.cjs`:30 focused checks pass. Every worktop/label routes at1440×900,960×600,844×390 and390×844. Keyboard crosses the reopened gap, with outer collision retained. Knife/stir/blender motion, held state, exact paused pixels/time, rejected toss/return/correction and current-level reset pass.
+- All English words are initially visible for level1 and all three dense level36 orders at all four sizes. Individual word rectangles are checked against clipping and actual hit visibility. Fonts:18px desktop,14px medium/short landscape,15px portrait. Mobile checks use browser touch emulation.
+- The lead inspected every venue full frame, all60 detailed prepared-course crops, the full campaign contact sheet, a full-size harbour carry and dense portrait/landscape instructions. The independent reviewer separately inspected restored depth, layout, motion crops and instructions. The required skill client entered play and moved the original rigged chef.
+
+Machine reports and actual captures: `docs/kitchen-restoration/campaign-verification.json`, `independent-verification.json`, `INDEPENDENT.md`, `campaign/`, `independent-captures/` and the five food-review sheets. Full campaign frames are JPEG; original motion readbacks remain PNG. Raw full-frame PNGs remain locally under ignored work/. The broad blender crop contained unrelated chef movement; isolated base pixels show0 idle changes and590 processing changes, documented in the independent report.
+
+Both browser runs completed successfully during a brief scheduling overlap. They establish the stated functional checks, not FPS evidence. No new performance or physical-phone claim is made. The authored low-poly scene remains simpler than the generated design target, and the user's visual acceptance or student engagement is not inferred from these tests. Dev5201 and built preview4201 remain available locally.
+
+---
+
+# Historical verification · world overhaul · 28 October 2026
 
 ## Current scope and source
 

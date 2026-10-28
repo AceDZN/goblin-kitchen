@@ -56,3 +56,6 @@ The original Tripo cook has a **65-joint Mixamo skin** with idle, walk and custo
 `src/levels.ts` contains all authored tasks. `CURRICULUM.md` documents the original language scenarios and their source basis; advanced tasks extend that practice without claiming a grade-specific assessment. `PLAYTEST.md` records current verification and limits. `ASSETS.md` and `VISUAL_REVIEW.md` document provenance and generated-target versus actual evidence.
 
 The campaign is open to any player progressing through it. Student engagement/learning gains and performance on low-end physical phones need separate playtesting; automated completion does not establish those outcomes.
+
+
+The 28 October kitchen correction restores the angled3D camera, separate workstations/open paths, warm cabinet finishes and readable pinned recipes while retaining the surrounding world and all36 levels. Current playthrough evidence is in `docs/kitchen-restoration/`; PLAYTEST.md distinguishes this source from the preceding visual pass.
