@@ -27,11 +27,11 @@ export class KitchenScene {
  material:Record<string,T.MeshStandardMaterial>={};labels:T.Sprite[]=[];reduced=false;lastHeld='';lastBowl='';moving=false;boardMoved=false;fps=0;frames=0;frameTime=0;
  worldReady=false;missingModels=new Set<string>();authoredInstances=0;groundTexture?:T.Texture;floorTexture?:T.Texture;terraceTexture?:T.Texture;
  venueIndex=-1;venueName='';venueVisuals={name:'',decor:[] as string[],palette:'',layout:0};
- floorTiles?:T.InstancedMesh;hemi?:T.HemisphereLight;sun?:T.DirectionalLight;lastStock='';lastTools='';lastLiquids='';lastToolEvent='';toolPulse=0;
+ floorTiles?:T.InstancedMesh;hemi?:T.HemisphereLight;sun?:T.DirectionalLight;lastStock='';lastTools='';lastLiquids='';working='';
 
  constructor(public canvas:HTMLCanvasElement,public game:Kitchen){
   this.renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFShadowMap;this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.12;
-  this.scene.background=new T.Color('#d4c5ac');this.camera.position.set(0,23,22);this.camera.lookAt(0,0,0);
+  this.scene.background=new T.Color('#d4c5ac');this.camera.position.set(12,17,19);this.camera.lookAt(-1.5,0,0);
   this.hemi=new T.HemisphereLight('#fff3df','#8c9c89',2.4);this.scene.add(this.hemi);this.sun=new T.DirectionalLight('#fff0d6',3.2);this.sun.position.set(-9,18,6);this.sun.castShadow=true;this.sun.shadow.mapSize.set(2048,2048);Object.assign(this.sun.shadow.camera,{left:-20,right:20,top:20,bottom:-20,near:.5,far:55});this.sun.shadow.normalBias=.025;this.sun.shadow.bias=-.00025;this.sun.shadow.radius=3;this.scene.add(this.sun);
   const fill=new T.DirectionalLight('#c9deef',.65);fill.position.set(6,6,-7);this.scene.add(fill);
   for(const [n,c] of Object.entries({wood:'#79472c',top:'#b17b47',dark:'#382633',cream:'#f4e0b5',brass:'#bc883b',green:'#6b8b37',tile:'#63505f',white:'#fff5de',banana:'#e7b936',apple:'#b84131',pear:'#97ad48',tomato:'#bf4430',carrot:'#e17d24',cucumber:'#3f693b',cucumberFlesh:'#bbcc78',potato:'#c5a46e',mushroom:'#91745b',mushroomFlesh:'#e4d4b3',pepper:'#c45a34',toast:'#9c642d',roast:'#ac6e39',char:'#493225',metal:'#718080',wall:'#51404b',accent:'#c79142',awning:'#6b3741',water:'#457783',yogurt:'#fff0d6',broth:'#b96a2b',oil:'#c9a12f',glass:'#b2bba7',hot:'#f49637'})){
@@ -91,10 +91,23 @@ export class KitchenScene {
    const art=new T.Group();art.name='station-art';station.group.add(art);
    const {id,width:w,depth:d}=station;
    if(id==='sink')this.model('kitchen/kitchencounter_sink',art,0,0,0,[w,1.98,d],Math.PI);
-   else this.model(id==='bowl'?'kitchen/kitchentable_A_large':'kitchen/kitchencounter_straight_A',art,0,0,0,[w,1.12,d]);
+   else this.model('kitchen/kitchencounter_straight_A',art,0,0,0,[w,1.12,d]);
+   // Keep the authored cabinet detail while restoring the warm workbench finish.
+   art.traverse(o=>{if(o instanceof T.Mesh){const materials=(Array.isArray(o.material)?o.material:[o.material]).map(m=>{const mat=m.clone();if(mat instanceof T.MeshStandardMaterial){
+     mat.onBeforeCompile=shader=>{
+      shader.uniforms.worktop={value:new T.Color('#bd925a')};shader.uniforms.cabinet={value:new T.Color('#80543a')};
+      shader.fragmentShader='uniform vec3 worktop; uniform vec3 cabinet;\n'+shader.fragmentShader;
+      shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
+       #ifdef USE_MAP
+       vec3 sourceFinish=sampledDiffuseColor.rgb;
+       if(sourceFinish.r>.25 && sourceFinish.g<sourceFinish.r*.72 && sourceFinish.b<sourceFinish.g*.7){diffuseColor.rgb=worktop*(.75+sourceFinish.r*.3);}
+       else if(min(sourceFinish.r,min(sourceFinish.g,sourceFinish.b))>.46 && max(sourceFinish.r,max(sourceFinish.g,sourceFinish.b))-min(sourceFinish.r,min(sourceFinish.g,sourceFinish.b))<.13){diffuseColor.rgb=cabinet*(.8+sourceFinish.r*.3);}
+       #endif`);
+     };mat.customProgramCacheKey=()=> 'kitchen-walnut-oak-v1';
+    }mat.userData.ownerMesh=o.uuid;return mat});o.material=Array.isArray(o.material)?materials:materials[0];o.userData.ownedMaterial=true}});
    if(id==='board'){
     this.model('kitchen/cuttingboard',art,0,1.13,0,[1.3,.1,.86]);
-    const knife=this.model('kitchen/knife',art,.28,1.26,0,.72);if(knife){knife.rotation.z=Math.PI/2;knife.rotation.y=.3}
+    const knife=this.model('kitchen/knife',art,.28,1.26,0,.72);if(knife){knife.name='prep-knife';knife.rotation.z=Math.PI/2;knife.rotation.y=.3}
    }
    if(id==='bread'){
     this.model('kitchen/crate',art,0,1.13,0,[1.42,.28,1.03]);this.model('food/loaf',art,-.25,1.4,0,.85);this.model('food/bread',art,.4,1.4,0,.5);
@@ -108,7 +121,8 @@ export class KitchenScene {
  updateStock(){
   if(!modelLibrary.ready)return;
   const stock=this.game.spec.pantry,key=JSON.stringify(stock);if(key===this.lastStock)return;this.lastStock=key;this.clearGroup(this.pantryDisplay);
-  stock.filter(f=>f!=='bread').slice(0,5).forEach((food,i,foods)=>{const x=(i-(foods.length-1)/2)*Math.min(.4,1.4/foods.length);this.model('kitchen/bowl_small',this.pantryDisplay,x,0,0,[.4,.13,.5]);const f=this.food({food,form:'whole',count:1},this.pantryDisplay,x,.12,0);f.scale.setScalar(foods.length>3?.58:.75)})
+  this.model('kitchen/crate',this.pantryDisplay,0,0,0,[1.65,.16,.9]);
+  stock.filter(f=>f!=='bread').slice(0,5).forEach((food,i,foods)=>{const x=(i-(foods.length-1)/2)*Math.min(.48,1.5/foods.length);const f=this.food({food,form:'whole',count:1},this.pantryDisplay,x,.17,(i%2?-.12:.12));f.scale.setScalar(foods.length>3?.72:.95)})
  }
  updateLiquids(){
   if(!modelLibrary.ready)return;
@@ -121,7 +135,7 @@ export class KitchenScene {
   const tools=this.game.spec.tools,pear=this.game.spec.recipes.some(r=>r.food==='pear'&&(r.form==='prepared'||r.prepared)),key=JSON.stringify([tools,pear]);if(key===this.lastTools)return;this.lastTools=key;this.clearGroup(this.toolDisplay);
   if(pear){const a=this.food({food:'pear',form:'prepared',count:1},this.toolDisplay,-.4,.08,0);a.scale.setScalar(.6);const b=this.food({food:'pear',form:'whole',count:1},this.toolDisplay,.28,.08,0);b.scale.setScalar(.6)}
   if(tools.includes('toast')||tools.includes('roast'))this.model('kitchen/oven',this.toolDisplay,-.44,0,-.12,[.78,.75,.8]);
-  if(tools.includes('blend'))this.model('furniture/kitchenblender',this.toolDisplay,.45,0,-.12,[.48,.86,.48]);
+  if(tools.includes('blend')){const blender=this.model('furniture/kitchenblender',this.toolDisplay,.45,0,-.12,[.48,.86,.48]);if(blender)blender.name='active-blender'}
   if(tools.includes('grate'))this.model('tools/grater',this.toolDisplay,.25,0,.42,[.3,.42,.28]);
   if(tools.includes('dice')){this.model('kitchen/cuttingboard',this.toolDisplay,-.4,0,.4,[.53,.06,.4]);const knife=this.model('kitchen/knife',this.toolDisplay,-.4,.12,.4,.4);if(knife)knife.rotation.z=Math.PI/2}
   if(!tools.length&&!pear)this.model('kitchen/pan_A',this.toolDisplay,0,0,0,.8);
@@ -180,13 +194,27 @@ export class KitchenScene {
 
  resize(){
   const w=this.canvas.clientWidth,h=this.canvas.clientHeight;this.renderer.setSize(w,h,false);const aspect=w/h;
-  const half=6.8;this.camera.top=half;this.camera.bottom=-half;this.camera.left=-half*aspect;this.camera.right=half*aspect;
-  this.camera.zoom=aspect<1?aspect*.85:aspect<1.45?.93:1;
-  this.camera.position.set(0,23,22);this.camera.lookAt(0,0,.1);this.camera.updateProjectionMatrix();this.render();
+  const half=7.2;this.camera.clearViewOffset();this.camera.zoom=1;
+  this.camera.top=half;this.camera.bottom=-half;this.camera.left=-half*aspect;this.camera.right=half*aspect;
+  this.camera.position.set(12,17,19);this.camera.lookAt(0,0,0);this.camera.updateMatrixWorld();this.camera.updateProjectionMatrix();
+  // Frame the working kitchen around readable instructions, rather than flattening
+  // the camera or shrinking the English to protect station hit areas.
+  const portrait=aspect<1,compact=w<1000,short=h<500;
+  const left=portrait?10:short?310:compact?250:370,right=w-18;
+  const top=portrait?Math.min(330,h*.4):short?48:85,bottom=h-(portrait?145:short?80:105);
+  const points:T.Vector3[]=[];
+  for(const x of [-6.15,6.15])for(const z of [-4.5,4.6])for(const y of [0,2.1])points.push(new T.Vector3(x,y,z).project(this.camera));
+  const xs=points.map(p=>(p.x*.5+.5)*w),ys=points.map(p=>(-.5*p.y+.5)*h);
+  const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
+  this.camera.zoom=Math.min((right-left)/(maxX-minX),(bottom-top)/(maxY-minY))*.97;
+  this.camera.updateProjectionMatrix();
+  const center=new T.Vector3(0,1.05,.05).project(this.camera);
+  const dx=(left+right)/2-(center.x*.5+.5)*w,dy=(top+bottom)/2-(-.5*center.y+.5)*h;
+  this.camera.setViewOffset(w,h,-dx,-dy,w,h);this.render();
  }
 
- pointer(clientX:number,clientY:number){const r=this.canvas.getBoundingClientRect();this.raycaster.setFromCamera(new T.Vector2((clientX-r.left)/r.width*2-1,-(clientY-r.top)/r.height*2+1),this.camera);const meshes=this.raycaster.intersectObjects(this.stations.map(s=>s.group),true);if(meshes[0]){let o:T.Object3D|null=meshes[0].object;while(o){const station=this.stations.find(s=>s.group===o);if(station)return {point:station.pos.clone(),station};o=o.parent}}const hit=this.raycaster.ray.intersectPlane(this.floor,new T.Vector3());if(!hit)return null;let nearest:Station|undefined;let dist=1.65;for(const s of this.stations){const d=hit.distanceTo(s.pos);if(d<dist){nearest=s;dist=d}}return {point:hit,station:nearest}}
- collision(pos:T.Vector3){if(Math.abs(pos.x+5)<1.16&&(Math.abs(pos.z-1.5)<1||Math.abs(pos.z+1.5)<1)||Math.abs(pos.x-5)<1.16&&Math.abs(pos.z+1.2)<1.11)return true;if(Math.abs(pos.x+6)<.885&&Math.abs(pos.z+4.65)<.885)return true;if(Math.abs(pos.x)>6.35||Math.abs(pos.z)>4.7)return true;return this.stations.some(s=>Math.abs(pos.x-s.pos.x)<s.width/2+.26&&Math.abs(pos.z-s.pos.z)<s.depth/2+.26)}
+ pointer(clientX:number,clientY:number){const r=this.canvas.getBoundingClientRect();this.raycaster.setFromCamera(new T.Vector2((clientX-r.left)/r.width*2-1,-(clientY-r.top)/r.height*2+1),this.camera);const labelHit=this.raycaster.intersectObjects(this.labels)[0];if(labelHit){const s=this.stations[this.labels.indexOf(labelHit.object as T.Sprite)];if(s)return {point:s.pos.clone(),station:s}}const meshes=this.raycaster.intersectObjects(this.stations.map(s=>s.group),true);if(meshes[0]){let o:T.Object3D|null=meshes[0].object;while(o){const station=this.stations.find(s=>s.group===o);if(station)return {point:station.pos.clone(),station};o=o.parent}}const hit=this.raycaster.ray.intersectPlane(this.floor,new T.Vector3());if(!hit)return null;let nearest:Station|undefined;let dist=1.65;for(const s of this.stations){const d=hit.distanceTo(s.pos);if(d<dist){nearest=s;dist=d}}return {point:hit,station:nearest}}
+ collision(pos:T.Vector3){if(Math.abs(pos.x+6)<.885&&Math.abs(pos.z+4.65)<.885)return true;if(Math.abs(pos.x)>6.35||Math.abs(pos.z)>4.7)return true;return this.stations.some(s=>Math.abs(pos.x-s.pos.x)<s.width/2+.26&&Math.abs(pos.z-s.pos.z)<s.depth/2+.26)}
  move(dx:number,dz:number,dt:number){const mag=Math.hypot(dx,dz);this.moving=mag>.02;if(!this.moving)return;dx/=mag;dz/=mag;const speed=4.6;const p=this.position.clone();p.x+=dx*speed*dt;if(!this.collision(p))this.position.x=p.x;p.copy(this.position);p.z+=dz*speed*dt;if(!this.collision(p))this.position.z=p.z;this.look=Math.atan2(dx,dz);this.player.rotation.y=this.look}
  nearest(){let best:Station|undefined,d=1.85;for(const s of this.stations){const v=this.position.distanceTo(s.pos);if(v<d){d=v;best=s}}return best}
  layout(_index:number){
@@ -258,10 +286,18 @@ export class KitchenScene {
   const held=this.game.held,h=JSON.stringify([held,held?.food==='dish'?this.game.dish:null]);
   if(h!==this.lastHeld){this.lastHeld=h;this.clearGroup(this.held);if(held?.food==='dish'){this.makeBowl(this.held);this.renderDishContents(this.held,d)}else if(held?.food==='yogurt')this.renderMeasure(this.held,held);else if(held)this.food(held,this.held)}
   this.bowl.visible=held?.food!=='dish'&&!d.served;
-  const action=this.game.events.at(-1)?.action??'';if(action!==this.lastToolEvent){this.lastToolEvent=action;if(/^(blend|toast-|roast-|dice-|grate-)/.test(action))this.toolPulse=.9}
  }
  burst(success=true){for(let i=0;i<(this.reduced?0:22);i++){const mesh=this.box(.1,.1,.1,success?'brass':'white');mesh.position.copy(this.position).add(new T.Vector3(0,1,0));this.effects.push({mesh,age:0,vel:new T.Vector3((Math.random()-.5)*5,2+Math.random()*4,(Math.random()-.5)*5)})}}
- tick(dt:number){this.time+=dt;this.toolPulse=Math.max(0,this.toolPulse-dt);const rotor=this.toolDisplay.getObjectByName('blender-rotor');if(rotor&&this.toolPulse>0)rotor.rotation.y+=dt*25;this.cheerTime=Math.max(0,this.cheerTime-dt);this.sync();this.player.position.copy(this.position);if(!this.reduced){this.player.position.y=this.realCook?0:this.moving?Math.sin(this.time*15)*.055:Math.sin(this.time*2)*.014;this.held.rotation.z=this.game.dish.yogurt.length>3?Math.sin(this.time*12)*.13:0;this.customers.forEach((c,i)=>c.position.y=(this.cheerTime>0?Math.abs(Math.sin(this.time*14+i))*.3:Math.sin(this.time*2+i)*.025))}if(this.mixer){this.setAnimation(this.moving?(this.game.held?'carry':'walk'):'idle');this.mixer.update(dt);if(this.game.held&&!this.moving)for(const [bone,q]of this.holdPose)bone.quaternion.copy(q);this.player.updateMatrixWorld(true)}if(this.realCook){const dish=this.game.held?.food==='dish';this.held.scale.setScalar(dish?.72:.85);if(this.gripBones.length===2&&this.game.held){const grip=this.gripBones[0].getWorldPosition(new T.Vector3()).add(this.gripBones[1].getWorldPosition(new T.Vector3())).multiplyScalar(.5);this.player.worldToLocal(grip);grip.y-=dish?.19:0;grip.z=Math.max(.32,grip.z+.08);this.held.position.copy(grip)}else this.held.position.set(0,.95,.72)}for(const e of [...this.effects]){e.age+=dt;e.vel.y-=9*dt;e.mesh.position.addScaledVector(e.vel,dt);if(e.age>1.3){this.scene.remove(e.mesh);e.mesh.geometry.dispose();this.effects.splice(this.effects.indexOf(e),1)}}}
+ tick(dt:number){this.time+=dt;const blender=this.toolDisplay.getObjectByName('active-blender');if(blender)blender.rotation.z=!this.reduced&&this.working==='process-blend'?Math.sin(this.time*65)*.045:0;const knife=this.stations.find(s=>s.id==='board')?.group.getObjectByName('prep-knife');if(knife)knife.position.y=1.26+(!this.reduced&&this.working==='prep'?Math.abs(Math.sin(this.time*18))*.25:0);if(!this.reduced&&this.working==='stir')this.bowlContents.rotation.y+=dt*2.7;this.cheerTime=Math.max(0,this.cheerTime-dt);this.sync();this.player.position.copy(this.position);if(!this.reduced){this.player.position.y=this.realCook?0:this.moving?Math.sin(this.time*15)*.055:Math.sin(this.time*2)*.014;this.held.rotation.z=this.game.dish.yogurt.length>3?Math.sin(this.time*12)*.13:0;this.customers.forEach((c,i)=>c.position.y=(this.cheerTime>0?Math.abs(Math.sin(this.time*14+i))*.3:Math.sin(this.time*2+i)*.025))}if(this.mixer){this.setAnimation(this.moving?(this.game.held?'carry':'walk'):'idle');this.mixer.update(dt);if(this.game.held&&!this.moving)for(const [bone,q]of this.holdPose)bone.quaternion.copy(q);this.player.updateMatrixWorld(true)}if(this.realCook){const dish=this.game.held?.food==='dish';this.held.scale.setScalar(dish?.72:.85);if(this.gripBones.length===2&&this.game.held){const grip=this.gripBones[0].getWorldPosition(new T.Vector3()).add(this.gripBones[1].getWorldPosition(new T.Vector3())).multiplyScalar(.5);this.player.worldToLocal(grip);grip.y-=dish?.19:0;grip.z=Math.max(.32,grip.z+.08);this.held.position.copy(grip)}else this.held.position.set(0,.95,.72)}for(const e of [...this.effects]){e.age+=dt;e.vel.y-=9*dt;e.mesh.position.addScaledVector(e.vel,dt);if(e.age>1.3){this.scene.remove(e.mesh);e.mesh.geometry.dispose();this.effects.splice(this.effects.indexOf(e),1)}}}
  render(){this.renderer.render(this.scene,this.camera)}
+ objectScreen(object?:T.Object3D){
+  if(!object)return null;const box=new T.Box3().setFromObject(object),points:T.Vector3[]=[];
+  if(box.isEmpty())return null;
+  for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])points.push(new T.Vector3(x,y,z).project(this.camera));
+  const xs=points.map(p=>(p.x*.5+.5)*this.canvas.clientWidth),ys=points.map(p=>(-.5*p.y+.5)*this.canvas.clientHeight);
+  return {x:Math.floor(Math.min(...xs)),y:Math.floor(Math.min(...ys)),width:Math.ceil(Math.max(...xs)-Math.min(...xs)),height:Math.ceil(Math.max(...ys)-Math.min(...ys))};
+ }
+ labelScreen(id:string){const i=this.stations.findIndex(s=>s.id===id);if(i<0)return null;const p=this.labels[i].position.clone().project(this.camera);return {x:Math.round((p.x*.5+.5)*this.canvas.clientWidth),y:Math.round((-.5*p.y+.5)*this.canvas.clientHeight)}}
+ workVisuals(){return {prepKnife:this.objectScreen(this.stations.find(s=>s.id==='board')?.group.getObjectByName('prep-knife')),blender:this.objectScreen(this.toolDisplay.getObjectByName('active-blender')),bowl:this.objectScreen(this.bowl),working:this.working}}
  stationScreen(id:string){const s=this.stations.find(s=>s.id===id);if(!s)return;const p=s.pos.clone();p.y=1.1;p.project(this.camera);return {x:Math.round((p.x*.5+.5)*this.canvas.clientWidth),y:Math.round((-.5*p.y+.5)*this.canvas.clientHeight)}}
 }

@@ -1,6 +1,16 @@
 # Generated target versus real gameplay
 
-## Current world overhaul — 28 October 2026
+## Kitchen restoration — 28 October 2026
+
+The user accepted the new surroundings but rejected the flattened kitchen and changed layout feel. The earlier all-course solver demonstrated solvability; it did not demonstrate preserved visual or play quality. That rejection supersedes the prior visual signoff below.
+
+The current renderer restores the original three-quarter camera direction, separated workstation footprints and walkable gaps while retaining continuous town ground and all authored models. MIX has a substantial cabinet workbench again. Source cabinet materials receive an oak/walnut finish through a scoped renderer shader; geometry, UVs and external scenery remain authored assets. Pantry foods stand visibly above a shallow crate. The foreground house/tree and service frame no longer cover the customer area. The old floating base is not restored.
+
+Readable English gets a reserved margin through camera framing, including portrait and short landscape, instead of forcing the recipe into a tiny card. Station labels are clickable. Preparation knife, blender and stirring contents move during their respective jobs and freeze with pause/reduced motion. The earlier dead `blender-rotor` lookup was removed. These are motions of actual source assets, not replacement appliance shapes.
+
+Visual references are the original `target-01.png` and pre-overhaul `docs/captures/campaign/` for camera/depth, plus the retained `world-overhaul-target.png` for grounded surroundings. Actual current six-venue captures are in `docs/kitchen-restoration/captures/`; their inspected overview is `docs/kitchen-restoration/venues-review.jpg`. Functional and final visual verification is tracked in `docs/kitchen-restoration/PLAN.md`. These are actual game captures; no concept image is presented as software.
+
+## Historical world overhaul — 28 October 2026
 
 The user rejected the isolated platform presentation and simple props. A new built-in-imagegen design target was generated and inspected before the overhaul (`docs/visual-targets/world-overhaul-target.png`; exact prompt beside it). It is a concept reference, not a software screenshot. The renderer now uses seven authored asset atlases, preserving the original rigged Tripo goblin and ceramic bowl. Provenance and preparation-state derivations are in ASSETS.md; file/node/bounds validation is in `docs/art-evidence/source-model-validation.json`.
 

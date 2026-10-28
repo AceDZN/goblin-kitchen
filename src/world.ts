@@ -12,12 +12,10 @@ export function buildWorld(k:KitchenScene,index:number):string[]{
  // Authored checker tiles meet the paving at ground level; there is no suspended base.
  const floorMaterial=new T.MeshStandardMaterial({map:k.floorTexture,color:['#ffe4b8','#ffe4c1','#e6edd3','#e1e8e1','#efdfd5','#eee4ce'][index],roughness:.72});
  const floor=k.mesh(new T.PlaneGeometry(14,12),floorMaterial,g,0,.004,0);floor.rotation.x=-Math.PI/2;floor.castShadow=false;floor.userData.ownedMaterial=true;floorMaterial.userData.ownerMesh=floor.uuid;
- for(const z of [-1.5,1.5])place('kitchen/kitchencounter_straight_B',-5,z,[1.8,1.12,1.48]);
- place('kitchen/kitchencounter_straight_B',5,-1.2,[1.8,1.12,1.7]);
- // Low enclosure leaves all preparation surfaces readable from the overhead camera.
+ // Low cutaway enclosure keeps preparation surfaces readable from the three-quarter camera.
  for(let x=-6;x<=6;x+=2){place('kitchen/wall',x,-5.9,[2,.85,.28]);if(Math.abs(x)>2)place('kitchen/wall',x,5.9,[2,.45,.28])}
  for(let z=-4.8;z<=4.8;z+=1.92){place('kitchen/wall',-6.9,z,[1.94,.7,.28],Math.PI/2);if(z<-.95||z>2)place('kitchen/wall',6.9,z,[1.94,.65,.28],Math.PI/2)}
- place('kitchen/wall_orderwindow_decorated',6.3,.5,[3.2,2.6,.62],Math.PI/2);
+ place('kitchen/wall_orderwindow_decorated',6.3,.5,[2.5,2.25,.42],Math.PI/2);
  place('kitchen/fridge_A_decorated',-6,-4.65,[1.25,2.1,1.25],Math.PI/2);
  place('kitchen/kitchencabinet_half',-3.7,-5.55,[1.75,.68,.48],0,1.15);
  place('kitchen/shelf_papertowel_decorated',3.4,-5.55,[2,.9,.48],0,1.1);
@@ -36,10 +34,10 @@ export function buildWorld(k:KitchenScene,index:number):string[]{
  if(index===4){const terraceMaterial=groundMaterial.clone();terraceMaterial.map=k.terraceTexture!;const terrace=k.mesh(new T.PlaneGeometry(19,15),terraceMaterial,g,0,-.015,0);terrace.rotation.x=-Math.PI/2;terrace.castShadow=false;terrace.userData.ownedMaterial=true;terraceMaterial.userData.ownerMesh=terrace.uuid}
  if(index!==5){
   for(let i=0;i<4;i++)house(homes[i],-11+i*7,-9.4,5.1,i%2?Math.PI*.1:0);
-  if(index!==2)for(const x of (index===3?[11]:[-10.5,10.5]))for(let i=0;i<3;i++)house(homes[i],x,-5+i*7,4.7,x<0?Math.PI/2:-Math.PI/2);
+  if(index!==2)for(const x of (index===3?[11]:[-10.5,10.5]))for(let i=0;i<3;i++)house(homes[i],x>0&&i>0?x+2.5:x,-5+i*7,4.7,x<0?Math.PI/2:-Math.PI/2);
  }
  if(index!==3&&index!==5){
-  for(const [x,z]of [[-8.4,4.2],[-10,-5],[8.7,5.2],[12,-5],[-5,9.2],[5,9.2]] as const)tree(x,z,3.2);
+  for(const [x,z]of [[-8.4,4.2],[-10,-5],[11.5,6.6],[12,-5],[-5,9.2],[5,9.2]] as const)tree(x,z,3.2);
  }
  if(index<3){for(const [x,z]of [[-8.6,.2],[10,-4],[-4,7.3],[7.8,8]] as const)cafe(x,z)}
  for(const [x,z]of [[-6.5,5.4],[6.4,5.4],[-6.5,-5.5],[6.4,-5.5]] as const)place('furniture/plantsmall2',x,z,1.1);

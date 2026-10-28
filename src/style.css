@@ -33,3 +33,16 @@ header{gap:16px}.shift{max-width:410px}.shift b{font-size:21px}#levels-btn{color
 
 @media(max-width:760px) and (orientation:portrait){#recipe{max-height:min(24dvh,calc(50dvh - 19vw - 90px))}}
 @media(max-width:760px) and (orientation:landscape) and (min-height:501px){#recipe{max-height:14dvh;top:81px}}
+
+/* The working kitchen keeps its 3D camera; instructions have a reserved margin. */
+#recipe{top:100px;left:20px;width:330px;max-width:none;max-height:calc(100dvh - 260px);padding:14px 18px}
+#recipe p,#recipe #recipe-text{font-size:18px;line-height:1.42;max-height:none}
+#recipe #service-brief{font-size:12px;line-height:1.5}#contents{font-size:10px;max-height:none}
+#recipe button{font-size:11px}#order-tabs button{font-size:10px}
+@media(min-width:761px) and (max-width:999px){#recipe{left:10px;top:82px;width:225px;max-width:none;max-height:calc(100dvh - 235px);padding:12px}#recipe #recipe-text{font-size:15px;line-height:1.4}#contents{font-size:9px}}
+@media(max-width:760px){#recipe{left:10px;top:81px;width:calc(100vw - 20px);max-width:none;max-height:215px;padding:9px 12px}#recipe #recipe-text{font-size:15px;line-height:1.38;max-height:none}#recipe #service-brief{font-size:10px;margin:4px 0}#contents{font-size:9px}#order-tabs button{font-size:9px}}
+@media(orientation:landscape) and (max-width:999px){#recipe{left:10px;top:55px;width:225px;max-width:none;max-height:calc(100dvh - 160px);padding:10px 12px}#recipe #recipe-text{font-size:14px;line-height:1.38;max-height:none}#recipe #service-brief{font-size:10px}#contents{font-size:8px}}
+
+@media(max-width:760px) and (orientation:portrait){#recipe{max-height:248px}}
+@media(max-height:500px) and (orientation:landscape){#recipe{width:285px;max-height:calc(100dvh - 100px)}#recipe #recipe-text{font-size:14px;line-height:1.35}#recipe #service-brief{font-size:10px;line-height:1.35}#recipe #contents{font-size:8px}#touch-move{left:310px;bottom:20px}}
+@media(max-height:500px) and (orientation:landscape){#touch-move{left:auto;right:10px;bottom:14px}#context{left:calc(50% + 90px);max-width:calc(100vw - 480px);min-width:220px;bottom:18px}#actions button{font-size:10px;padding:6px 8px}#route{display:none}}

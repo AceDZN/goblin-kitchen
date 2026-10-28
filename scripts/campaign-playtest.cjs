@@ -7,7 +7,7 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const levels=JSON.parse(execFileSync(process.execPath,['--import','tsx','--input-type=module','-e',"import {levels} from './src/levels.ts'; console.log(JSON.stringify(levels))"],{cwd:root,encoding:'utf8'}));
 const url=process.argv[2]||'http://127.0.0.1:5201';
-const captureDir=root+'/docs/captures/campaign-overhaul';
+const captureDir=path.resolve(root,process.env.CAPTURE_DIR||'docs/captures/campaign-overhaul');
 fs.mkdirSync(captureDir,{recursive:true});fs.mkdirSync(root+'/work',{recursive:true});
 const clipNames=['idle','walk','Goblin Kitchen carrying motion: walk steadily in place, holding'];
 function assertAssets(s){
