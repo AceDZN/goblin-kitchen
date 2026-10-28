@@ -1,6 +1,25 @@
 # Independent English and gameplay review
 
-Current scope (28 October 2026): a regular 36-level campaign with no grade selector/gate is implemented and verified. All 78 tests and typecheck pass. The lead’s full 36-level browser route and this reviewer’s independent opening/error/recovery/touch checks pass. The earlier five-level signoffs below are historical; the final campaign section records current evidence and resolved findings.
+Final review (28 October 2026): the final source completed all 36 levels/60 courses through normal controls, with 60 fresh course captures and no browser errors, warnings, failed requests or missing models. Map unlock, save/reload/replay and moved-PREP reset passed. Independent portrait touch, five compact/landscape viewports and all consequential-error/recovery probes passed. All 84 rule tests pass. The previous release's five-level and campaign signoffs below are historical.
+
+## Graphical-overhaul final audit
+
+Five new regression tests reproduced issues sent to the lead: blending a layered stack was accepted; adding dressing erased a salad's earlier blending; removing/replacing broth erased blending in a chunky soup; a 100.25-second result lost the 100-second pace star but displayed 100 seconds; and eviction of the start event from the bounded telemetry log restored first-attempt credit on a replay. The lead's fixes pass these tests. A sixth test checks every concurrent course against the other recipes at its table, including the same-ingredient smooth/chunky and raw/roasted contrasts. Independent `npm test` passes all 84 tests. The timed-job/order-tab bug is also fixed: normal clicks cannot redirect an in-progress stir or wash to another bowl; carrying a dish prevents changing its order.
+
+The final-source route started at 15:02:24 UTC and is recorded in `work/campaign-browser-results.json` and `docs/captures/campaign-overhaul`: all 36 levels and 60 courses, with the rigged 65-joint/three-clip cook, ceramic bowl, all 331 library entries, expected per-venue model IDs and empty missing-model lists. Every course has a fresh image after the lift-facing change. Full-size town, market, harbour, rooftop, compact royal and puree-feedback captures were inspected for recipe, carried food and environment agreement; the lead reviews the systematic 60-course contact/crop sheets separately.
+
+Independent new-art opening-five checks passed toss timing, midair pause, rejected service and remove/restir recovery, tray/order separation, pear preparation and the dirty transfer. The final carry layout is intrinsic to its controls. A busy-host screenshot timeout and Playwright's default continuous-focus emulation required resuming the remaining checks in a separate run; neither is recorded as an app success or hidden as an app failure. The final campaign independently repeats all five opening successes on the final source. Error/recovery and touch evidence is consolidated in `work/reviewer-independent-final-results.json`, with the original part-one and resumed-run records retained.
+
+Final independent outcomes:
+
+- At 390×844, normal touch actions cooked and served the royal garden starter, and all five tools fit. Reading/vocabulary paused time; help recorded assistance.
+- At 800×600, 960×600, 844×390, 720×600 and 600×650, every station center hit the actual game canvas, clear of recipe/header/action/touch controls. Held-label bottoms were exactly 8 pixels above the action container in all five views. The compact recipe card uses scrolling; the paused Read view remains available for the complete instruction.
+- Wrong layers (9) and premature main service (11) failed, retained recoverable state, and succeeded after correction.
+- Stir/wash remained bound to their order (18), a carried dish could not change orders, pause froze processing, and reload preserved prior-attempt eligibility. For actual focus loss, Chromium's Playwright focus emulation was disabled; a real tab switch changed `document.hasFocus()` from true to false, paused the job/time, and preparation resumed normally afterward. No game state was injected.
+- Chunky soup stayed irreversibly pureed after broth removal/replacement (22); adding dressing could not reconstruct salad slices (25). Both rejected service and succeeded after washing/remaking.
+- One teaspoon satisfied “a little” yogurt (28). A full cup failed the exact half-cup broth order, then removal/re-measurement succeeded. Single and repeated half-cup labels were unambiguous.
+
+No functional blocker remains in the tested scope. Browser sessions closed successfully after the final campaign; GPU is released. These checks establish tested behavior and visual/state agreement, not learner outcomes or a universal device-performance guarantee.
 
 Reviewer owns this file, CURRICULUM.md, tests/recipes.test.ts and the authorized browser regression script. Final integrated-build status (26 October 2026): 24 rule tests, typecheck and the full normal-input browser regression passed with the local rigged cook and bowl. Historical blocked/pending notes below describe earlier builds; the final verification section supersedes them.
 
