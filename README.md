@@ -1,44 +1,56 @@
 # Goblin Kitchen · מטבח הגובלינים
 
-A real 3D, single-player browser cooking game for Hebrew-speaking grade-7/8 learners. English recipes determine ingredient preparation, quantities and serving. Five finite shifts: banana/spoons, two concurrent slice/loaf orders, banana sequence/cup, player-prepared pear, and a new apple recipe in a changed kitchen.
+A real 3D cooking game with **36 progressive levels, 60 orders and six kitchens**. English recipes control physical ingredient preparation, quantities, tools, layers and serving. Players advance through the campaign; there is **no grade selector or grade-based level restriction**.
 
-**[Play locally](http://localhost:5201)** · [Public source](https://github.com/AceDZN/goblin-kitchen)
+[Play locally](http://localhost:5201/) · [Public source](https://github.com/AceDZN/goblin-kitchen)
 
-## Run
+## The journey
+
+| Levels | Kitchen | What grows harder |
+| --- | --- | --- |
+| 1–6 | Ember Alley | Peeling, slicing, counted heads, clean bowls, tablespoons/cups/teaspoons |
+| 7–12 | The Bread Yard | Toasting, dicing, grating, mixed ingredients, layers and course order |
+| 13–18 | Garden Market | Vegetables, half-cup measures, broth, roasting, blending, three orders |
+| 19–24 | Harbour Canteen | Two liquids, three layers, smooth versus chunky, changed service requests |
+| 25–30 | Rooftop Lab | Combined tools/forms, multiple dressings, tray planning and longer relays |
+| 31–36 | The Royal Feast | Multi-course service combining exact states, heat, quantities, layers and methods |
+
+Success unlocks the next level. The level map lets players replay unlocked levels. Completed levels, best stars and the last level persist on this browser/device. Retry restarts the **current** level and keeps campaign progress. The opening five recipes from the first release are preserved and continue into level 6.
+
+One star is awarded for finishing, one for no corrections, and one for meeting a soft cooking-time target. Time cannot block progression, and reading pauses it. Vocabulary help records assistance separately from action stars. The opening level is guided practice; corrected/helped/repeated attempts do not count as first unaided comprehension.
+
+## Controls and tools
+
+Click/tap a station to walk there, then choose its contextual action. WASD/arrows move; **E** uses the first nearby action; **Space** tosses a carried dish at SERVE; **P/Esc** pauses; **F** toggles fullscreen. Touch has directional buttons.
+
+- **PANTRY / BREAD:** take the food specified in the recipe; pantry choices include distractors.
+- **PREP:** peel/slice fruit, prepare pears, slice vegetables or turn a loaf into four slices.
+- **TOOLS:** dice/grate prepared food, toast sliced bread, roast sliced/diced vegetables, or blend a carried dish. Tools appear as the campaign introduces them.
+- **MEASURE:** choose the liquid and tool, then measure one portion. Yogurt, broth and oil remain different contents; cup, half-cup, tablespoon and teaspoon remain different tools.
+- **MIX:** add ingredients, stir, lift a dish, remove a liquid portion or park/retrieve ingredients on that order's tray. Each concurrent order keeps a separate bowl/tray.
+- **SERVE:** toss the held dish through the hatch. Validation happens at arrival. Rejected dishes return to MIX for repair.
+- **WASH / RESET:** discard a held item; with empty hands, empty/wash the active bowl. Use this to recover from a wrong ingredient, layer or unwanted blend.
+
+The recipe button opens the full paused reading panel. The portrait live note scrolls to keep stations tappable. Hebrew help and replayable English speech support the English task text. Mute and reduced motion are available. No microphone, personal student data or remote analytics is used.
+
+## Run and build
 
 ```sh
 npm ci
 npm run dev
-```
-
-Dev uses strict port **5201**; `npm run preview` uses **4201**. Vite serves on the local network too. No backend, API key or external runtime assets are required. `npm run build` creates `dist/` with relative asset paths. `vercel.json` supplies the static build/output settings; deployment is prepared, not performed.
-
-## Controls
-
-Click/tap a station to walk there, then choose its contextual action. WASD/arrow keys move; **E** uses the first nearby action; **Space** tosses a carried dish at SERVE; **P/Esc** pauses; **F** toggles fullscreen. Touch also has directional buttons.
-
-FRUIT/BREAD/PEAR supply ingredients. PREP peels/slices or washes/cores/slices pears. MIX adds a carried ingredient; with empty hands, stir, lift the dish or remove one yogurt portion. YOGURT measures one portion with the selected tablespoon/cup. SERVE tosses the dish through the hatch and checks the recipe when it arrives. Rejected dishes return to MIX with their contents intact. WASH/RESET first discards a held item; with empty hands it empties and washes the bowl. A sliced loaf makes four slices: add two separately, park the leftovers on the MIX tray, and lift the dish. The two bread orders have separate bowls and trays. Retrieve parked ingredients or put a carried dish down at MIX to free your hands.
-
-Read the recipe freely while action is paused. Hebrew vocabulary help pauses too and marks assistance. There is no failure timer. Cooking time and repairs are shown separately from first-attempt unassisted comprehension. Shift 1 is guided practice; the four later shifts form the unaided denominator. Help, mistakes and prior exposure remain recorded across restart. The last shift withholds recipe solution hints. English speech uses the browser's available English voice; visible text always remains. Mute and reduced motion are in the controls/pause menu. Events/results stay only in this browser's localStorage; no personal information or remote analytics.
-
-## Status and evidence
-
-The five-shift cooking loop uses real WebGL movement/collision, preparation states, measuring, stirring, order trays, visible toss/catch and recoverable mistakes. Reading/help/pause freeze the action, including airborne dishes.
-
-The original Tripo cook and ceramic bowl are bundled locally. The cook has a **65-joint Mixamo skin** and three full-body clips: idle, walk and a custom carrying motion. Carried items follow the actual hand bones. The two GLBs total **2.76 MB**; no Tripo connection is needed to play. Architecture, exact portions and background customers use original procedural geometry. The final view preserves the warm kitchen palette while remaining simpler and more elevated than the generated target.
-
-24 semantic/regression tests cover quantities, preparation, bread heads, transfer, recovery, assistance history and tray conservation. Browser verification and limits are recorded in `PLAYTEST.md` and `docs/REVIEW.md`.
-
-- `docs/visual-targets/target-01.png`: generated design target, created before implementation; exact built-in imagegen prompt alongside it.
-- `ASSETS.md`: original prompts, normal UI acquisition, credit records, hashes and actual rig/clip data.
-- `CURRICULUM.md`: exact Workbook source links, original scenarios and limitations.
-- `PLAYTEST.md`, `docs/REVIEW.md`: verification evidence and remaining limits.
-- `VISUAL_REVIEW.md`, `docs/captures/`: target/actual comparison and real browser captures.
-
-```sh
 npm test
 npm run typecheck
 npm run build
 ```
 
-The game is a curriculum-informed practice slice. No learning-gain, speaking-assessment or Ministry-approval claim is made.
+Dev uses strict port **5201**; `npm run preview` uses **4201**. No backend, API key or runtime model service is required. `dist/` uses relative paths and `vercel.json` supplies static build settings. Production deployment is separate.
+
+The existing Workbook host bridge is preserved. `?level=N` opens any one-based campaign level from **1 to 36**, including a level not yet unlocked in the local save; it posts ready/start/complete events only to the validated host. No school-grade input controls this behavior.
+
+## Art and evidence
+
+The original Tripo cook has a **65-joint Mixamo skin** with idle, walk and custom carrying clips. Carried items follow its actual hand bones. The patterned ceramic bowl/ladle is also an original local Tripo asset. Both GLBs total **2.76 MB**. New foods, tools, colliders and six venue environments use original procedural geometry; Tripo is not needed at runtime.
+
+`src/levels.ts` contains all authored tasks. `CURRICULUM.md` documents the original language scenarios and their source basis; advanced tasks extend that practice without claiming a grade-specific assessment. `PLAYTEST.md` records current verification and limits. `ASSETS.md` and `VISUAL_REVIEW.md` document provenance and generated-target versus actual evidence.
+
+The campaign is open to any player progressing through it. Student engagement/learning gains and performance on low-end physical phones need separate playtesting; automated completion does not establish those outcomes.

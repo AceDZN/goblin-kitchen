@@ -21,7 +21,7 @@ function oneDish(form: 'whole'|'peeled'|'sliced'|'prepared', food: 'banana'|'app
   return { ...freshDish(), items: [{ food, form, count }], stirred: true };
 }
 
-test('all five shifts can be completed by cooking actions, including the two different bread orders', () => {
+test('the opening five levels retain their cooking solutions and continue into the campaign', () => {
   const k = new Kitchen(); k.begin(); k.start();
   bananaBowl(k); addYogurt(k, 2); k.stir(); assert.equal(serve(k), true); assert.equal(k.mode, 'between');
   next(k);
@@ -39,7 +39,7 @@ test('all five shifts can be completed by cooking actions, including the two dif
   assert.equal(k.dish.clean, false); k.wash();
   for (let i = 0; i < 2; i++) { k.take('apple'); k.board(); k.add(); }
   addYogurt(k, 3); k.stir(); assert.equal(serve(k), true);
-  assert.equal(k.mode, 'complete'); assert.equal(k.results.length, 5);
+  assert.equal(k.mode, 'between'); assert.equal(k.results.length, 5);
   assert.deepEqual(k.results.map(r => r.unaided), [false, true, true, true, true]);
 });
 
@@ -170,7 +170,7 @@ test('transfer withholds recipe hints while keeping the English recipe intact', 
 
 test('restart does not restore first-attempt unaided credit after help or an earlier attempt', () => {
   const k = new Kitchen(); k.begin(); k.start(); finishFirst(k); next(k); k.help();
-  k.restart(); assert.equal(k.events.at(-1)?.unaided, false); k.start(); finishFirst(k); next(k);
+  k.restart(); assert.equal(k.shift, 1, 'restart keeps the current level'); assert.equal(k.events.at(-1)?.unaided, false); k.start();
   assert.equal(k.assisted, false, 'current-run help and prior exposure are distinct');
   assert.equal(k.firstUnaided, false);
   assert.equal(k.events.at(-1)?.unaided, false, 'repeated-shift start agrees with eventual result');
@@ -230,5 +230,5 @@ test('putting down a carried dish preserves its contents and restart clears park
   assert.equal(k.held, null); assert.deepEqual(k.dish, ready); assert.equal(k.staged[0], null);
   assert.equal(serve(k), true); next(k); k.take('bread'); k.stage();
   assert.deepEqual(k.staged.map(item => item?.food).filter(Boolean), ['bread']); k.restart();
-  assert.deepEqual(k.staged, [null]); assert.equal(k.held, null); assert.deepEqual(k.dish, freshDish());
+  assert.deepEqual(k.staged, k.spec.recipes.map(() => null)); assert.equal(k.shift, 1); assert.equal(k.held, null); assert.deepEqual(k.dish, freshDish());
 });
