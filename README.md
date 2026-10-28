@@ -2,7 +2,7 @@
 
 A real 3D cooking game with **36 progressive levels, 60 orders and six kitchens**. English recipes control physical ingredient preparation, quantities, tools, layers and serving. Players advance through the campaign; there is **no grade selector or grade-based level restriction**.
 
-[Play locally](http://localhost:5201/) · [Public source](https://github.com/AceDZN/goblin-kitchen)
+[Play on Workbook](https://english-games.workbook.co.il/goblin-kitchen) · [Play locally](http://localhost:5201/) · [Public source](https://github.com/AceDZN/goblin-kitchen)
 
 ## The journey
 
